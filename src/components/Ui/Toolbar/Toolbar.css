@@ -1,0 +1,68 @@
+.Toolbar {
+    display: grid;
+    place-items: center center;
+    grid-area: toolbar;
+    background: var(--second-bg);
+    position: fixed;
+    width: 100%;
+    box-shadow: 0 1px 1px black;
+    z-index: 5;
+    height: 7.5vh;
+    grid-auto-flow: column;
+    grid-template-columns: 20vw 60vw 20vw;
+    font-size: 2.25rem;
+}
+
+.basketIconContainer {
+    grid-auto-flow: column;
+    cursor: pointer;
+}
+
+.basketIconContainer:hover {
+    background: var(--main-txt);
+    color: var(--second-bg);
+}
+
+.basketIconContainer p {
+    font-size: 1.5rem;
+}
+
+.largeScreensOnly {
+    display: none;
+}
+
+@media only screen and (min-width: 1024px) and (orientation: landscape) {
+    .Toolbar {
+        padding-left: 0;
+        padding-right: 5px;
+        height: 15vh;
+        box-shadow: none;
+        grid-template-columns: 9fr 1fr;
+    }
+    .largeScreensOnly {
+        display: grid;
+        place-items: center center;
+        width: 100%;
+        padding-left: 15%;
+    }
+}
+
+@media only screen and (min-width : 321px) and (max-width : 1023px) and (orientation : landscape) {
+    .Toolbar {
+        padding-left: 0;
+        padding-right: 5px;
+        height: 12.5vh;
+        grid-template-columns: 1fr 1fr;
+        width: 25%;
+        left: 75%;
+        box-shadow: 0 1px 0 black;
+    }
+
+    .basketIconContainer {
+        font-size: 1.5rem;
+    }
+
+    .basketIconContainer p {
+        font-size: 1.35rem;
+    }
+}

@@ -1,0 +1,41 @@
+:root {
+  --main-bg: #000000;
+  --second-bg: #ffffff;
+  --second-bg-trans: rgb(236, 224, 209, 0.65);
+  --main-txt: #295129;
+  --second-txt: #3ab54a;
+  --err-bg: rgba(97, 55, 55, 0.25);
+  --scs-bg: rgb(0, 128, 0, 0.65);
+  --error-txt: #e81c20;
+  --yes-txt: green;
+  --amber-txt: orange;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  text-align: center;
+  background: var(--main-bg);
+  color: var(--main-txt);
+}
+
+body {
+  height: 100%;
+  font-family: 'Minion Variable Concept', cursive;
+}
+
+a {
+  text-decoration: none;
+  font-family: 'Minion Variable Concept', cursive;
+  color: var(--main-txt);
+  cursor: pointer;
+}
+
+p {
+  font-family: 'Segoe UI Emoji', sans-serif;
+}

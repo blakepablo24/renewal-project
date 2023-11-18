@@ -1,0 +1,30 @@
+.Logo {
+    display: grid;
+    place-items: center center;
+}
+
+.Logo a{
+    display: grid;
+    place-items: center center;
+}
+
+.Logo img{
+    max-height: 7.5vh;
+}
+
+@media only screen and (min-width: 1024px) and (orientation: landscape) {
+    .Logo img{
+        height: 10vh;
+    }
+}
+
+@media only screen and (min-width : 321px) and (max-width : 1023px) and (orientation : landscape) {
+    .Logo {
+        width: 100%;
+        height: 11.5vh;
+    }
+
+    .Logo img {
+        max-height: 100%;
+    }
+}

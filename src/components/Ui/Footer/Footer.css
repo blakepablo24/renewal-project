@@ -1,0 +1,16 @@
+.Footer {
+    grid-area: footer;
+    background: var(--second-bg);
+    display: grid;
+    place-items: center center;
+    width: 100%;
+}
+
+.links {
+    display: grid;
+    place-items: center center;
+    height: 100%;
+    width: 100%;
+    grid-auto-flow: column;
+    font-size: 2rem;
+}
