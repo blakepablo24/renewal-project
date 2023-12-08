@@ -14,8 +14,7 @@
 }
 
 .image-headings {
-    color: var(--main-bg);
-    font-size: 2.5rem;
+    font-size: 2rem;
 }
 
 .half-screen, #main-half-screen {
@@ -32,37 +31,57 @@
     position: relative;
 }
 
-#main-half-screen-cover-image {
+.faded-background {
+    background: var(--second-bg-trans);
     position: absolute;
     z-index: 1;
-    width: 50%;
-    height: 50%;
-    top: 5%;
-    left: 25%;
-    opacity: 0.65;
+    width: 75%;
+    height: 75%;
+    top: 12.5%;
+    left: 12.5%;
     border-radius: 7.5px;
-}
-
-#main-first-quarter-screen, #main-second-quarter-screen {
     display: grid;
     place-items: center center;
-    height: 23.125vh;
+    color: var(--main-bg);
 }
 
-#main-first-quarter-screen {
-    background-color: var(--main-bg);
+#main-first-half-screen {
+    display: grid;
+    place-items: center center;
+    background-color: var(--second-bg);
+    color: var(--main-bg);
+    font-size: 3rem;
+    height: 46.25vh;
 }
 
-#main-first-quarter-screen p {
+.intro-title {
+    height: 18.5vh;
+    display: grid;
+    place-items: center center;
+    background-color: var(--main-txt);
     color: var(--second-bg);
+    font-size: 2.5rem;
+}
+
+.pillars-container {
+    display: grid;
+    place-items: center center;
+    grid: 1fr 1fr / 1fr 1fr;
+    height: 74vh;
+}
+
+.first-pillar, .second-pillar, .third-pillar, .fourth-pillar {
+    display: grid;
+    place-items: center center;
+    grid-template-rows: 2fr 6fr 2fr;
+    height: 100%;
+}
+
+#main-first-half-screen p {
+    width: 95%;
+    font-size: 1.6rem;
 }
 
 .white-contrast {
     color: var(--second-bg);
 }
-
-@container sidebar (min-width: 700px) {
-    .module h2 {
-      font-size: 1.5rem;
-    }
-  }
