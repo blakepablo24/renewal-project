@@ -82,6 +82,47 @@
     font-size: 1.6rem;
 }
 
+.landing-page-full-screen {
+    margin-top: 30px;
+}
+
+.landing-page-full-screen-paragraph {
+    margin-top: 25px;
+    font-size: 1.6rem;
+    color: var(--main-bg);
+}
+
+.landingPageImage {
+    margin-top: 25px;
+    max-width: 95%;
+}
+
+.step-container {
+    margin-top: 25px;
+    display: grid;
+    place-items: center center;
+    grid-auto-flow: column;
+    margin-right: 5px;
+}
+
+.step-heading {
+    place-self: start center;
+    display: grid;
+    place-items: center center;
+}
+
+.step-number {
+    
+}
+
+.step-paragraph {
+    font-size: 1.3rem;
+}
+
+.step-container svg {
+    font-size: 2.5rem;
+}
+
 .white-contrast {
     color: var(--second-bg);
 }
