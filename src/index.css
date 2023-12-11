@@ -26,16 +26,20 @@ html {
 
 body {
   height: 100%;
-  font-family: 'Minion Variable Concept', cursive;
+  font-family: 'Crimson Pro', serif;
 }
 
 a {
   text-decoration: none;
-  font-family: 'Minion Variable Concept', cursive;
+  font-family: 'Crimson Pro', serif;
   color: var(--main-txt);
   cursor: pointer;
 }
 
-p, h1 {
-  font-family: 'Segoe UI Emoji', sans-serif;
+h1, h2, h3 {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+p {
+  font-family: 'Noto Sans', sans-serif;
 }
