@@ -52,6 +52,8 @@
     color: var(--main-bg);
     font-size: 3rem;
     height: 46.25vh;
+    width: 95%;
+    margin: 0 2.5%;
 }
 
 .intro-title {
@@ -68,6 +70,8 @@
     place-items: center center;
     grid: 1fr 1fr / 1fr 1fr;
     height: 74vh;
+    width: 95%;
+    margin: 0 2.5%;
 }
 
 .first-pillar, .second-pillar, .third-pillar, .fourth-pillar {
@@ -75,6 +79,8 @@
     place-items: center center;
     grid-template-rows: 2fr 6fr 2fr;
     height: 100%;
+    width: 95%;
+    margin: 0 2.5%;
 }
 
 #main-first-half-screen p {
@@ -87,9 +93,10 @@
 }
 
 .landing-page-full-screen-paragraph {
-    margin-top: 25px;
     font-size: 1.6rem;
     color: var(--main-bg);
+    width: 95%;
+    margin: 25px 2.5% 0 2.5%;
 }
 
 .landingPageImage {
@@ -103,12 +110,15 @@
     place-items: center center;
     grid-auto-flow: column;
     margin-right: 5px;
+    width: 95%;
+    margin: 25px 2.5% 0 2.5%;
 }
 
 .step-heading {
     place-self: start center;
     display: grid;
     place-items: center center;
+    margin-right: 10px;
 }
 
 .step-number {
@@ -117,6 +127,7 @@
 
 .step-paragraph {
     font-size: 1.3rem;
+    border-left: solid var(--main-txt) 5px;
 }
 
 .step-container svg {
