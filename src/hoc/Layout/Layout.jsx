@@ -5,23 +5,47 @@ import Toolbar from '../../components/Ui/Toolbar/Toolbar';
 import LandingPage from '../../containers/LandingPage/LandingPage';
 import Footer from '../../components/Ui/Footer/Footer';
 import { ParallaxProvider } from 'react-scroll-parallax';
+import SideDrawer from '../../components/Ui/Toolbar/Navigation/SideDrawer/SideDrawer';
 
 class Layout extends Component{
 
     state = {
+        showSideDrawer: false,
         menu: false,
     }
 
-    menuToggleHandler = () => {
+    sideDrawerToggleHandler = (nav) => {
+        // if(nav === "nav"){
+        //     FUNCTIONS.scrollToTop();
+        // }
         this.setState({
+            showSideDrawer: !this.state.showSideDrawer,
             menu: !this.state.menu
         })
     }
 
 render(){
+
+    let sideDrawer =    <SideDrawer 
+                            open={this.state.showSideDrawer} 
+                            clicked={this.sideDrawerToggleHandler} 
+                        />;
+
+    // Prevent scrolling if menu open
+    if(this.state.showSideDrawer){
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = 'visible';
+    }
+
     return (
         <div className='Layout'>
-            <Toolbar menu={this.state.menu} menuToggleHandler={this.menuToggleHandler}/>
+            <Toolbar    
+                menu={this.state.menu} 
+                menuToggleHandler={this.sideDrawerToggleHandler} 
+                showSideDrawer={this.state.showSideDrawer} 
+            />
+            {sideDrawer}
             <ParallaxProvider>
                 <Routes>
                     <Route path='/' element={<LandingPage/>} />

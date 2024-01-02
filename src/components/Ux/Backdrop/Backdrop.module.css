@@ -1,0 +1,34 @@
+.Backdrop, .show, .full, .loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 0;
+    margin-top: 7.5vh;
+    z-index: 9;
+    background: rgb(0, 0, 0, 0.5);
+}
+
+.loading, .show, .full {
+    width: 100%;
+}
+
+.loading {
+    margin-top: 0;
+    z-index: 10;
+}
+
+.full {
+    margin-top: 0;
+}
+
+@media only screen and (min-width : 321px) and (max-width : 1023px) and (orientation : landscape) {
+    .Backdrop, .show, .full, .loading {
+        height: 100%;
+        margin-top: 12.5vh;
+    }
+
+    .full {
+        margin-top: 0;
+    }
+}
