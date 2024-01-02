@@ -11,7 +11,7 @@ const footer = (props) => {
                 <FaTwitter />
                 <FaLinkedin />
             </div>
-            <p>Rights reserved renewal project. Aston Villa are the best</p>
+            <p>Rights reserved renewal project.</p>
         </div>
     )
 }

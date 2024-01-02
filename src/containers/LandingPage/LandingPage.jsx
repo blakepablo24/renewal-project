@@ -20,7 +20,7 @@ class LandingPage extends Component {
 
     render(){
         return(
-            <div className='landingpage'>
+            <div className='landingpage' id='home'>
                 <div id='main-half-screen' style={{ backgroundImage: `linear-gradient(rgba(255,255,255,.15), rgba(255,255,255,.15)),url(${forest})`, backgroundSize: 'cover' }}>
                     <div className='faded-background'>
                         <h1 className='image-headings'>Renewal Project rethink, redetermine, renew</h1>
@@ -86,7 +86,7 @@ class LandingPage extends Component {
                         className="aspect-[3/1]"
                     />
                 </div>
-                <div className='landing-page-full-screen'>
+                <div className='landing-page-full-screen' id='about-me'>
                     <h1>RENEWAL HUB</h1>
                     <h2>CHECK OUT OUR RENEWAL HUB STORE</h2>
                     <p className='landing-page-full-screen-paragraph'>At Renewal Hub, we champion a circular economy by recycling and reusing used items. We connect communities through sustainable trade and reward loyalty, creating a network of individuals committed to reducing waste and embracing eco-friendly living. By turning unwanted items into valued resources, we are committed to promoting community engagement and zero waste practices.</p>

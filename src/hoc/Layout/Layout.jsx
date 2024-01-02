@@ -6,6 +6,7 @@ import LandingPage from '../../containers/LandingPage/LandingPage';
 import Footer from '../../components/Ui/Footer/Footer';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import SideDrawer from '../../components/Ui/Toolbar/Navigation/SideDrawer/SideDrawer';
+import ScrollToHashElement from "../../components/Ux/ScrollToHashElement/ScrollToHashElement";
 
 class Layout extends Component{
 
@@ -40,6 +41,7 @@ render(){
 
     return (
         <div className='Layout'>
+            <ScrollToHashElement />
             <Toolbar    
                 menu={this.state.menu} 
                 menuToggleHandler={this.sideDrawerToggleHandler} 
