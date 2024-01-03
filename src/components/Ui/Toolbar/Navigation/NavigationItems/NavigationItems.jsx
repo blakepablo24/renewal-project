@@ -9,9 +9,9 @@ const navigationItems = (props) => {
                 <div className={classes.topNavItemsContainer}>
                     <NavigationItem clicked={props.clicked} link="/#home" linkName="home"/>
                     <NavigationItem clicked={props.clicked} link="/about-us" linkName="about us"/>
-                    <NavigationItem clicked={props.clicked} link="/#about-me" linkName="renewal hub"/>
-                    <NavigationItem clicked={props.clicked} link="/renewal-tech" linkName="renewal tech"/>
-                    <NavigationItem clicked={props.clicked} link="/renewal-impact" linkName="renewal impact"/>
+                    <NavigationItem clicked={props.clicked} link="/#renewal-hub" linkName="renewal hub"/>
+                    <NavigationItem clicked={props.clicked} link="/#renewal-tech" linkName="renewal tech"/>
+                    <NavigationItem clicked={props.clicked} link="/#renewal-impact" linkName="renewal impact"/>
                     <NavigationItem clicked={props.clicked} link="/renewal-building-protocols" linkName="renewal building protocols"/>
                     <NavigationItem clicked={props.clicked} link="/contribute-to-the-cause" linkName="contribute to the cause"/>
                     <NavigationItem clicked={props.clicked} link="/contact-us" linkName="contact us"/>
