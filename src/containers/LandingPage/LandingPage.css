@@ -2,29 +2,21 @@
     grid-area: main;
 }
 
-.full-screen {
-    height: 100%;
-    height: 92.5vh;
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
-    background-size: cover; /* Resize the background image to cover the entire container */
-    display: grid;
-    place-items: center center;
-    container-name: sidebar;
-}
-
 .image-headings {
     font-size: 2rem;
 }
 
 .half-screen, #main-half-screen {
-    height: 100%;
-    height: 46.25vh;
+    height: 45.75vh;
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover; /* Resize the background image to cover the entire container */
     display: grid;
     place-items: center center;
+}
+
+#main-first-half-screen {
+    height: 46.25vh;
 }
 
 #main-half-screen {
@@ -32,17 +24,21 @@
 }
 
 .faded-background {
-    background: var(--second-bg-trans);
+    /* background: var(--second-bg-trans); */
     position: absolute;
     z-index: 1;
     width: 75%;
-    height: 75%;
-    top: 12.5%;
+    height: 65%;
+    top: 5%;
     left: 12.5%;
     border-radius: 7.5px;
     display: grid;
     place-items: center center;
     color: var(--main-bg);
+}
+
+.faded-background h1 {
+    font-size: 2.5rem;
 }
 
 #main-first-half-screen {
@@ -62,7 +58,7 @@
     place-items: center center;
     background-color: var(--main-txt);
     color: var(--second-bg);
-    font-size: 2.5rem;
+    margin-top: 2.5vh;
 }
 
 .pillars-container {
@@ -70,22 +66,36 @@
     place-items: center center;
     grid: 1fr 1fr / 1fr 1fr;
     height: 74vh;
-    width: 95%;
-    margin: 0 2.5%;
+    width: 98%;
+    margin: 30px 1% 0 1%;
+    grid-gap: 3px;
 }
 
-.first-pillar, .second-pillar, .third-pillar, .fourth-pillar {
+.pillar {
     display: grid;
     place-items: center center;
     grid-template-rows: 2fr 6fr 2fr;
     height: 100%;
-    width: 95%;
-    margin: 0 2.5%;
+    width: 98%;
+    margin: 0 1%;
+    border: solid 1.5px var(--main-txt);
+    border-radius: 15px;
+}
+
+.pillar-explore-now {
+    width: 100%;
+    color: var(--second-bg);
+    background-color: var(--main-txt);
+    height: 100%;
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 14px;
+    display: grid;
+    place-items: center center;
 }
 
 #main-first-half-screen p {
     width: 95%;
-    font-size: 1.6rem;
+    font-size: 1.3rem;
 }
 
 .landing-page-full-screen {
@@ -93,7 +103,7 @@
 }
 
 .landing-page-full-screen-paragraph {
-    font-size: 1.6rem;
+    font-size: 1.3rem;
     color: var(--main-bg);
     width: 95%;
     margin: 25px 2.5% 0 2.5%;
@@ -132,4 +142,52 @@
 
 .white-contrast {
     color: var(--second-bg);
+}
+
+.see-our-button, .contact-Form-button{
+    border: none;
+    margin: 2.5vh 10vw;
+    width: 80vw;
+    height: 7.5vh;
+    border-radius: 10px;
+    display: grid;
+    place-items: center center;
+    grid-auto-flow: column;
+    background-color: var(--main-txt);
+    color: var(--second-bg);
+}
+
+.contact-Form {
+    display: grid;
+    place-items: center center;
+    width: 100%;
+    grid-gap: 15px;
+    background: var(--second-bg-trans);
+    padding: 10vh 0;
+    height: 91.5vh
+}
+
+.contact-Form-title {
+    width: 100%;
+}
+
+.contact-Form-input {
+    width: 75%;
+    height: 7.5vh;
+    text-align: center;
+    border: none;
+    border-radius: 15px;
+}
+
+.contact-Form-text-area {
+    width: 75%;
+    height: 15vh;
+    text-align: center;
+    resize: none;
+    border: none;
+    border-radius: 15px;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline-color: var(--main-txt);
 }

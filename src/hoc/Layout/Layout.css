@@ -5,8 +5,8 @@
     height: 100%;
     display: grid;
     grid:
-        'toolbar toolbar toolbar toolbar toolbar toolbar' 7.5vh
-        'main main main main main main' minmax(92.5vh, auto)
+        'toolbar toolbar toolbar toolbar toolbar toolbar' 8.5vh
+        'main main main main main main' minmax(91.5vh, auto)
         'footer footer footer footer footer footer' minmax(20vh, auto)
         / 1fr 1fr 1fr 1fr 1fr 1fr
         ;

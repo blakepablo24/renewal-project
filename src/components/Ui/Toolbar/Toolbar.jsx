@@ -9,8 +9,8 @@ const toolbar = (props) => {
 
     return(
         <div className='Toolbar'>
-            <Logo />
             <div></div> {/* temporary solution */}
+            <Logo />
             <MenuDrawerToggle menu={props.menu} menuToggleHandler={props.menuToggleHandler}/>
             {/* <div className='largeScreensOnly'>
                 <NavigationItems />
