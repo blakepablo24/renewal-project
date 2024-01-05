@@ -9,27 +9,15 @@
     z-index: 5;
     height: 8.5vh;
     grid-auto-flow: column;
-    grid-template-columns: 20vw 60vw 20vw;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     font-size: 2.25rem;
-}
-
-.basketIconContainer {
-    grid-auto-flow: column;
-    cursor: pointer;
-}
-
-.basketIconContainer:hover {
-    background: var(--main-txt);
-    color: var(--second-bg);
-}
-
-.basketIconContainer p {
-    font-size: 1.5rem;
 }
 
 .largeScreensOnly {
     display: none;
 }
+
+/* Tablets in landscape, laptop and desktops */
 
 @media only screen and (min-width: 1024px) and (orientation: landscape) {
     .Toolbar {
@@ -37,8 +25,8 @@
         padding-right: 5px;
         height: 15vh;
         box-shadow: none;
-        grid-template-columns: 9fr 1fr;
     }
+
     .largeScreensOnly {
         display: grid;
         place-items: center center;
@@ -47,6 +35,8 @@
     }
 }
 
+
+/* Tablets and Ipads in portait mode */
 @media only screen and (min-width : 321px) and (max-width : 1023px) and (orientation : landscape) {
     .Toolbar {
         padding-left: 0;
@@ -56,13 +46,5 @@
         width: 25%;
         left: 75%;
         box-shadow: 0 1px 0 black;
-    }
-
-    .basketIconContainer {
-        font-size: 1.5rem;
-    }
-
-    .basketIconContainer p {
-        font-size: 1.35rem;
     }
 }

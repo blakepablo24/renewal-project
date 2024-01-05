@@ -16,8 +16,7 @@
 @media only screen and (min-width: 1024px) and (orientation: landscape) {
     .Layout {
         grid:
-            'header toolbar toolbar toolbar toolbar toolbar' 15vh
-            'header latest latest latest latest latest' 5vh
+            'toolbar toolbar toolbar toolbar toolbar toolbar' 15vh
             'main main main main main main' minmax(60vh, auto)
             'footer footer footer footer footer footer' minmax(20vh, auto)
             / 1fr 1fr 1fr 1fr 1fr 1fr

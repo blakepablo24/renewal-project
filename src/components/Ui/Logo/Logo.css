@@ -1,6 +1,7 @@
 .Logo {
     display: grid;
     place-items: center center;
+    grid-column: 3/6;
 }
 
 .Logo a{
@@ -9,12 +10,15 @@
 }
 
 .Logo img{
-    max-height: 7.5vh;
+    max-height: 8vh;
 }
 
 @media only screen and (min-width: 1024px) and (orientation: landscape) {
     .Logo img{
-        height: 10vh;
+        height: 100%;
+    }
+    .Logo {
+        grid-column: 1/4;
     }
 }
 

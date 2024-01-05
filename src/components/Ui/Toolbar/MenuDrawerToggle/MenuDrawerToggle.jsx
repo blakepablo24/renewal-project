@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './MenuDrawerToggle.css?inline';
+import classes from './MenuDrawerToggle.css';
 import { BiMenu, BiX } from "react-icons/bi";
 
 const menuDrawerToggle = (props) => {
@@ -11,7 +11,7 @@ const menuDrawerToggle = (props) => {
     }
 
     return (
-        <div onClick={props.menuToggleHandler} className='DrawerToggle'>
+        <div onClick={props.menuToggleHandler} className="DrawerToggle">
             {menuIcon}
         </div>
     )
