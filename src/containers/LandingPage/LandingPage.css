@@ -6,7 +6,7 @@
     font-size: 2rem;
 }
 
-.half-screen, #main-half-screen {
+#main-half-screen {
     height: 45.75vh;
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
@@ -15,8 +15,13 @@
     place-items: center center;
 }
 
-#main-first-half-screen {
-    height: 46.25vh;
+.main-first-half-screen {
+    min-height: 46.25vh;
+    max-height: auto;
+}
+
+.main-first-half-screen p {
+    font-size: 1.3rem;
 }
 
 #main-half-screen {
@@ -41,7 +46,7 @@
     font-size: 2.5rem;
 }
 
-#main-first-half-screen {
+.main-first-half-screen {
     display: grid;
     place-items: center center;
     background-color: var(--second-bg);
@@ -65,30 +70,39 @@
     display: grid;
     place-items: center center;
     grid: 1fr 1fr / 1fr 1fr;
-    height: 74vh;
     width: 98%;
-    margin: 30px 1% 0 1%;
+    margin: 20px 1% 0 1%;
     grid-gap: 3px;
 }
 
 .pillar {
     display: grid;
     place-items: center center;
-    grid-template-rows: 2fr 6fr 2fr;
-    height: 100%;
+    grid-template-rows: repeat(10, 1fr);
+    height: 35vh;
     width: 98%;
     margin: 0 1%;
     border: solid 1.5px var(--main-txt);
-    border-radius: 15px;
+    border-radius: 10px;
+}
+
+.pillar-title {
+    width:99%;
+    grid-row: 1/3;
+}
+
+.pillar-details {
+    grid-row: 4/7;
 }
 
 .pillar-explore-now {
+    grid-row: 9/11;
     width: 100%;
     color: var(--second-bg);
     background-color: var(--main-txt);
     height: 100%;
-    border-bottom-left-radius: 14px;
-    border-bottom-right-radius: 14px;
+    border-bottom-left-radius: 9px;
+    border-bottom-right-radius: 9px;
     display: grid;
     place-items: center center;
 }
@@ -114,11 +128,17 @@
     max-width: 95%;
 }
 
+.steps-container {
+    display: grid;
+    place-items: center center;
+    width: 100%;
+}
+
 .step-container {
     margin-top: 25px;
     display: grid;
     place-items: center center;
-    grid-auto-flow: column;
+    grid-template-columns: 2fr 8fr;
     margin-right: 5px;
     width: 95%;
     margin: 25px 2.5% 0 2.5%;
@@ -129,15 +149,19 @@
     display: grid;
     place-items: center center;
     margin-right: 10px;
+    border-right: solid var(--main-txt) 5px;
 }
 
 .step-paragraph {
     font-size: 1.3rem;
-    border-left: solid var(--main-txt) 5px;
 }
 
 .step-container svg {
     font-size: 2.5rem;
+}
+
+.sub-intro-section {
+    margin-top: 5vh;
 }
 
 .white-contrast {
@@ -147,7 +171,7 @@
 .see-our-button, .contact-Form-button{
     border: none;
     margin: 2.5vh 10vw;
-    width: 80vw;
+    width: 80%;
     height: 7.5vh;
     border-radius: 10px;
     display: grid;
@@ -190,4 +214,95 @@
 
 input:focus, textarea:focus, select:focus {
     outline-color: var(--main-txt);
+}
+
+/* Tablets in landscape, laptop and desktops */
+
+@media only screen and (min-width: 1024px) and (orientation: landscape) {
+    #main-half-screen {
+        height: 60vh;
+    }
+
+    .main-first-half-screen {
+        min-height: 25vh;
+    }
+
+    .main-first-half-screen p {
+        font-size: 1.8rem;
+    }
+
+    .pillars-container {
+        height: 66.5vh;
+        grid: 1fr / repeat(4 ,1fr);
+        width: 95%;
+        margin: 20px 2.5% 0 2.5%;
+    }
+
+    .pillar {
+        width: 98%;
+        margin: 0 1%;
+        border: solid 1.5px var(--main-txt);
+        border-radius: 10px;
+    }
+
+    .pillar-explore-now:hover, .see-our-button:hover, .contact-Form-button {
+        cursor: pointer;
+    }
+
+    .image-and-paragraphs-container {
+        display: grid;
+        place-items: center center;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .steps-container {
+        height: 60vh;
+    }
+    
+    .step-container {
+        grid-template-columns: 2fr 8fr;
+        width: 75%;
+    }
+    
+    .step-heading {
+        place-self: start center;
+        display: grid;
+        place-items: center center;
+        margin-right: 10px;
+    }
+    
+    .step-paragraph {
+        font-size: 1.3rem;
+    }
+    
+    .step-container svg {
+        font-size: 2.5rem;
+    }
+
+    .see-our-button, .contact-Form-button{
+        margin: 2.5vh 35vw;
+        width: 30vw;
+    }
+    
+    .contact-Form-input {
+        width: 40%;
+    }
+    
+    .contact-Form-text-area {
+        width: 40%;
+    }
+}
+
+
+/* Tablets and Ipads in portait mode */
+@media only screen and (min-width : 321px) and (max-width : 1023px) and (orientation : landscape) {
+    .Toolbar {
+        padding-left: 0;
+        padding-right: 5px;
+        height: 12.5vh;
+        grid-template-columns: 1fr 1fr;
+        width: 25%;
+        left: 75%;
+        box-shadow: 0 1px 0 black;
+    }
 }

@@ -126,10 +126,11 @@ class LandingPage extends Component {
             <div className='landingpage' id='home'>
                 <div id='main-half-screen' style={{ backgroundImage: `linear-gradient(rgba(255,255,255,.15), rgba(255,255,255,.15)),url(${forest})`, backgroundSize: 'cover' }}>
                     <div className='faded-background'>
-                        <h1 className='image-headings'>Renewal Project rethink, redetermine, renew</h1>
+                        <h1 className='image-headings'>Renewal Project</h1>
+                        <h1 className='image-headings'>rethink, redetermine, renew</h1>
                     </div>
                 </div>
-                <div id='main-first-half-screen'>
+                <div className='main-first-half-screen'>
                     <p className='image-headings'>Renewal Project leads the charge for sustainability. Whether you're a community member looking for eco-friendly trade, a business seeking green IT solutions, a climate advocate ready for global impact, or a building owner aiming for improved healthy green structures — we have a space for you. Join us and be part of the change!</p>
                 </div>
                 <div className='intro-title'>
@@ -137,29 +138,29 @@ class LandingPage extends Component {
                 </div>
                 <div className='pillars-container'>
                     <div className='first-pillar pillar'>
-                        <h2>Renewal Hub</h2>
-                        <p>Discover a vibrant marketplace. Dispose of unused items, buy pre-loved treasures, and earn rewards</p>
+                        <h2 className='pillar-title'>Renewal Hub</h2>
+                        <p className='pillar-details'>Discover a vibrant marketplace. Dispose of unused items, buy pre-loved treasures, and earn rewards</p>
                         <Link className='pillar-explore-now' to='/#renewal-hub'>
                             <p>Explore Now</p>
                         </Link>
                     </div>
                     <div className='second-pillar pillar'>
-                        <h2>Renewal Tech</h2>
-                        <p>Explore our eco-friendly IT solutions. Whether you're into refurbished gadgets or exploring green innovations, find your sustainable tech fix here.</p>
+                        <h2 className='pillar-title'>Renewal Tech</h2>
+                        <p className='pillar-details'>Explore our eco-friendly IT solutions. Whether you're into refurbished gadgets or exploring green innovations, find your sustainable tech fix here.</p>
                         <Link className='pillar-explore-now' to='/#renewal-tech'>
                             <p>Explore Now</p>
                         </Link>
                     </div>
                     <div className='third-pillar pillar'>
-                        <h2>Renewal Impact</h2>
-                        <p>Global Climate Initiatives: Become a climate champion. Join hands with us in impactful global climate initiatives and innovations.</p>
+                        <h2 className='pillar-title'>Renewal Impact</h2>
+                        <p className='pillar-details'>Global Climate Initiatives: Become a climate champion. Join hands with us in impactful global climate initiatives and innovations.</p>
                         <Link className='pillar-explore-now' to='/#renewal-impact'>
                             <p>Explore Now</p>
                         </Link>
                     </div>
                     <div className='fourth-pillar pillar'>
-                        <h2>Renewal Building Protocols</h2>
-                        <p>Shape the future of buildings. Learn about our standards for green, healthy structures. From healthy practices to sustainable designs.</p>
+                        <h2 className='pillar-title'>Renewal Building Protocols</h2>
+                        <p className='pillar-details'>Shape the future of buildings. Learn about our standards for green, healthy structures. From healthy practices to sustainable designs.</p>
                         <Link className='pillar-explore-now' to='/#renewal-building-protocols'>
                             <p>Explore Now</p>
                         </Link>
@@ -175,17 +176,25 @@ class LandingPage extends Component {
                 </Parallax> */}
                 <div className='landing-page-full-screen'>
                     <h1>OUR AIM</h1>
-                    <img className='landingPageImage' src={landfillImage} />
-                    <p className='landing-page-full-screen-paragraph'>At Renewal Project, our vision is to usher in a new era of sustainability that embraces Individual environmental responsibility, corporate tech innovation, global well-being, and green building practices. We are not just a company; we are a movement dedicated to transforming the way we live and interact with our planet through a holistic approach.</p>
-                    <p className='landing-page-full-screen-paragraph'>At our core are four pillars—Renewal Hub, a bustling centre for circular economy;  Renewal Tech, your gateway to sustainable IT solutions;  Renewal Impact, spearheading global climate initiatives, and Renewal Building Protocols setting the standard for green healthy buildings. Each pillar is a distinct facet, yet collectively they shape our commitment to a greener, cleaner, and more equitable world.</p>
-                    <p className='landing-page-full-screen-paragraph'>Join us on this journey of renewal, where every action, every trade, every technology, and every building plays a part in shaping a sustainable future.</p>
+                    <div className='image-and-paragraphs-container'>
+                        <img className='landingPageImage' src={landfillImage} />
+                        <div className='paragraphs-container'>
+                            <p className='landing-page-full-screen-paragraph'>At Renewal Project, our vision is to usher in a new era of sustainability that embraces Individual environmental responsibility, corporate tech innovation, global well-being, and green building practices. We are not just a company; we are a movement dedicated to transforming the way we live and interact with our planet through a holistic approach.</p>
+                            <p className='landing-page-full-screen-paragraph'>At our core are four pillars—Renewal Hub, a bustling centre for circular economy;  Renewal Tech, your gateway to sustainable IT solutions;  Renewal Impact, spearheading global climate initiatives, and Renewal Building Protocols setting the standard for green healthy buildings. Each pillar is a distinct facet, yet collectively they shape our commitment to a greener, cleaner, and more equitable world.</p>
+                            <p className='landing-page-full-screen-paragraph'>Join us on this journey of renewal, where every action, every trade, every technology, and every building plays a part in shaping a sustainable future.</p>
+                        </div>
+                    </div>
                 </div>
                 <div className='landing-page-full-screen'>
                     <h1>THE JOURNEY</h1>
-                    <img className='landingPageImage' src={pierImage} />
-                    <p className='landing-page-full-screen-paragraph'>From war-torn Sierra Leone to the shores of the UK, my life journey is fueled by a passion for social and environmental equity. As a young boy, I pondered the global impact of individuals, sparking a lifelong curiosity.</p>
-                    <p className='landing-page-full-screen-paragraph'>A school text book predicting parts of the world set to be submerged by 2050 due to climate change fueled my commitment to sustainability. Many years were spent navigating the renewable energy sector and orchestrating eco-friendly solutions, until I transitioned into an IT industry inadvertently championing a circular economy via the repurposing of disposed equipment.</p>
-                    <p className='landing-page-full-screen-paragraph'>A poignant return to Sierra Leone, a nation minimally contributing to climate change, but suffering from the consequences of its impact fueled my ambition to provide both local and global sustainable solutions through Renewal Project, where community, commercial, charity, and government combine to strive towards a greener, cleaner, more equitable world</p>
+                    <div className='image-and-paragraphs-container'>
+                        <div className='paragraphs-container'>
+                            <p className='landing-page-full-screen-paragraph'>From war-torn Sierra Leone to the shores of the UK, my life journey is fueled by a passion for social and environmental equity. As a young boy, I pondered the global impact of individuals, sparking a lifelong curiosity.</p>
+                            <p className='landing-page-full-screen-paragraph'>A school text book predicting parts of the world set to be submerged by 2050 due to climate change fueled my commitment to sustainability. Many years were spent navigating the renewable energy sector and orchestrating eco-friendly solutions, until I transitioned into an IT industry inadvertently championing a circular economy via the repurposing of disposed equipment.</p>
+                            <p className='landing-page-full-screen-paragraph'>A poignant return to Sierra Leone, a nation minimally contributing to climate change, but suffering from the consequences of its impact fueled my ambition to provide both local and global sustainable solutions through Renewal Project, where community, commercial, charity, and government combine to strive towards a greener, cleaner, more equitable world</p>
+                        </div>
+                        <img className='landingPageImage' src={pierImage} />
+                    </div>
                 </div>
                 <div className='half-screen'>
                     <ParallaxBanner
@@ -201,8 +210,12 @@ class LandingPage extends Component {
                     <div className='intro-title'>
                         <h1>RENEWAL HUB</h1>
                     </div>
-                    <h3>CHECK OUT OUR RENEWAL HUB STORE</h3>
-                    <p className='landing-page-full-screen-paragraph'>At Renewal Hub, we champion a circular economy by recycling and reusing used items. We connect communities through sustainable trade and reward loyalty, creating a network of individuals committed to reducing waste and embracing eco-friendly living. By turning unwanted items into valued resources, we are committed to promoting community engagement and zero waste practices.</p>
+                    <Link className='see-our-button' to=''>
+                        <h3>CHECK OUT OUR RENEWAL HUB STORE</h3>
+                    </Link>
+                    <div className='main-first-half-screen'>
+                        <p className='landing-page-full-screen-paragraph'>At Renewal Hub, we champion a circular economy by recycling and reusing used items. We connect communities through sustainable trade and reward loyalty, creating a network of individuals committed to reducing waste and embracing eco-friendly living. By turning unwanted items into valued resources, we are committed to promoting community engagement and zero waste practices.</p>
+                    </div>
                     <p className='landing-page-full-screen-paragraph'>Dispose of your unwanted items of value, purchase pre-loved items, contribute to a circular economy and get rewarded for it in these 4 simple steps:</p>
                     <div className='steps-container'>
                         <div className='step-container'>
@@ -235,10 +248,16 @@ class LandingPage extends Component {
                         </div>
                     </div>
                     <div className='landing-page-full-screen'>
-                    <h3>CHECK OUT OUR RENEWAL HUB STORE</h3>
-                    <p className='landing-page-full-screen-paragraph'>Get in contact to take your first step towards a zero waste future.</p>
-                </div>
-                    <img className='landingPageImage' src={packageImage} />
+                    <div className='image-and-paragraphs-container'>
+                            <div className='paragraphs-container'>
+                                <p className='landing-page-full-screen-paragraph'>Get in contact to take your first step towards a zero waste future.</p>
+                            </div>
+                            <img className='landingPageImage' src={packageImage} />
+                        </div>
+                    </div>
+                    <Link className='see-our-button' to=''>
+                        <h3>CHECK OUT OUR RENEWAL HUB STORE</h3>
+                    </Link>
                 </div>
                 <div className='landing-page-full-screen' id='renewal-tech'>
                     <div className='intro-title'>
@@ -260,42 +279,54 @@ class LandingPage extends Component {
                         refurbished options, our team is here to assist.
                     </p>
                     <div className='landing-page-full-screen'>
-                    <h3>CHECK OUT OUR RENEWAL TECH STORE</h3>
-                </div>
+                        <Link className='see-our-button' to=''>
+                            <h3>CHECK OUT OUR RENEWAL TECH STORE</h3>
+                        </Link>
+                    </div>
                 </div>
                 <div className='landing-page-full-screen' id='renewal-impact'>
                     <div className='intro-title'>
                         <h1>RENEWAL IMPACT</h1>
                     </div>
-                    <p className='landing-page-full-screen-paragraph'>Renewal Impact marks our commitment to global climate action. From purifying water to optimising resources and harnessing renewable energy, this pillar transforms charitable initiatives into sustained impact. International projects, powered by partnerships and donations, aim to bring tangible change to vulnerable communities. As we extend our reach, Renewal Impact will solidify Renewal Project's place on the international stage, advocating for a sustainable and resilient future that promotes social, economic, and environmental well-being.
-                    </p>
-                    <div>
-                        <h2>Resource Optimization</h2>
-                        <p className='landing-page-full-screen-paragraph'>
-                            Through our resource optimization initiatives we specialise in developing innovative solutions that transform waste into valuable resources, contributing to a circular economy. By harnessing the potential of waste materials, such as coconut husks and other organic matter, we create sustainable energy and produce usable products that benefit both communities and the environment. Redefining waste management, enabling the efficient utilisation of resources while minimising environmental impact.
+                    <div className='main-first-half-screen'>
+                        <p className='landing-page-full-screen-paragraph'>Renewal Impact marks our commitment to global climate action. From purifying water to optimising resources and harnessing renewable energy, this pillar transforms charitable initiatives into sustained impact. International projects, powered by partnerships and donations, aim to bring tangible change to vulnerable communities. As we extend our reach, Renewal Impact will solidify Renewal Project's place on the international stage, advocating for a sustainable and resilient future that promotes social, economic, and environmental well-being.
                         </p>
-                        <img className='landingPageImage' src={resourceOptimization} />
+                    </div>
+                    <div className='sub-intro-section'>
+                        <h2>Resource Optimization</h2>
+                        <div className='image-and-paragraphs-container'>
+                            <div className='paragraphs-container'>
+                                <p className='landing-page-full-screen-paragraph'>
+                                    Through our resource optimization initiatives we specialise in developing innovative solutions that transform waste into valuable resources, contributing to a circular economy. By harnessing the potential of waste materials, such as coconut husks and other organic matter, we create sustainable energy and produce usable products that benefit both communities and the environment. Redefining waste management, enabling the efficient utilisation of resources while minimising environmental impact.
+                                </p>
+                            </div>
+                            <img className='landingPageImage' src={resourceOptimization} />
+                        </div>
                     </div>
                     <Link className='see-our-button' to='https://www.globalgiving.org/projects/fighting-deforestation-using-coconut-husk-charcoal/'>
                         <h3>see our resource optimisation initiatives</h3>
                     </Link>
                     <div className='sub-intro-section'>
                         <h2>Clean Water</h2>
-                        <p className='landing-page-full-screen-paragraph'>
-                            Access to clean and safe drinking water is a fundamental human right. Renewal Impact is dedicated to tackling water-related challenges and improving water quality. Through the provision of advanced water filtration systems and comprehensive education on hygiene and sanitation practices, we empower communities to lead healthier lives. Our goal is to ensure that everyone has access to clean water, contributing to improved health outcomes and sustainable development.
-                        </p>
+                        <div className='image-and-paragraphs-container'>
                         <img className='landingPageImage' src={cleanWater} />
+                            <p className='landing-page-full-screen-paragraph'>
+                                Access to clean and safe drinking water is a fundamental human right. Renewal Impact is dedicated to tackling water-related challenges and improving water quality. Through the provision of advanced water filtration systems and comprehensive education on hygiene and sanitation practices, we empower communities to lead healthier lives. Our goal is to ensure that everyone has access to clean water, contributing to improved health outcomes and sustainable development.
+                            </p>    
+                        </div>
                     </div>
                     <div className='landing-page-full-screen'>
                     <Link className='see-our-button' to='https://www.globalgiving.org/projects/provision-of-safe-drinking-water-with-water-filter/'>
                         <h3>See our clean water initiatives</h3>
                     </Link>
-                    <div>
+                    <div className='sub-intro-section'>
                         <h2>Renewable Energy</h2>
-                        <p className='landing-page-full-screen-paragraph'>
-                            We believe in harnessing the power of nature to meet the growing energy demands of today and tomorrow. By leveraging renewable energy sources such as solar, wind, and hydroelectric power, we are revolutionising the way communities access and utilise electricity. Our cutting-edge solutions not only reduce dependence on fossil fuels but also create a cleaner and more sustainable energy ecosystem.
-                        </p>
-                        <img className='landingPageImage' src={solarPanels} />
+                        <div className='image-and-paragraphs-container'>
+                            <img className='landingPageImage' src={solarPanels} />
+                            <p className='landing-page-full-screen-paragraph'>
+                                We believe in harnessing the power of nature to meet the growing energy demands of today and tomorrow. By leveraging renewable energy sources such as solar, wind, and hydroelectric power, we are revolutionising the way communities access and utilise electricity. Our cutting-edge solutions not only reduce dependence on fossil fuels but also create a cleaner and more sustainable energy ecosystem.
+                            </p>
+                        </div>
                     </div>
                     <div className='landing-page-full-screen'>
                     <Link className='see-our-button' to='https://www.globalgiving.org/projects/energy-access-in-sierra-leone/'>
