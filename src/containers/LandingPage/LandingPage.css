@@ -296,13 +296,7 @@ input:focus, textarea:focus, select:focus {
 
 /* Tablets and Ipads in portait mode */
 @media only screen and (min-width : 321px) and (max-width : 1023px) and (orientation : landscape) {
-    .Toolbar {
-        padding-left: 0;
-        padding-right: 5px;
-        height: 12.5vh;
-        grid-template-columns: 1fr 1fr;
-        width: 25%;
-        left: 75%;
-        box-shadow: 0 1px 0 black;
+    #main-half-screen {
+        height: 87.5vh;
     }
 }
