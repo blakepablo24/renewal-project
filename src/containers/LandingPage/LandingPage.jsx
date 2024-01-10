@@ -15,6 +15,8 @@ import { ParallaxBanner } from 'react-scroll-parallax';
 import landfillImage from '../../assets/2.jpg';
 import pierImage from '../../assets/3.jpg';
 import packageImage from '../../assets/4.jpg';
+import buildingProtocols01 from '../../assets/building-protocols-01.jpg';
+import buildingProtocols02 from '../../assets/building-protocols-02.jpg';
 import { GiMagnifyingGlass } from "react-icons/gi";
 import { TbTruckDelivery } from "react-icons/tb";
 import { FaCoins } from "react-icons/fa";
@@ -334,6 +336,70 @@ class LandingPage extends Component {
                     </Link>
                     </div>
                 </div>
+                </div>
+                <div className='landing-page-full-screen' id='renewal-building-protocols'>
+                    <div className='intro-title'>
+                        <h1>Renewal Building Protocols</h1>
+                    </div>
+                    <div className='sub-intro-section'>
+                        <div className='image-and-paragraphs-container'>
+                            <div className='paragraphs-container'>
+                            <p className='landing-page-full-screen-paragraph'>Introducing Renewal Building Protocols (RBP), the hallmark of a sustainable and
+                                healthy built environment. Our data driven guidelines, technology
+                                recommendations and certification standard, establishes a new paradigm for green
+                                structures and the people and processes within those structures. From educational
+                                material, to consultation services that guide you through the implementation of
+                                active measures, Renewal Building Protocols is dedicated to fostering spaces that
+                                prioritise well-being, environmental impact, and sustainability. Make tangible steps
+                                towards net zero and learn how to impact your ESG rating with RBP, setting the
+                                gold standard for a cleaner, greener, and more equitable world.
+                            </p>
+                            </div>
+                            <img className='landingPageImage' src={buildingProtocols01} />
+                        </div>
+                    </div>
+                    <h2>Why the focus on buildings?</h2>
+                    <div className='sub-intro-section'>
+                        <h2>Clean Water</h2>
+                        <div className='image-and-paragraphs-container'>
+                        <img className='landingPageImage' src={buildingProtocols02} />
+                            <p className='landing-page-full-screen-paragraph'>
+                                Globally, buildings contribute to approximately 40% of energy and process-related CO2 emissions, utilise 50% of all extracted materials, account for 33% of water consumption, and generate 35% of total waste. These staggering statistics underscore the profound environmental impacts, including resource depletion, air, water, and land pollution, and loss of biodiversity.
+                                Looking ahead to 2050, the global population is projected to surge by 27% to reach 9.8 billion. By 2060, the global building floor area is anticipated to double, amplifying the environmental, social, and economic repercussions associated with the built environment.
+                                Amid such profound consequences, it becomes imperative for the built environment to actively contribute to the transformative changes necessary to decarbonize our global economy. Sustainable built environments not only emerge as crucial solutions to climate change but also play a pivotal role in fostering resilient, thriving communities and driving economic growth.
+                            </p>    
+                        </div>
+                    </div>
+                    <h2>What is included in our protocols?</h2>
+                    <div className='steps-container'>
+                        <div className='step-container'>
+                            <div className='step-heading'>
+                                <h2 className='step-number'>1</h2>
+                            </div>
+                            <div>
+                                <p className='step-paragraph'>You will receive access to our digital portal where you will have access to a library of educational material and guided by science backed data on the following subjects:</p>
+                                <div className='folowing-subjects-container'>
+                                    <p>Environmental Sustainability</p>
+                                    <p>Air Quality</p>
+                                    <p>Hygiene</p>
+                                    <p>Occupant Wellbeing</p>
+                                    <p>The Building Environment</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='step-container'>
+                            <div className='step-heading'>
+                                <h2 className='step-number'>2</h2>
+                            </div>
+                            <p className='step-paragraph'>Our team will support you through the implementation of our guidelines and introduction of technology and processes that will help you towards your specific goals, tailored to your business.</p>
+                        </div>
+                        <div className='step-container'>
+                            <div className='step-heading'>
+                                <h2 className='step-number'>3</h2>
+                            </div>
+                            <p className='step-paragraph'>We work on a points based system based on the steps that you have implemented and how you building is performing within the 5 protocols. Once you reach the desired score your building can receive certification and benefit from our promotion as a green, clean, equitable building.</p>
+                        </div>
+                    </div>
                 </div>
                 <div className='contact-Form' id='renewal-project-contact-form'>
                     <h2 className='contact-Form-title'>Renewal Project Contact Form</h2>

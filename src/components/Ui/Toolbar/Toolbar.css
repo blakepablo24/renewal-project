@@ -28,11 +28,10 @@
     }
 
     .toolbarLargeScreensOnly {
-        grid-column: 2/7;
+        grid-column: 2/8;
         display: grid;
         place-items: center center;
         width: 100%;
-        padding-left: 15%;
     }
 }
 
