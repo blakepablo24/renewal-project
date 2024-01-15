@@ -358,9 +358,8 @@ class LandingPage extends Component {
                             <img className='landingPageImage' src={buildingProtocols01} />
                         </div>
                     </div>
-                    <h2>Why the focus on buildings?</h2>
                     <div className='sub-intro-section'>
-                        <h2>Clean Water</h2>
+                        <h2>Why the focus on buildings?</h2>
                         <div className='image-and-paragraphs-container'>
                         <img className='landingPageImage' src={buildingProtocols02} />
                             <p className='landing-page-full-screen-paragraph'>
@@ -370,7 +369,9 @@ class LandingPage extends Component {
                             </p>    
                         </div>
                     </div>
-                    <h2>What is included in our protocols?</h2>
+                    <div className='sub-intro-section'>
+                        <h2>What is included in our protocols?</h2>
+                    </div>
                     <div className='steps-container'>
                         <div className='step-container'>
                             <div className='step-heading'>

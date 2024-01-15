@@ -34,6 +34,10 @@
         height: 100%;
     }
 
+    .topNavItemsContainer a {
+        font-size: 1.4rem;
+    }
+
     .smallScreenOnly{
         display: none;
     }
@@ -53,4 +57,10 @@
     .topNavItemsContainer, .bottomNavItemsContainer {
         height: 100%;
     }  
+}
+
+@media only screen and (min-width: 1600px) and (orientation: landscape) {
+    .topNavItemsContainer a {
+        font-size: 1.3rem;
+    }
 }

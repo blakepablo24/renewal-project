@@ -28,7 +28,7 @@
     }
 
     .toolbarLargeScreensOnly {
-        grid-column: 2/8;
+        grid-column: 4/8;
         display: grid;
         place-items: center center;
         width: 100%;
@@ -41,5 +41,21 @@
     .Toolbar {
         height: 12.5vh;
         box-shadow: 0 1px 0 black;
+    }
+}
+
+@media only screen and (min-width: 1600px) and (orientation: landscape) {
+    .Toolbar {
+        padding-left: 0;
+        padding-right: 5px;
+        height: 15vh;
+        box-shadow: none;
+    }
+
+    .toolbarLargeScreensOnly {
+        grid-column: 6/8;
+        display: grid;
+        place-items: center center;
+        width: 100%;
     }
 }
