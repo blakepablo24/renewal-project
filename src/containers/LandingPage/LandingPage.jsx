@@ -27,9 +27,14 @@ import EmailValidator from 'email-validator';
 import Axios from 'axios';
 import CONST from '../../constants/constants';
 
+
+
 class LandingPage extends Component {
 
     state = {
+        subjects: ["Renewal Hub", "Renewal Tech", "Renewal Impact", "Renewal Building Protocols", "Items To Sell", "Other"],
+        subject: "",
+        enquirySubjectErrorMessage: "",
         enquiryName: "",
         enquiryNameErrorMessage: "",
         enquiryEmail: "",
@@ -48,7 +53,8 @@ class LandingPage extends Component {
             [name]: value,
             enquiryNameErrorMessage: "",
             enquiryEmailErrorMessage: "",
-            enquiryDataErrorMessage: ""
+            enquiryDataErrorMessage: "",
+            enquiryPillarErrorMessage: ""
         });
     }
 
@@ -58,6 +64,7 @@ class LandingPage extends Component {
         let enquiryNameErrorMessage = "";
         let enquiryEmailErrorMessage = "";
         let enquiryDataErrorMessage = "";
+        let enquirySubjectErrorMessage = "";
 
         if(!EmailValidator.validate(this.state.enquiryEmail)){
             enquiryEmailErrorMessage = <h4 className="error">Please use a valid email</h4>
@@ -77,17 +84,23 @@ class LandingPage extends Component {
             enquiryDataErrorMessage = <h4 className="error">Please enter your enquiry?</h4>
         }
 
+        if (this.state.subject === "" || this.state.subject === "select") {
+            enquirySubjectErrorMessage = <h4 className="error">Please enter your contact reason?</h4>
+        }
+
         if(!enquiryNameErrorMessage && !enquiryEmailErrorMessage & !enquiryDataErrorMessage){
             Axios.post(CONST.BASE_URL + '/api/new-enquiry', {
                 enquiryName: this.state.enquiryName,
                 enquiryEmail: this.state.enquiryEmail,
-                enquiryData: this.state.enquiryData,
+                subject: this.state.subject,
+                enquiryData: this.state.enquiryData
             }).then(response =>{
                 this.setState({
                     enquiryName: "",
                     enquiryNameErrorMessage: "",
                     enquiryEmail: "",
                     enquiryEmailErrorMessage: "",
+                    subject: "",
                     enquiryData: "",
                     enquiryDataErrorMessage: "",
                     messageSent: true
@@ -112,16 +125,23 @@ class LandingPage extends Component {
                 enquiryNameErrorMessage: enquiryNameErrorMessage,
                 enquiryEmailErrorMessage: enquiryEmailErrorMessage,
                 enquiryDataErrorMessage: enquiryDataErrorMessage,
+                enquirySubjectErrorMessage: enquirySubjectErrorMessage
             })
         }
     }
 
     render(){
 
-        let contactFormSuccessMessage = ""  ;
+        let contactFormSuccessMessage = "";
+
+        let itemsToSellContainer = "";
 
         if(this.state.messageSent){
             contactFormSuccessMessage = <p className='success'>Thank you for your message. Renewal Project will get back to you as soon as possible</p>
+        }
+
+        if(this.state.subject === "Items To Sell") {
+            itemsToSellContainer = <p>button to add images to sell will go here</p>
         }
 
         return(
@@ -140,42 +160,34 @@ class LandingPage extends Component {
                 </div>
                 <div className='pillars-container'>
                     <div className='first-pillar pillar'>
-                        <h2 className='pillar-title'>Renewal Hub</h2>
+                        <h2 className='pillar-title'>{this.state.subjects[0]}</h2>
                         <p className='pillar-details'>Discover a vibrant marketplace. Dispose of unused items, buy pre-loved treasures, and earn rewards</p>
                         <Link className='pillar-explore-now' to='/#renewal-hub'>
                             <p>Explore Now</p>
                         </Link>
                     </div>
                     <div className='second-pillar pillar'>
-                        <h2 className='pillar-title'>Renewal Tech</h2>
+                        <h2 className='pillar-title'>{this.state.subjects[1]}</h2>
                         <p className='pillar-details'>Explore our eco-friendly IT solutions. Whether you're into refurbished gadgets or exploring green innovations, find your sustainable tech fix here.</p>
                         <Link className='pillar-explore-now' to='/#renewal-tech'>
                             <p>Explore Now</p>
                         </Link>
                     </div>
                     <div className='third-pillar pillar'>
-                        <h2 className='pillar-title'>Renewal Impact</h2>
+                        <h2 className='pillar-title'>{this.state.subjects[2]}</h2>
                         <p className='pillar-details'>Global Climate Initiatives: Become a climate champion. Join hands with us in impactful global climate initiatives and innovations.</p>
                         <Link className='pillar-explore-now' to='/#renewal-impact'>
                             <p>Explore Now</p>
                         </Link>
                     </div>
                     <div className='fourth-pillar pillar'>
-                        <h2 className='pillar-title'>Renewal Building Protocols</h2>
+                        <h2 className='pillar-title'>{this.state.subjects[3]}</h2>
                         <p className='pillar-details'>Shape the future of buildings. Learn about our standards for green, healthy structures. From healthy practices to sustainable designs.</p>
                         <Link className='pillar-explore-now' to='/#renewal-building-protocols'>
                             <p>Explore Now</p>
                         </Link>
                     </div>
                 </div>
-                    {/* <div className='half-screen' style={{ backgroundImage: `linear-gradient(rgba(255,255,255,.4), rgba(255,255,255,.4)),url(${coconutHusks})`, backgroundSize: 'cover' }}>
-                        <p className='image-headings'>Reuse these coconut husks</p>
-                    </div> */}
-                {/* <Parallax translateX={['300px', '-600px']}>
-                    <div className='half-screen' style={{ backgroundImage: `linear-gradient(rgba(255,255,255,.35), rgba(255,255,255,.35)),url(${coconutCoal})`, backgroundSize: 'cover' }}>
-                        <p className='image-headings  white-contrast'>Sustainable Coconut Coal</p>
-                    </div>
-                </Parallax> */}
                 <div className='landing-page-full-screen'>
                     <h1>OUR AIM</h1>
                     <div className='image-and-paragraphs-container'>
@@ -210,10 +222,10 @@ class LandingPage extends Component {
                 </div>
                 <div className='landing-page-full-screen' id='renewal-hub'>
                     <div className='intro-title'>
-                        <h1>RENEWAL HUB</h1>
+                        <h1>{this.state.subjects[0]}</h1>
                     </div>
                     <Link className='see-our-button' to=''>
-                        <h3>CHECK OUT OUR RENEWAL HUB STORE</h3>
+                    <h4>Check Out Our {this.state.subjects[0]} Store</h4>
                     </Link>
                     <div className='main-first-half-screen'>
                         <p className='landing-page-full-screen-paragraph'>At Renewal Hub, we champion a circular economy by recycling and reusing used items. We connect communities through sustainable trade and reward loyalty, creating a network of individuals committed to reducing waste and embracing eco-friendly living. By turning unwanted items into valued resources, we are committed to promoting community engagement and zero waste practices.</p>
@@ -258,12 +270,12 @@ class LandingPage extends Component {
                         </div>
                     </div>
                     <Link className='see-our-button' to=''>
-                        <h3>CHECK OUT OUR RENEWAL HUB STORE</h3>
+                        <h4>Check Out Our {this.state.subjects[0]} Store</h4>
                     </Link>
                 </div>
                 <div className='landing-page-full-screen' id='renewal-tech'>
                     <div className='intro-title'>
-                        <h1>RENEWAL TECH</h1>
+                        <h1>{this.state.subjects[1]}</h1>
                     </div>
                     <p className='landing-page-full-screen-paragraph'>At Renewal Tech, we redefine business IT through circular services, covering the
                         entire lifecycle, from supplying refurbished hardware to responsible IT disposal and
@@ -282,13 +294,13 @@ class LandingPage extends Component {
                     </p>
                     <div className='landing-page-full-screen'>
                         <Link className='see-our-button' to=''>
-                            <h3>CHECK OUT OUR RENEWAL TECH STORE</h3>
+                        <h4>Check Out Our {this.state.subjects[1]} Store</h4>
                         </Link>
                     </div>
                 </div>
                 <div className='landing-page-full-screen' id='renewal-impact'>
                     <div className='intro-title'>
-                        <h1>RENEWAL IMPACT</h1>
+                        <h1>{this.state.subjects[2]}</h1>
                     </div>
                     <div className='main-first-half-screen'>
                         <p className='landing-page-full-screen-paragraph'>Renewal Impact marks our commitment to global climate action. From purifying water to optimising resources and harnessing renewable energy, this pillar transforms charitable initiatives into sustained impact. International projects, powered by partnerships and donations, aim to bring tangible change to vulnerable communities. As we extend our reach, Renewal Impact will solidify Renewal Project's place on the international stage, advocating for a sustainable and resilient future that promotes social, economic, and environmental well-being.
@@ -306,7 +318,7 @@ class LandingPage extends Component {
                         </div>
                     </div>
                     <Link className='see-our-button' to='https://www.globalgiving.org/projects/fighting-deforestation-using-coconut-husk-charcoal/'>
-                        <h3>see our resource optimisation initiatives</h3>
+                        <h4>see our resource optimisation initiatives</h4>
                     </Link>
                     <div className='sub-intro-section'>
                         <h2>Clean Water</h2>
@@ -319,7 +331,7 @@ class LandingPage extends Component {
                     </div>
                     <div className='landing-page-full-screen'>
                     <Link className='see-our-button' to='https://www.globalgiving.org/projects/provision-of-safe-drinking-water-with-water-filter/'>
-                        <h3>See our clean water initiatives</h3>
+                        <h4>See our clean water initiatives</h4>
                     </Link>
                     <div className='sub-intro-section'>
                         <h2>Renewable Energy</h2>
@@ -332,14 +344,14 @@ class LandingPage extends Component {
                     </div>
                     <div className='landing-page-full-screen'>
                     <Link className='see-our-button' to='https://www.globalgiving.org/projects/energy-access-in-sierra-leone/'>
-                        <h3>See our renewable energy initiatives</h3>
+                        <h4>See our renewable energy initiatives</h4>
                     </Link>
                     </div>
                 </div>
                 </div>
                 <div className='landing-page-full-screen' id='renewal-building-protocols'>
                     <div className='intro-title'>
-                        <h1>Renewal Building Protocols</h1>
+                        <h1>{this.state.subjects[3]}</h1>
                     </div>
                     <div className='sub-intro-section'>
                         <div className='image-and-paragraphs-container'>
@@ -422,6 +434,19 @@ class LandingPage extends Component {
                         onChange={this.changeHandler}
                     />
                     {this.state.enquiryEmailErrorMessage}
+                    <select
+                    className='contact-Form-input'
+                        name="subject"
+                        value={this.state.subject}
+                        onChange={this.changeHandler}
+                    >
+                        <option value="select">Select Subject</option>
+                        {this.state.subjects.map(subject =>
+                            <option name={subject} value={subject}>{subject}</option>
+                        )}
+                    </select>
+                    {this.state.enquirySubjectErrorMessage}
+                    {itemsToSellContainer}
                     <textarea
                         className='contact-Form-text-area'
                         type='text'
