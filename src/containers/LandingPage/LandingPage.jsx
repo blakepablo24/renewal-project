@@ -26,6 +26,7 @@ import bulbLogo from '../../assets/renewal-project-bulb-logo-portrait.png';
 import EmailValidator from 'email-validator';
 import Axios from 'axios';
 import CONST from '../../constants/constants';
+import ImageUpload from '../../components/Ui/ImageUpload/ImageUpload';
 
 
 
@@ -41,7 +42,8 @@ class LandingPage extends Component {
         enquiryEmailErrorMessage: "",
         enquiryData: "",
         enquiryDataErrorMessage: "",
-        messageSent: false
+        messageSent: false,
+        imageFile: ""
     }
 
     changeHandler = (event) => {
@@ -89,12 +91,16 @@ class LandingPage extends Component {
         }
 
         if(!enquiryNameErrorMessage && !enquiryEmailErrorMessage & !enquiryDataErrorMessage){
-            Axios.post(CONST.BASE_URL + '/api/new-enquiry', {
-                enquiryName: this.state.enquiryName,
-                enquiryEmail: this.state.enquiryEmail,
-                subject: this.state.subject,
-                enquiryData: this.state.enquiryData
-            }).then(response =>{
+            let fd = new FormData();
+            fd.append('enquiryName', this.state.enquiryName);
+            fd.append('enquiryEmail', this.state.enquiryEmail);
+            fd.append('subject', this.state.subject);
+            fd.append('enquiryData', this.state.enquiryData);
+
+            if(this.state.imageFile){
+                fd.append('newImage', this.state.imageFile, this.state.imageFile.name);
+            }
+            Axios.post(CONST.BASE_URL + '/api/new-enquiry', fd).then(response =>{
                 this.setState({
                     enquiryName: "",
                     enquiryNameErrorMessage: "",
@@ -103,6 +109,7 @@ class LandingPage extends Component {
                     subject: "",
                     enquiryData: "",
                     enquiryDataErrorMessage: "",
+                    imageFile: "",
                     messageSent: true
                 })
             }).catch(function (error) {
@@ -141,7 +148,15 @@ class LandingPage extends Component {
         }
 
         if(this.state.subject === "Items To Sell") {
-            itemsToSellContainer = <p>button to add images to sell will go here</p>
+            itemsToSellContainer =  <div className='imageContainer'>
+                                        <h2>Add upto 6 images</h2>
+                                        <ImageUpload wording="Add Image 1?" />
+                                        <ImageUpload wording="Add Image 2?" />
+                                        <ImageUpload wording="Add Image 3?" />
+                                        <ImageUpload wording="Add Image 4?" />
+                                        <ImageUpload wording="Add Image 5?" />
+                                        <ImageUpload wording="Add Image 6?" />
+                                    </div>
         }
 
         return(

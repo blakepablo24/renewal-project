@@ -1,0 +1,27 @@
+.ImageUpload {
+    width: 100%;
+    display: grid;
+    place-items: center center;
+    margin-top: 10px;
+}
+
+.addImage, .imagePreview {
+    width: 60%;
+    display: grid;
+    place-items: center center;
+    grid-auto-flow: column;
+    font-size: 1.5rem;
+}
+
+.addImage svg, .imagePreview img {
+    width: 50px;
+    max-height: 100px;
+}
+
+.imagePreview img {
+    border-radius: 5px;
+}
+
+.imagePreview {
+    width: 80%;
+}

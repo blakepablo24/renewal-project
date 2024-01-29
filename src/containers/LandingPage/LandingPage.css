@@ -231,6 +231,10 @@ input:focus, textarea:focus, select:focus {
     outline-color: var(--main-txt);
 }
 
+.imageContainer {
+    width:100%;
+}
+
 /* Tablets in landscape, laptop and desktops */
 
 @media only screen and (min-width: 1024px) and (orientation: landscape) {
