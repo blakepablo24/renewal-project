@@ -57,15 +57,6 @@
     margin: 0 2.5%;
 }
 
-.intro-title {
-    height: 18.5vh;
-    display: grid;
-    place-items: center center;
-    background-color: var(--main-txt);
-    color: var(--second-bg);
-    margin-top: 2.5vh;
-}
-
 .pillars-container {
     display: grid;
     place-items: center center;
@@ -88,7 +79,6 @@
 
 .pillar-title {
     font-size: 1.3rem;
-    width:99%;
     grid-row: 1/3;
     height: 100%;
     display: grid;
@@ -116,52 +106,9 @@
     font-size: 1.3rem;
 }
 
-.landing-page-full-screen {
-    margin-top: 30px;
-}
-
-.landing-page-full-screen-paragraph {
-    font-size: 1.3rem;
-    color: var(--main-bg);
-    width: 95%;
-    margin: 25px 2.5% 0 2.5%;
-}
-
 .landingPageImage {
     margin-top: 25px;
-    max-width: 95%;
-}
-
-.steps-container {
-    display: grid;
-    place-items: center center;
-    width: 100%;
-}
-
-.step-container {
-    margin-top: 25px;
-    display: grid;
-    place-items: center center;
-    grid-template-columns: 2fr 8fr;
-    margin-right: 5px;
-    width: 95%;
-    margin: 25px 2.5% 0 2.5%;
-}
-
-.step-heading {
-    place-self: start center;
-    display: grid;
-    place-items: center center;
-    margin-right: 10px;
-    border-right: solid var(--main-txt) 5px;
-}
-
-.step-paragraph {
-    font-size: 1.3rem;
-}
-
-.step-container svg {
-    font-size: 2.5rem;
+    max-width: 100%;
 }
 
 .folowing-subjects-container {
@@ -179,19 +126,6 @@
 }
 
 .white-contrast {
-    color: var(--second-bg);
-}
-
-.see-our-button, .contact-Form-button{
-    border: none;
-    margin: 2.5vh 20vw;
-    width: 60vw;
-    height: 7.5vh;
-    border-radius: 10px;
-    display: grid;
-    place-items: center center;
-    grid-auto-flow: column;
-    background-color: var(--main-txt);
     color: var(--second-bg);
 }
 

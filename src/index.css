@@ -61,3 +61,35 @@ p {
   background: var(--scs-bg);
   grid-column: 1 / -1;
 }
+
+.pillar-title {
+  height: 18.5vh;
+  display: grid;
+  place-items: center center;
+  background-color: var(--main-txt);
+  color: var(--second-bg);
+}
+
+.pillar-paragraph {
+  font-size: 1.3rem;
+  color: var(--main-bg);
+  width: 95%;
+  margin: 50px 0;
+}
+
+.main-button {
+  border: none;
+  margin: 50px 20vw;
+  width: 60vw;
+  height: 7.5vh;
+  border-radius: 10px;
+  display: grid;
+  place-items: center center;
+  grid-auto-flow: column;
+  background-color: var(--main-txt);
+  color: var(--second-bg);
+}
+
+.intro-paragraph {
+  margin: 50px 0;
+}

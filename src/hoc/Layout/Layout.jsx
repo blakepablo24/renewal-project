@@ -6,13 +6,19 @@ import LandingPage from '../../containers/LandingPage/LandingPage';
 import Footer from '../../components/Ui/Footer/Footer';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import SideDrawer from '../../components/Ui/Toolbar/Navigation/SideDrawer/SideDrawer';
-import ScrollToHashElement from "../../components/Ux/ScrollToHashElement/ScrollToHashElement";
+// Pages
+import RenewalHub from '../../containers/RenewalHub/RenewalHub';
+import RenewalTech from '../../containers/RenewalTech/RenewalTech';
+import RenewalImpact from '../../containers/RenewalImpact/RenewalImpact';
+
 
 class Layout extends Component{
 
     state = {
         showSideDrawer: false,
         menu: false,
+        subjects: ["Renewal Hub", "Renewal Tech", "Renewal Impact", "Renewal Building Protocols", "Items To Sell", "Other"],
+        subject: "",
     }
 
     sideDrawerToggleHandler = (nav) => {
@@ -41,7 +47,6 @@ render(){
 
     return (
         <div className='Layout'>
-            <ScrollToHashElement />
             <Toolbar    
                 menu={this.state.menu} 
                 menuToggleHandler={this.sideDrawerToggleHandler} 
@@ -50,7 +55,10 @@ render(){
             {sideDrawer}
             <ParallaxProvider>
                 <Routes>
-                    <Route path='/' element={<LandingPage/>} />
+                    <Route path='/' element={<LandingPage />} />
+                    <Route path="/renewal-hub" exact element={<RenewalHub subjects={this.state.subjects} subject={this.state.subject}/>} />
+                    <Route path="/renewal-tech" exact element={<RenewalTech subjects={this.state.subjects} subject={this.state.subject}/>} />
+                    <Route path="/renewal-impact" exact element={<RenewalImpact subjects={this.state.subjects} subject={this.state.subject}/>} />
                 </Routes>
             </ParallaxProvider>
             <Footer />

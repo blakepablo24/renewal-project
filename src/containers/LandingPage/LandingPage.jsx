@@ -1,28 +1,14 @@
 import React, { Component } from 'react';
 import './LandingPage.css'
-import coconutHusks from '../../assets/coconut-husks.png';
-import coconutCoal from '../../assets/coconut-coal.png';
-import mainLogo from '../../assets/renewal-project-bulb-logo-portrait.png';
 import forest from '../../assets/1.jpg';
-import mainLogoWithWording from '../../assets/renewal-project-logo.jpg';
 import landfill from '../../assets/Landfill.jpeg';
-import cleanWater from '../../assets/clean-water.jpg';
-import renewalProjectChartLowSize from '../../assets/renewal-project-chart-low-size.png';
-import solarPanels from '../../assets/solar-panels.jpg';
-import resourceOptimization from '../../assets/resource-optimization.jpg';
 import { Parallax } from 'react-scroll-parallax';
 import { ParallaxBanner } from 'react-scroll-parallax';
 import landfillImage from '../../assets/2.jpg';
 import pierImage from '../../assets/3.jpg';
-import packageImage from '../../assets/4.jpg';
 import buildingProtocols01 from '../../assets/building-protocols-01.jpg';
 import buildingProtocols02 from '../../assets/building-protocols-02.jpg';
-import { GiMagnifyingGlass } from "react-icons/gi";
-import { TbTruckDelivery } from "react-icons/tb";
-import { FaCoins } from "react-icons/fa";
-import { CiHome } from "react-icons/ci";
 import { Link } from 'react-router-dom';
-import bulbLogo from '../../assets/renewal-project-bulb-logo-portrait.png';
 import EmailValidator from 'email-validator';
 import Axios from 'axios';
 import CONST from '../../constants/constants';
@@ -33,8 +19,6 @@ import ImageUpload from '../../components/Ui/ImageUpload/ImageUpload';
 class LandingPage extends Component {
 
     state = {
-        subjects: ["Renewal Hub", "Renewal Tech", "Renewal Impact", "Renewal Building Protocols", "Items To Sell", "Other"],
-        subject: "",
         enquirySubjectErrorMessage: "",
         enquiryName: "",
         enquiryNameErrorMessage: "",
@@ -234,135 +218,6 @@ class LandingPage extends Component {
                         style={{height: '100%'}}
                         className="aspect-[3/1]"
                     />
-                </div>
-                <div className='landing-page-full-screen' id='renewal-hub'>
-                    <div className='intro-title'>
-                        <h1>{this.state.subjects[0]}</h1>
-                    </div>
-                    <Link className='see-our-button' to=''>
-                    <h4>Check Out Our {this.state.subjects[0]} Store</h4>
-                    </Link>
-                    <div className='main-first-half-screen'>
-                        <p className='landing-page-full-screen-paragraph'>At Renewal Hub, we champion a circular economy by recycling and reusing used items. We connect communities through sustainable trade and reward loyalty, creating a network of individuals committed to reducing waste and embracing eco-friendly living. By turning unwanted items into valued resources, we are committed to promoting community engagement and zero waste practices.</p>
-                    </div>
-                    <p className='landing-page-full-screen-paragraph'>Dispose of your unwanted items of value, purchase pre-loved items, contribute to a circular economy and get rewarded for it in these 4 simple steps:</p>
-                    <div className='steps-container'>
-                        <div className='step-container'>
-                            <div className='step-heading'>
-                                <h2 className='step-number'>Step 1</h2>
-                                <CiHome />
-                            </div>
-                            <p className='step-paragraph'>Make space in your home or business by letting us know which unused items you want to get off your hands.</p>
-                        </div>
-                        <div className='step-container'>
-                            <div className='step-heading'>
-                                <h2 className='step-number'>Step 2</h2>
-                                <GiMagnifyingGlass />
-                            </div>
-                            <p className='step-paragraph'>We will assess your item for suitability and receive the item, store it, list it and promote it to be sold.</p>
-                        </div>
-                        <div className='step-container'>
-                            <div className='step-heading'>
-                                <h2 className='step-number'>Step 3</h2>
-                                <TbTruckDelivery />
-                            </div>
-                            <p className='step-paragraph'>Once your item sells, we will package it and deliver to the buyer and reward you with a percentage of the proceeds and reward you with Renewal Points that can go towards a charitable donation or discount on future purchases.</p>
-                        </div>
-                        <div className='step-container'>
-                            <div className='step-heading'>
-                                <h2 className='step-number'>Step 4</h2>
-                                <FaCoins />
-                            </div>
-                            <p className='step-paragraph'>Use your Renewal Points to shop for other pre-loved items on Renewal Hub, or donate to one of our charities or Renewal Impact causes.</p>
-                        </div>
-                    </div>
-                    <div className='landing-page-full-screen'>
-                    <div className='image-and-paragraphs-container'>
-                            <div className='paragraphs-container'>
-                                <p className='landing-page-full-screen-paragraph'>Get in contact to take your first step towards a zero waste future.</p>
-                            </div>
-                            <img className='landingPageImage' src={packageImage} />
-                        </div>
-                    </div>
-                    <Link className='see-our-button' to=''>
-                        <h4>Check Out Our {this.state.subjects[0]} Store</h4>
-                    </Link>
-                </div>
-                <div className='landing-page-full-screen' id='renewal-tech'>
-                    <div className='intro-title'>
-                        <h1>{this.state.subjects[1]}</h1>
-                    </div>
-                    <p className='landing-page-full-screen-paragraph'>At Renewal Tech, we redefine business IT through circular services, covering the
-                        entire lifecycle, from supplying refurbished hardware to responsible IT disposal and
-                        recycling. For businesses seeking eco-friendly alternatives, Renewal Tech is the
-                        solution, providing sustainable options that enhance efficiency, productivity, and
-                        environmental responsibility. We seamlessly integrate eco-friendly practices into the
-                        corporate sphere, proving that technology can be both innovative and
-                        environmentally conscious. Let us guide you through the sustainable lifecycle
-                        management of your IT assets across four crucial decision-making stages:
-                    </p>
-                    <img className='landingPageImage' src={renewalProjectChartLowSize} />
-                    <p className='landing-page-full-screen-paragraph'>Ready to transform your business with circular IT solutions? Reach out to Renewal
-                        Tech and let&#39;s embark on a sustainable journey together. Whether you&#39;re looking to
-                        optimise your IT estate, extend product life, responsibly dispose of assets, or explore
-                        refurbished options, our team is here to assist.
-                    </p>
-                    <div className='landing-page-full-screen'>
-                        <Link className='see-our-button' to=''>
-                        <h4>Check Out Our {this.state.subjects[1]} Store</h4>
-                        </Link>
-                    </div>
-                </div>
-                <div className='landing-page-full-screen' id='renewal-impact'>
-                    <div className='intro-title'>
-                        <h1>{this.state.subjects[2]}</h1>
-                    </div>
-                    <div className='main-first-half-screen'>
-                        <p className='landing-page-full-screen-paragraph'>Renewal Impact marks our commitment to global climate action. From purifying water to optimising resources and harnessing renewable energy, this pillar transforms charitable initiatives into sustained impact. International projects, powered by partnerships and donations, aim to bring tangible change to vulnerable communities. As we extend our reach, Renewal Impact will solidify Renewal Project's place on the international stage, advocating for a sustainable and resilient future that promotes social, economic, and environmental well-being.
-                        </p>
-                    </div>
-                    <div className='sub-intro-section'>
-                        <h2>Resource Optimization</h2>
-                        <div className='image-and-paragraphs-container'>
-                            <div className='paragraphs-container'>
-                                <p className='landing-page-full-screen-paragraph'>
-                                    Through our resource optimization initiatives we specialise in developing innovative solutions that transform waste into valuable resources, contributing to a circular economy. By harnessing the potential of waste materials, such as coconut husks and other organic matter, we create sustainable energy and produce usable products that benefit both communities and the environment. Redefining waste management, enabling the efficient utilisation of resources while minimising environmental impact.
-                                </p>
-                            </div>
-                            <img className='landingPageImage' src={resourceOptimization} />
-                        </div>
-                    </div>
-                    <Link className='see-our-button' to='https://www.globalgiving.org/projects/fighting-deforestation-using-coconut-husk-charcoal/'>
-                        <h4>see our resource optimisation initiatives</h4>
-                    </Link>
-                    <div className='sub-intro-section'>
-                        <h2>Clean Water</h2>
-                        <div className='image-and-paragraphs-container'>
-                        <img className='landingPageImage' src={cleanWater} />
-                            <p className='landing-page-full-screen-paragraph'>
-                                Access to clean and safe drinking water is a fundamental human right. Renewal Impact is dedicated to tackling water-related challenges and improving water quality. Through the provision of advanced water filtration systems and comprehensive education on hygiene and sanitation practices, we empower communities to lead healthier lives. Our goal is to ensure that everyone has access to clean water, contributing to improved health outcomes and sustainable development.
-                            </p>    
-                        </div>
-                    </div>
-                    <div className='landing-page-full-screen'>
-                    <Link className='see-our-button' to='https://www.globalgiving.org/projects/provision-of-safe-drinking-water-with-water-filter/'>
-                        <h4>See our clean water initiatives</h4>
-                    </Link>
-                    <div className='sub-intro-section'>
-                        <h2>Renewable Energy</h2>
-                        <div className='image-and-paragraphs-container'>
-                            <img className='landingPageImage' src={solarPanels} />
-                            <p className='landing-page-full-screen-paragraph'>
-                                We believe in harnessing the power of nature to meet the growing energy demands of today and tomorrow. By leveraging renewable energy sources such as solar, wind, and hydroelectric power, we are revolutionising the way communities access and utilise electricity. Our cutting-edge solutions not only reduce dependence on fossil fuels but also create a cleaner and more sustainable energy ecosystem.
-                            </p>
-                        </div>
-                    </div>
-                    <div className='landing-page-full-screen'>
-                    <Link className='see-our-button' to='https://www.globalgiving.org/projects/energy-access-in-sierra-leone/'>
-                        <h4>See our renewable energy initiatives</h4>
-                    </Link>
-                    </div>
-                </div>
                 </div>
                 <div className='landing-page-full-screen' id='renewal-building-protocols'>
                     <div className='intro-title'>

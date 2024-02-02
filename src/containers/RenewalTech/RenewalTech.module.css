@@ -1,0 +1,8 @@
+.renewalTech {
+    grid-area: main;
+}
+
+#renewalTechImage {
+    margin: 50px 0;
+    max-width: 95%;
+}
