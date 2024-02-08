@@ -1,0 +1,43 @@
+.contactForm {
+    grid-area: main;
+}
+
+.contactForm {
+    margin-top: 10vh;
+    display: grid;
+    place-items: center center;
+    width: 100%;
+    grid-gap: 15px;
+    background: var(--second-bg-trans);
+    padding: 10vh 0;
+    height: minmax(91.5vh, auto);
+}
+
+.contactFormTitle {
+    width: 100%;
+}
+
+.contactFormInput {
+    width: 75%;
+    height: 7.5vh;
+    text-align: center;
+    border: none;
+    border-radius: 15px;
+}
+
+.imageContainer {
+    width:100%;
+}
+
+.contactFormTextArea {
+    width: 75%;
+    height: 15vh;
+    text-align: center;
+    resize: none;
+    border: none;
+    border-radius: 15px;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline-color: var(--main-txt);
+}

@@ -1,0 +1,50 @@
+.renewalBuildingProtocols {
+    grid-area: main;
+}
+
+.folowingSubjectsContainer {
+    margin-top: 25px;
+    display: grid;
+    place-items: center center;
+}
+
+.folowingSubjectsContainer p {
+    font-weight: bold;
+}
+
+.landingPageImage {
+    margin-top: 25px;
+    max-width: 100%;
+}
+
+.stepsContainer {
+    display: grid;
+    place-items: center center;
+    width: 100%;
+}
+
+.stepContainer {
+    margin-top: 25px;
+    display: grid;
+    place-items: center center;
+    grid-template-columns: 2fr 8fr;
+    margin-right: 5px;
+    width: 95%;
+    margin: 25px 2.5% 0 2.5%;
+}
+
+.stepContainer svg {
+    font-size: 2.5rem;
+}
+
+.stepHeading {
+    place-self: start center;
+    display: grid;
+    place-items: center center;
+    margin-right: 10px;
+    border-right: solid var(--main-txt) 5px;
+}
+
+.stepParagraph {
+    font-size: 1.3rem;
+}

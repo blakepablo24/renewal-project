@@ -37,6 +37,11 @@ class imageUpload extends Component {
         });
       }
       reader.readAsDataURL(file);
+      this.getData(file, imageStatus);
+    }
+
+    getData = (val, imageStatus) => {
+        this.props.sendData(val, imageStatus);
     }
 
     isFileImage(file) {

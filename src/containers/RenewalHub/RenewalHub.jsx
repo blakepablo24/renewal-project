@@ -7,8 +7,13 @@ import { TbTruckDelivery } from "react-icons/tb";
 import { FaCoins } from "react-icons/fa";
 import { CiHome } from "react-icons/ci";
 import packageImage from '../../assets/4.jpg';
+import FUNCTIONS from '../../functions/functions';
 
 class RenewalHub extends Component{
+
+    componentDidMount(){
+        FUNCTIONS.scrollToTop();
+    }
 
     render(){
 
@@ -59,7 +64,7 @@ class RenewalHub extends Component{
                             <div className='paragraphs-container'>
                                 <p className='landing-page-full-screen-paragraph'>Get in contact to take your first step towards a zero waste future.</p>
                             </div>
-                            <img className='landingPageImage' src={packageImage} />
+                            <img className='main-image' src={packageImage} />
                         </div>
                     </div>
                     <Link className='main-button' to=''>

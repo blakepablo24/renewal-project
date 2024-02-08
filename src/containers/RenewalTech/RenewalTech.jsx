@@ -3,8 +3,13 @@ import classes from './RenewalTech.module.css';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import { Link } from 'react-router-dom';
 import renewalProjectChartLowSize from '../../assets/renewal-project-chart-low-size.png';
+import FUNCTIONS from '../../functions/functions';
 
 class RenewalTech extends Component{
+
+    componentDidMount(){
+        FUNCTIONS.scrollToTop();
+    }
 
     render(){
 
