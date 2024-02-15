@@ -15,6 +15,7 @@ import ContactForm from '../../containers/ContactForm/ContactForm';
 import EmailValidator from 'email-validator';
 import Axios from 'axios';
 import CONST from '../../constants/constants';
+import Loader from '../../components/Ux/Loader/Loader';
 
 class Layout extends Component{
 
@@ -34,6 +35,7 @@ class Layout extends Component{
         messageSent: false,
         imageFile: "",
         imageError: "",
+        loader: ""
     }
 
     sideDrawerToggleHandler = (nav) => {
@@ -56,7 +58,8 @@ class Layout extends Component{
             enquiryNameErrorMessage: "",
             enquiryEmailErrorMessage: "",
             enquiryDataErrorMessage: "",
-            enquiryPillarErrorMessage: ""
+            enquiryPillarErrorMessage: "",
+            imageError: ""
         });
     }
 
@@ -101,9 +104,13 @@ class Layout extends Component{
             fd.append('subject', this.state.subject);
             fd.append('enquiryData', this.state.enquiryData);
 
-            // if(this.state.imageFile){
-            //     fd.append('newImage', this.state.imageFile, this.state.imageFile.name);
-            // }
+            if(this.state.imageFile){
+                fd.append('newImage', this.state.imageFile, this.state.imageFile.name);
+            }
+
+            this.setState({
+                loader: <Loader />
+            })
             Axios.post(CONST.BASE_URL + '/api/new-enquiry', fd).then(response =>{
                 this.setState({
                     enquiryName: "",
@@ -114,23 +121,17 @@ class Layout extends Component{
                     enquiryData: "",
                     enquiryDataErrorMessage: "",
                     imageFile: "",
-                    messageSent: true
+                    loader: "",
+                    messageSent: true,
                 })
-            }).catch(function (error) {
-                if (error.response) {
-                  // Request made and server responded
-                  console.log(error.response.data);
-                  console.log(error.response.status);
-                  console.log(error.response.headers);
-                } else if (error.request) {
-                  // The request was made but no response was received
-                  console.log(error.request);
-                } else {
-                  // Something happened in setting up the request that triggered an Error
-                  console.log('Error', error.message);
+            }).catch(error => {
+                if (error) {
+                    this.setState({
+                        loader: "",
+                        imageError: <div className='error'>{error.response.data.errors[Object.keys(error.response.data.errors)]}</div>
+                    })
                 }
-            
-              });
+              })
         } else {
             this.setState({
                 enquiryNameErrorMessage: enquiryNameErrorMessage,
@@ -190,9 +191,11 @@ render(){
                             enquiryDataErrorMessage={this.state.enquiryDataErrorMessage}
                             messageSent={this.state.messageSent}
                             imageFile={this.state.imageFile}
+                            imageError={this.state.imageError}
                             submitContactFormHandler={this.submitContactFormHandler}
                             changeHandler={this.changeHandler}
                             getData={this.getData}
+                            loader={this.state.loader}
                         />} 
                     />
                 </Routes>

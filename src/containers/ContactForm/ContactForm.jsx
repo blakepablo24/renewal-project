@@ -25,8 +25,15 @@ class ContactForm extends Component{
             itemsToSellContainer =  <div className={classes.imageContainer}>
                                         <h2>Upload Image</h2>
                                         <ImageUpload wording="Add Image?" sendData={this.props.getData} />
+                                        {this.props.imageError}
                                     </div>
             contactFormTextAreaPlaceHolder = 'List any details on your items here such as working or broken status';
+        }
+
+        let displayedButton = <button onClick={this.props.submitContactFormHandler} className='main-button'>Submit</button>
+
+        if(this.props.loader){
+            displayedButton = <button className='main-button'>{this.props.loader}</button>
         }
 
         return (
@@ -72,7 +79,7 @@ class ContactForm extends Component{
                     onChange={this.props.changeHandler}
                 />
                 {this.props.enquiryDataErrorMessage}
-                <button onClick={this.props.submitContactFormHandler} className='main-button'>Submit</button>
+                {displayedButton}
                 {contactFormSuccessMessage}
             </div>
         )
