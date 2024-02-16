@@ -22,7 +22,7 @@ class Layout extends Component{
     state = {
         showSideDrawer: false,
         menu: false,
-        subjects: ["Renewal Hub", "Renewal Tech", "Renewal Impact", "Renewal Building Protocols", "Items To Sell", "Other"],
+        subjects: ["Renewal Hub - Items To Sell", "Renewal Tech", "Renewal Impact", "Renewal Building Protocols", "Other"],
         subject: "",
         // Contact Form State
         enquirySubjectErrorMessage: "",
@@ -33,8 +33,18 @@ class Layout extends Component{
         enquiryData: "",
         enquiryDataErrorMessage: "",
         messageSent: false,
-        imageFile: "",
-        imageError: "",
+        image1File: "",
+        image1Error: "",
+        image2File: "",
+        image2Error: "",
+        image3File: "",
+        image3Error: "",
+        image4File: "",
+        image4Error: "",
+        image5File: "",
+        image5Error: "",
+        image6File: "",
+        image6Error: "",
         loader: ""
     }
 
@@ -59,7 +69,12 @@ class Layout extends Component{
             enquiryEmailErrorMessage: "",
             enquiryDataErrorMessage: "",
             enquiryPillarErrorMessage: "",
-            imageError: ""
+            image1Error: "",
+            image2Error: "",
+            image3Error: "",
+            image4Error: "",
+            image5Error: "",
+            image6Error: ""
         });
     }
 
@@ -96,7 +111,12 @@ class Layout extends Component{
         if(!enquiryNameErrorMessage 
             && !enquiryEmailErrorMessage 
             && !enquiryDataErrorMessage
-            && !this.state.imageError
+            && !this.state.image1Error
+            && !this.state.image2Error
+            && !this.state.image3Error
+            && !this.state.image4Error
+            && !this.state.image5Error
+            && !this.state.image6Error
             ){
             let fd = new FormData();
             fd.append('enquiryName', this.state.enquiryName);
@@ -104,8 +124,27 @@ class Layout extends Component{
             fd.append('subject', this.state.subject);
             fd.append('enquiryData', this.state.enquiryData);
 
-            if(this.state.imageFile){
-                fd.append('newImage', this.state.imageFile, this.state.imageFile.name);
+            if(this.state.image1File){
+                fd.append('newImage1', this.state.image1File, this.state.image1File.name);
+            }
+            if(this.state.image2File){
+                fd.append('newImage2', this.state.image2File, this.state.image2File.name);
+            }
+
+            if(this.state.image3File){
+                fd.append('newImage3', this.state.image3File, this.state.image3File.name);
+            }
+
+            if(this.state.image4File){
+                fd.append('newImage4', this.state.image4File, this.state.image4File.name);
+            }
+
+            if(this.state.image5File){
+                fd.append('newImage5', this.state.image5File, this.state.image5File.name);
+            }
+
+            if(this.state.image6File){
+                fd.append('newImage6', this.state.image6File, this.state.image6File.name);
             }
 
             this.setState({
@@ -120,18 +159,41 @@ class Layout extends Component{
                     subject: "",
                     enquiryData: "",
                     enquiryDataErrorMessage: "",
-                    imageFile: "",
+                    image1File: "",
+                    image2File: "",
+                    image3File: "",
+                    image4File: "",
+                    image5File: "",
+                    image6File: "",
                     loader: "",
                     messageSent: true,
                 })
-            }).catch(error => {
-                if (error) {
-                    this.setState({
-                        loader: "",
-                        imageError: <div className='error'>{error.response.data.errors[Object.keys(error.response.data.errors)]}</div>
-                    })
+            }).catch(function (error) {
+                if (error.response) {
+                  // Request made and server responded
+                  console.log(error.response.data);
+                  console.log(error.response.status);
+                  console.log(error.response.headers);
+                } else if (error.request) {
+                  // The request was made but no response was received
+                  console.log(error.request);
+                } else {
+                  // Something happened in setting up the request that triggered an Error
+                  console.log('Error', error.message);
                 }
-              })
+            
+              });
+            // .catch(error => {
+            //     if (error) {
+            //         console.log(error.response.data);
+            //         console.log(error.response.status);
+            //         console.log(error.response.headers);
+            //         this.setState({
+            //             loader: "",
+            //             image1Error: <div className='error'>{error.response.data.errors[Object.keys(error.response.data.errors)]}</div>
+            //         })
+            //     }
+            //   })
         } else {
             this.setState({
                 enquiryNameErrorMessage: enquiryNameErrorMessage,
@@ -142,10 +204,10 @@ class Layout extends Component{
         }
     }
 
-    getData = (val, imageError) => {
+    getData = (imageNumber, val, imageError) => {
+        console.log(imageNumber, val, imageError);
         this.setState({
-            imageFile: val,
-            imageError: imageError
+            [imageNumber]: val
         })
     }
 
@@ -190,8 +252,18 @@ render(){
                             enquiryData={this.state.enquiryData}
                             enquiryDataErrorMessage={this.state.enquiryDataErrorMessage}
                             messageSent={this.state.messageSent}
-                            imageFile={this.state.imageFile}
-                            imageError={this.state.imageError}
+                            image1File={this.state.image1File}
+                            image1Error={this.state.image1Error}
+                            image2File={this.state.image2File}
+                            image2Error={this.state.image2Error}
+                            image3File={this.state.image3File}
+                            image3Error={this.state.image3Error}
+                            image4File={this.state.image4File}
+                            image4Error={this.state.image4Error}
+                            image5File={this.state.image5File}
+                            image5Error={this.state.image5Error}
+                            image6File={this.state.image6File}
+                            image6Error={this.state.image6Error}
                             submitContactFormHandler={this.submitContactFormHandler}
                             changeHandler={this.changeHandler}
                             getData={this.getData}

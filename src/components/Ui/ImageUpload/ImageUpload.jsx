@@ -27,7 +27,13 @@ class imageUpload extends Component {
       let reader = new FileReader();
       let file = e.target.files[0];
       
-      let imageStatus = !this.isFileImage(file) ? <h4 className="error">Please select a valid image</h4> : ""
+      let imageStatus = "";
+
+      if(!this.isFileImage(file)){
+        imageStatus = <h4 className="error">Please select a valid image</h4>
+      } else if(file.size > 2999999) {
+        imageStatus = <h4 className="error">Please select an image that is smaller than 3MB</h4>
+      }
 
       reader.onloadend = () => {
         this.setState({
@@ -37,11 +43,11 @@ class imageUpload extends Component {
         });
       }
       reader.readAsDataURL(file);
-      this.getData(file, imageStatus);
+      this.getData(this.props.imageNumber, file, imageStatus);
     }
 
-    getData = (val, imageStatus) => {
-        this.props.sendData(val, imageStatus);
+    getData = (imageNumber, val, imageStatus) => {
+        this.props.sendData(imageNumber, val, imageStatus);
     }
 
     isFileImage(file) {
@@ -62,7 +68,7 @@ class imageUpload extends Component {
       } else {
         $imagePreview = <div className='addImage' onClick={() => this.fileInput.click()} ><BiImageAdd /><p>{this.props.wording}</p></div>
       }
-      
+
       return (
         <div className='ImageUpload selectable'>
             <input
