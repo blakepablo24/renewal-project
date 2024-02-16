@@ -31,8 +31,8 @@ class imageUpload extends Component {
 
       if(!this.isFileImage(file)){
         imageStatus = <h4 className="error">Please select a valid image</h4>
-      } else if(file.size > 2999999) {
-        imageStatus = <h4 className="error">Please select an image that is smaller than 3MB</h4>
+      } else if(file.size > 2000000) {
+        imageStatus = <h4 className="error">Please select an image that is smaller than 2MB</h4>
       }
 
       reader.onloadend = () => {

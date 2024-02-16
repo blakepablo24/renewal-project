@@ -41,10 +41,6 @@ class Layout extends Component{
         image3Error: "",
         image4File: "",
         image4Error: "",
-        image5File: "",
-        image5Error: "",
-        image6File: "",
-        image6Error: "",
         loader: ""
     }
 
@@ -115,8 +111,6 @@ class Layout extends Component{
             && !this.state.image2Error
             && !this.state.image3Error
             && !this.state.image4Error
-            && !this.state.image5Error
-            && !this.state.image6Error
             ){
             let fd = new FormData();
             fd.append('enquiryName', this.state.enquiryName);
@@ -139,17 +133,9 @@ class Layout extends Component{
                 fd.append('newImage4', this.state.image4File, this.state.image4File.name);
             }
 
-            if(this.state.image5File){
-                fd.append('newImage5', this.state.image5File, this.state.image5File.name);
-            }
-
-            if(this.state.image6File){
-                fd.append('newImage6', this.state.image6File, this.state.image6File.name);
-            }
-
-            this.setState({
-                loader: <Loader />
-            })
+            // this.setState({
+            //     loader: <Loader />
+            // })
             Axios.post(CONST.BASE_URL + '/api/new-enquiry', fd).then(response =>{
                 this.setState({
                     enquiryName: "",
@@ -163,8 +149,6 @@ class Layout extends Component{
                     image2File: "",
                     image3File: "",
                     image4File: "",
-                    image5File: "",
-                    image6File: "",
                     loader: "",
                     messageSent: true,
                 })
@@ -260,10 +244,6 @@ render(){
                             image3Error={this.state.image3Error}
                             image4File={this.state.image4File}
                             image4Error={this.state.image4Error}
-                            image5File={this.state.image5File}
-                            image5Error={this.state.image5Error}
-                            image6File={this.state.image6File}
-                            image6Error={this.state.image6Error}
                             submitContactFormHandler={this.submitContactFormHandler}
                             changeHandler={this.changeHandler}
                             getData={this.getData}
