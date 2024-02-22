@@ -6,7 +6,7 @@ class imageUpload extends Component {
 
     state = {
         file: '',
-        imagePreviewUrl: '',
+        imagePreviewUrl: this.props.imagePopulatedPreview ? this.props.imagePopulatedPreview : "",
         flushData: false,
         imageError: ""
     }
@@ -31,23 +31,24 @@ class imageUpload extends Component {
 
       if(!this.isFileImage(file)){
         imageStatus = <h4 className="error">Please select a valid image</h4>
-      } else if(file.size > 2000000) {
-        imageStatus = <h4 className="error">Please select an image that is smaller than 2MB</h4>
+      } else if(file.size > 5500000) {
+        imageStatus = <h4 className="error">Please select an image that is smaller than 5MB</h4>
       }
 
       reader.onloadend = () => {
         this.setState({
           file: file,
           imagePreviewUrl: reader.result,
-          imageError: imageStatus 
+          imageError: imageStatus
         });
+        this.getData(this.props.imageNumber, file, this.props.imagePreview, reader.result, this.props.imageNumberError, imageStatus);
       }
       reader.readAsDataURL(file);
-      this.getData(this.props.imageNumber, file, imageStatus);
+      
     }
 
-    getData = (imageNumber, val, imageStatus) => {
-        this.props.sendData(imageNumber, val, imageStatus);
+    getData = (imageNumber, val, imagePreview, imagePreviewUrl, imageNumberError, imageStatus) => {
+        this.props.sendData(imageNumber, val, imagePreview, imagePreviewUrl, imageNumberError, imageStatus);
     }
 
     isFileImage(file) {
@@ -57,7 +58,7 @@ class imageUpload extends Component {
     render() {
 
       let {imagePreviewUrl} = this.state;
-      let $imagePreview = null;
+      let $imagePreview  = imagePreviewUrl ? <div className='imagePreview' onClick={() => this.fileInput.click()} ><img src={imagePreviewUrl} alt=""/><p>Change Image?</p></div> : null;
 
       if (imagePreviewUrl) {
         if(this.state.imageError){
@@ -80,7 +81,7 @@ class imageUpload extends Component {
                 ref={fileInput => this.fileInput = fileInput}
             />
             {$imagePreview}
-            {this.state.imageError}
+            {this.props.imageError}
         </div>
       )
     }

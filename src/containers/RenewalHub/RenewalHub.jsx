@@ -22,6 +22,9 @@ class RenewalHub extends Component{
                     <div className='pillar-title'>
                         <h1>{this.props.subjects[0]}</h1>
                     </div>
+                    <Link className='main-button' to='/sell-your-items-through-renewal-hub'>
+                        <h4>Sell Items Your Through {this.props.subjects[0]}</h4>
+                    </Link>
                     <div className='intro-paragraph'>
                         <p className='pillar-paragraph'>At Renewal Hub, we champion a circular economy by recycling and reusing used items. We connect communities through sustainable trade and reward loyalty, creating a network of individuals committed to reducing waste and embracing eco-friendly living. By turning unwanted items into valued resources, we are committed to promoting community engagement and zero waste practices.</p>
                     </div>

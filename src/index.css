@@ -84,7 +84,7 @@ p {
 .main-button {
   border: none;
   margin: 50px 20vw;
-  width: 60vw;
+  width: 60%;
   height: 7.5vh;
   border-radius: 10px;
   display: grid;

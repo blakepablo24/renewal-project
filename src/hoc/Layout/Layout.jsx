@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom';
 import './Layout.css';
 import Toolbar from '../../components/Ui/Toolbar/Toolbar';
 import Footer from '../../components/Ui/Footer/Footer';
@@ -16,13 +16,14 @@ import EmailValidator from 'email-validator';
 import Axios from 'axios';
 import CONST from '../../constants/constants';
 import Loader from '../../components/Ux/Loader/Loader';
+import SellYourItemsThroughRenewalHub from '../../containers/SellYourItemsThroughRenewalHub/SellYourItemsThroughRenewalHub';
 
 class Layout extends Component{
 
     state = {
         showSideDrawer: false,
         menu: false,
-        subjects: ["Renewal Hub - Items To Sell", "Renewal Tech", "Renewal Impact", "Renewal Building Protocols", "Other"],
+        subjects: ["Renewal Hub", "Renewal Tech", "Renewal Impact", "Renewal Building Protocols", "Sell Items Through Renewal Hub", "Other"],
         subject: "",
         // Contact Form State
         enquirySubjectErrorMessage: "",
@@ -34,14 +35,21 @@ class Layout extends Component{
         enquiryDataErrorMessage: "",
         messageSent: false,
         image1File: "",
+        image1Preview: "",
         image1Error: "",
         image2File: "",
+        image2Preview: "",
         image2Error: "",
         image3File: "",
+        image3Preview: "",
         image3Error: "",
         image4File: "",
+        image4Preview: "",
         image4Error: "",
-        loader: ""
+        loader: "",
+        sendingMessageAlert: "",
+        uploadImagePage: true,
+        redirectOnChoosingSellToRenewal: ""
     }
 
     sideDrawerToggleHandler = (nav) => {
@@ -57,7 +65,15 @@ class Layout extends Component{
     changeHandler = (event) => {
         const target = event.target;
         const name = target.name;
-        const value = target.value;
+        let value = target.value;
+
+        if (value === "Sell Items Through Renewal Hub") {
+            value = "";
+            this.setState({
+                subject: "",
+                redirectOnChoosingSellToRenewal: <Navigate to="/sell-your-items-through-renewal-hub" />
+            })
+        }
 
         this.setState({
             [name]: value,
@@ -74,7 +90,22 @@ class Layout extends Component{
         });
     }
 
-    submitContactFormHandler = () => {
+    redirectRemovalHandler = () => {
+        if(this.state.redirectOnChoosingSellToRenewal){
+            this.setState({
+                redirectOnChoosingSellToRenewal: ""
+            })
+        }
+    }
+
+    checkIfSellThroughRenewlHubHandler = () => {
+        
+        let subject = "Renewal Hub - Sell Your Items";
+        
+        this.submitContactFormHandler(subject);
+    }
+
+    submitContactFormHandler = (subject) => {
         event.preventDefault();
         
         let enquiryNameErrorMessage = "";
@@ -115,7 +146,7 @@ class Layout extends Component{
             let fd = new FormData();
             fd.append('enquiryName', this.state.enquiryName);
             fd.append('enquiryEmail', this.state.enquiryEmail);
-            fd.append('subject', this.state.subject);
+            fd.append('subject', this.state.subject ? !this.state.subject : subject);
             fd.append('enquiryData', this.state.enquiryData);
 
             if(this.state.image1File){
@@ -133,9 +164,11 @@ class Layout extends Component{
                 fd.append('newImage4', this.state.image4File, this.state.image4File.name);
             }
 
-            // this.setState({
-            //     loader: <Loader />
-            // })
+            this.setState({
+                loader: <Loader />,
+                sendingMessageAlert: <p>Compressing Images and submitting your enquiry. Please Wait.</p>
+            })
+
             Axios.post(CONST.BASE_URL + '/api/new-enquiry', fd).then(response =>{
                 this.setState({
                     enquiryName: "",
@@ -146,10 +179,20 @@ class Layout extends Component{
                     enquiryData: "",
                     enquiryDataErrorMessage: "",
                     image1File: "",
+                    image1Preview: "",
+                    image1Error: "",
                     image2File: "",
+                    image2Preview: "",
+                    image2Error: "",
                     image3File: "",
+                    image3Preview: "",
+                    image3Error: "",
                     image4File: "",
+                    image4Preview: "",
+                    image4Error: "",
                     loader: "",
+                    sendingMessageAlert: "",
+                    uploadImagePage: true,
                     messageSent: true,
                 })
             }).catch(function (error) {
@@ -167,17 +210,6 @@ class Layout extends Component{
                 }
             
               });
-            // .catch(error => {
-            //     if (error) {
-            //         console.log(error.response.data);
-            //         console.log(error.response.status);
-            //         console.log(error.response.headers);
-            //         this.setState({
-            //             loader: "",
-            //             image1Error: <div className='error'>{error.response.data.errors[Object.keys(error.response.data.errors)]}</div>
-            //         })
-            //     }
-            //   })
         } else {
             this.setState({
                 enquiryNameErrorMessage: enquiryNameErrorMessage,
@@ -188,10 +220,17 @@ class Layout extends Component{
         }
     }
 
-    getData = (imageNumber, val, imageError) => {
-        console.log(imageNumber, val, imageError);
+    getData = (imageNumber, val, imageNumberPreviewUrl, imagePreviewUrl ,imageNumberError, imageError) => {
         this.setState({
-            [imageNumber]: val
+            [imageNumber]: val,
+            [imageNumberError]: imageError,
+            [imageNumberPreviewUrl]: imagePreviewUrl,
+        })
+    }
+
+    uploadImagePageHandler = () => {
+        this.setState({
+            uploadImagePage: !this.state.uploadImagePage
         })
     }
 
@@ -211,6 +250,7 @@ render(){
 
     return (
         <div className='Layout'>
+            {this.state.redirectOnChoosingSellToRenewal}
             <Toolbar    
                 menu={this.state.menu} 
                 menuToggleHandler={this.sideDrawerToggleHandler} 
@@ -224,6 +264,39 @@ render(){
                     <Route path="/renewal-tech" exact element={<RenewalTech subjects={this.state.subjects} subject={this.state.subject} />} />
                     <Route path="/renewal-impact" exact element={<RenewalImpact subjects={this.state.subjects} subject={this.state.subject} />} />
                     <Route path="/renewal-building-protocols" exact element={<RenewalBuildingProtocols subjects={this.state.subjects} subject={this.state.subject} />} />
+                    <Route path="/sell-your-items-through-renewal-hub" exact element={
+                        <SellYourItemsThroughRenewalHub 
+                            image1File={this.state.image1File}
+                            image1Preview={this.state.image1Preview}
+                            image1Error={this.state.image1Error}
+                            image2File={this.state.image2File}
+                            image2Preview={this.state.image2Preview}
+                            image2Error={this.state.image2Error}
+                            image3File={this.state.image3File}
+                            image3Preview={this.state.image3Preview}
+                            image3Error={this.state.image3Error}
+                            image4File={this.state.image4File}
+                            image4Preview={this.state.image4Preview}
+                            image4Error={this.state.image4Error}
+                            checkIfSellThroughRenewlHubHandler={this.checkIfSellThroughRenewlHubHandler}
+                            changeHandler={this.changeHandler}
+                            getData={this.getData}
+                            loader={this.state.loader}
+                            uploadImagePageHandler={this.uploadImagePageHandler}
+                            uploadImagePage={this.state.uploadImagePage}
+                            uploadedImagesValidationHandler={this.uploadedImagesValidationHandler}
+                            enquiryName={this.state.enquiryName}
+                            enquiryNameErrorMessage={this.state.enquiryNameErrorMessage}
+                            enquiryEmail={this.state.enquiryEmail}
+                            enquiryEmailErrorMessage={this.state.enquiryEmailErrorMessage}
+                            enquiryData={this.state.enquiryData}
+                            enquiryDataErrorMessage={this.state.enquiryDataErrorMessage}
+                            messageSent={this.state.messageSent}
+                            sendingMessageAlert={this.state.sendingMessageAlert}
+                            redirectRemovalHandler={this.redirectRemovalHandler}
+                            redirectOnChoosingSellToRenewal={this.state.redirectOnChoosingSellToRenewal}
+                        />} 
+                    />
                     <Route path="/contact-form" exact element={
                         <ContactForm 
                             subjects={this.state.subjects} 
@@ -236,18 +309,10 @@ render(){
                             enquiryData={this.state.enquiryData}
                             enquiryDataErrorMessage={this.state.enquiryDataErrorMessage}
                             messageSent={this.state.messageSent}
-                            image1File={this.state.image1File}
-                            image1Error={this.state.image1Error}
-                            image2File={this.state.image2File}
-                            image2Error={this.state.image2Error}
-                            image3File={this.state.image3File}
-                            image3Error={this.state.image3Error}
-                            image4File={this.state.image4File}
-                            image4Error={this.state.image4Error}
-                            submitContactFormHandler={this.submitContactFormHandler}
-                            changeHandler={this.changeHandler}
-                            getData={this.getData}
+                            sendingMessageAlert={this.state.sendingMessageAlert}
                             loader={this.state.loader}
+                            changeHandler={this.changeHandler}
+                            submitContactFormHandler={this.submitContactFormHandler}
                         />} 
                     />
                 </Routes>
