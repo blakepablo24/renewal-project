@@ -12,6 +12,14 @@
     display: grid;
     place-items: center center;
     height: 100%;
+    grid: 1fr 30vh 1fr / 1fr;
+}
+
+.SellYourItemsThroughRenewalHubContainerContactDetails {
+    display: grid;
+    place-items: center center;
+    height: 100%;
+    grid-row: 2/5; 
 }
 
 .SellYourItemsThroughRenewalHubTitle {
@@ -31,6 +39,7 @@
     width: 100%;
     display: grid;
     place-items: center center;
+    grid-gap: 5px;
     grid: 1fr 1fr / 1fr 1fr;
 }
 

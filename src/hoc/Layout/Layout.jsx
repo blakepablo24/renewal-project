@@ -234,6 +234,12 @@ class Layout extends Component{
         })
     }
 
+    flashMessageRemoveSavedMessaegHandler = () => {
+        this.setState({
+            messageSent: false
+        })
+    }
+
 render(){
 
     let sideDrawer =    <SideDrawer 
@@ -293,6 +299,7 @@ render(){
                             enquiryDataErrorMessage={this.state.enquiryDataErrorMessage}
                             messageSent={this.state.messageSent}
                             sendingMessageAlert={this.state.sendingMessageAlert}
+                            flashMessageRemoveSavedMessaegHandler={this.flashMessageRemoveSavedMessaegHandler}
                             redirectRemovalHandler={this.redirectRemovalHandler}
                             redirectOnChoosingSellToRenewal={this.state.redirectOnChoosingSellToRenewal}
                         />} 

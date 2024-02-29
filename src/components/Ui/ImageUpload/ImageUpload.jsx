@@ -29,10 +29,17 @@ class imageUpload extends Component {
       
       let imageStatus = "";
 
+      // Get length of file in bytes
+      let fileSizeInBytes = file.size;
+      // Convert the bytes to Kilobytes (1 KB = 1024 Bytes)
+      let fileSizeInKB = fileSizeInBytes / 1024;
+      // Convert the KB to MegaBytes (1 MB = 1024 KBytes)
+      let fileSizeInMB = fileSizeInKB / 1024;
+
       if(!this.isFileImage(file)){
         imageStatus = <h4 className="error">Please select a valid image</h4>
-      } else if(file.size > 5500000) {
-        imageStatus = <h4 className="error">Please select an image that is smaller than 5MB</h4>
+      } else if(fileSizeInMB > 7) {
+        imageStatus = <h4 className="errorBackground error">Please select an image that is smaller than 7MB</h4>
       }
 
       reader.onloadend = () => {

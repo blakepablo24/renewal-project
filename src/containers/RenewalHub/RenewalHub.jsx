@@ -25,13 +25,15 @@ class RenewalHub extends Component{
                     <Link className='main-button' to='/sell-your-items-through-renewal-hub'>
                         <h4>Sell Items Your Through {this.props.subjects[0]}</h4>
                     </Link>
-                    <div className='intro-paragraph'>
+                    <div className='paragraph-container'>
                         <p className='pillar-paragraph'>At Renewal Hub, we champion a circular economy by recycling and reusing used items. We connect communities through sustainable trade and reward loyalty, creating a network of individuals committed to reducing waste and embracing eco-friendly living. By turning unwanted items into valued resources, we are committed to promoting community engagement and zero waste practices.</p>
                     </div>
                     <Link className='main-button' to=''>
                         <h4>Check Out Our {this.props.subjects[0]} Store</h4>
                     </Link>
-                    <p className='pillar-paragraph'>Dispose of your unwanted items of value, purchase pre-loved items, contribute to a circular economy and get rewarded for it in these 4 simple steps:</p>
+                    <div className='paragraph-container'>
+                        <p className='pillar-paragraph'>Dispose of your unwanted items of value, purchase pre-loved items, contribute to a circular economy and get rewarded for it in these 4 simple steps:</p>
+                    </div>
                     <div className={classes.stepsContainer}>
                         <div className={classes.stepContainer}>
                             <div className={classes.stepHeading}>
@@ -64,7 +66,7 @@ class RenewalHub extends Component{
                     </div>
                     <div className='landing-page-full-screen'>
                     <div className='image-and-paragraphs-container'>
-                            <div className='paragraphs-container'>
+                            <div className='paragraph-container'>
                                 <p className='landing-page-full-screen-paragraph'>Get in contact to take your first step towards a zero waste future.</p>
                             </div>
                             <img className='main-image' src={packageImage} />

@@ -21,17 +21,17 @@ class RenewalBuildingProtocols extends Component{
                     </div>
                     <div className='intro-paragraph'>
                         <div className='image-and-paragraphs-container'>
-                            <div className='paragraphs-container'>
-                            <p className='pillar-paragraph'>Introducing Renewal Building Protocols (RBP), the hallmark of a sustainable and
-                                healthy built environment. Our data driven guidelines, technology
-                                recommendations and certification standard, establishes a new paradigm for green
-                                structures and the people and processes within those structures. From educational
-                                material, to consultation services that guide you through the implementation of
-                                active measures, Renewal Building Protocols is dedicated to fostering spaces that
-                                prioritise well-being, environmental impact, and sustainability. Make tangible steps
-                                towards net zero and learn how to impact your ESG rating with RBP, setting the
-                                gold standard for a cleaner, greener, and more equitable world.
-                            </p>
+                            <div className='paragraph-container'>
+                                <p className='pillar-paragraph'>Introducing Renewal Building Protocols (RBP), the hallmark of a sustainable and
+                                    healthy built environment. Our data driven guidelines, technology
+                                    recommendations and certification standard, establishes a new paradigm for green
+                                    structures and the people and processes within those structures. From educational
+                                    material, to consultation services that guide you through the implementation of
+                                    active measures, Renewal Building Protocols is dedicated to fostering spaces that
+                                    prioritise well-being, environmental impact, and sustainability. Make tangible steps
+                                    towards net zero and learn how to impact your ESG rating with RBP, setting the
+                                    gold standard for a cleaner, greener, and more equitable world.
+                                </p>
                             </div>
                             <img className='main-image' src={buildingProtocols01} />
                         </div>
@@ -40,11 +40,13 @@ class RenewalBuildingProtocols extends Component{
                         <h2 className='intro-title'>Why the focus on buildings?</h2>
                         <div className='image-and-paragraphs-container'>
                         <img className='main-image' src={buildingProtocols02} />
-                        <p className='pillar-paragraph'>
+                        <div className='paragraph-container'>
+                            <p className='pillar-paragraph'>
                                 Globally, buildings contribute to approximately 40% of energy and process-related CO2 emissions, utilise 50% of all extracted materials, account for 33% of water consumption, and generate 35% of total waste. These staggering statistics underscore the profound environmental impacts, including resource depletion, air, water, and land pollution, and loss of biodiversity.
                                 Looking ahead to 2050, the global population is projected to surge by 27% to reach 9.8 billion. By 2060, the global building floor area is anticipated to double, amplifying the environmental, social, and economic repercussions associated with the built environment.
                                 Amid such profound consequences, it becomes imperative for the built environment to actively contribute to the transformative changes necessary to decarbonize our global economy. Sustainable built environments not only emerge as crucial solutions to climate change but also play a pivotal role in fostering resilient, thriving communities and driving economic growth.
-                            </p>    
+                            </p>
+                        </div>  
                         </div>
                     </div>
                     <div className='sub-intro-section'>

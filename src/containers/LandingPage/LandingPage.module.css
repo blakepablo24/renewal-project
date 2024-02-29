@@ -2,8 +2,56 @@
     grid-area: main;
 }
 
-.imageHeadings {
-    font-size: 2rem;
+.bannerContainer {
+    height: 45.75vh;
+    width: 100%;
+    position: relative;
+}
+
+.bannerContainer img {
+    height: 45.75vh;
+    max-width: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+.previous, .next {
+    background: var(--second-bg-trans);
+    color: var(--second-bg);
+    position: absolute;
+    z-index: 2;
+    height: 30%;
+    top: 35%;
+    width: 10%;
+    border-radius: 10px;
+}
+
+.fadeImage { 
+    animation: fadeIn 3s; 
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  .fadeImage1 { 
+    animation: fadeIn1 3s; 
+}
+
+@keyframes fadeIn1 {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+.next {
+    right: 1%;
+}
+
+.previous {
+    left: 1%;
 }
 
 .mainHalfScreen {
@@ -18,10 +66,6 @@
 .mainFirstHalfScreen {
     min-height: 46.25vh;
     max-height: auto;
-}
-
-.mainFirstHalfScreen p {
-    font-size: 1.3rem;
 }
 
 .mainHalfScreen {
@@ -44,17 +88,6 @@
 
 .fadedBackground h1 {
     font-size: 2.5rem;
-}
-
-.mainFirstHalfScreen {
-    display: grid;
-    place-items: center center;
-    background-color: var(--second-bg);
-    color: var(--main-bg);
-    font-size: 3rem;
-    height: minmax(46.25vh, auto);
-    width: 95%;
-    margin: 0 2.5%;
 }
 
 .pillarsContainer {
@@ -109,19 +142,17 @@
 /* Tablets in landscape, laptop and desktops */
 
 @media only screen and (min-width: 1024px) and (orientation: landscape) {
-    #main-half-screen {
-        height: 60vh;
+
+    .mainHalfScreen {
+        height: 65vh;
     }
 
-    .main-first-half-screen {
-        min-height: 25vh;
+    .bannerContainer {
+        height: 65vh;
     }
 
-    .main-first-half-screen p {
-        font-size: 1.8rem;
-    }
 
-    .pillars-container {
+    .pillarsContainer {
         height: 66.5vh;
         grid: 1fr / repeat(4 ,1fr);
         width: 95%;
@@ -135,18 +166,12 @@
         border-radius: 10px;
     }
 
-    .pillar-title {
+    .pillarTitle {
         font-size: 1.2rem;
     }
 
-    .pillar-explore-now:hover, .see-our-button:hover, .contact-Form-button {
+    .pillar-explore-now:hover, .see-our-button:hover, .contact-Form-button:hover, .next:hover, .previous:hover {
         cursor: pointer;
-    }
-
-    .image-and-paragraphs-container {
-        display: grid;
-        place-items: center center;
-        grid-template-columns: 1fr 1fr;
     }
 
     .see-our-button, .contact-Form-button{
@@ -184,7 +209,7 @@
         font-size: 1rem;
     }
 
-    .pillar-details {
+    .pillarDetails {
         font-size: 0.9rem;
     }
 }
@@ -192,23 +217,20 @@
 /* Very large Desktop Laptop screen */
 
 @media only screen and (min-width: 1600px) and (orientation: landscape) {
-    #main-half-screen {
-        height: 60vh;
+
+    .mainHalfScreen {
+        height: 65vh;
     }
 
-    .main-first-half-screen {
-        min-height: 25vh;
+    .bannerContainer {
+        height: 65vh;
     }
 
-    .main-first-half-screen p {
-        font-size: 1.8rem;
+    .fadedBackground h1 {
+        font-size: 7.5rem;
     }
 
-    .landing-page-full-screen-paragraph {
-        font-size: 1.75rem;
-    }
-
-    .pillars-container {
+    .pillarsContainer {
         height: 66.5vh;
         grid: 1fr / repeat(4 ,1fr);
         width: 95%;
@@ -222,22 +244,16 @@
         border-radius: 10px;
     }
 
-    .pillar-title {
+    .pillarTitle {
         font-size: 1.75rem;
     }
 
-    .pillar-details {
+    .pillarDetails {
         font-size: 1.5rem;
     }
 
     .pillar-explore-now:hover, .see-our-button:hover, .contact-Form-button {
         cursor: pointer;
-    }
-
-    .image-and-paragraphs-container {
-        display: grid;
-        place-items: center center;
-        grid-template-columns: 1fr 1fr;
     }
 
     .steps-container {

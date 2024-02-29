@@ -66,6 +66,17 @@ p {
   margin: 50px 0;
 }
 
+.paragraph-container {
+  display: grid;
+  place-items: center center;
+  background-color: var(--second-bg);
+  color: var(--main-bg);
+  font-size: 3rem;
+  height: minmax(46.25vh, auto);
+  width: 95%;
+  margin: 0 2.5%;
+}
+
 .pillar-title {
   height: 18.5vh;
   display: grid;
@@ -101,4 +112,26 @@ p {
 .main-image {
   margin-top: 25px;
   max-width: 100%;
+}
+
+.image-and-paragraphs-container {
+  display: grid;
+  place-items: center center;
+}
+
+@media only screen and (min-width: 1024px) and (orientation: landscape) {
+  .pillar-paragraph {
+    font-size: 1.8rem;
+  }
+
+  .image-and-paragraphs-container {
+    display: grid;
+    place-items: center center;
+    grid-template-columns: 1fr 1fr;
+}
+
+  .main-button {
+    margin: 50px 40vw;
+    width: 20%;
+  }
 }

@@ -1,12 +1,11 @@
 .ImageUpload {
-    width: 95%;
-    height: 150px;
+    width: 175px;
+    height: 175px;
     display: grid;
     place-items: center center;
     background: var(--main-txt);
     color: var(--second-bg);
     border-radius: 15px;
-    margin-top: 2.5px;
 }
 
 .addImage, .imagePreview {
@@ -28,4 +27,8 @@
 
 .imagePreview {
     width: 80%;
+}
+
+.errorBackground {
+    background: var(--second-bg);
 }
