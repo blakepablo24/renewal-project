@@ -12,6 +12,7 @@
     display: grid;
     place-items: center center;
     height: 100%;
+    width: 50%;
     grid: 1fr 30vh 1fr / 1fr;
 }
 
@@ -19,6 +20,7 @@
     display: grid;
     place-items: center center;
     height: 100%;
+    width: 50%;
     grid-row: 2/5; 
 }
 
@@ -59,7 +61,15 @@ input:focus, textarea:focus, select:focus {
 }
 
 .buttonsContainer {
+    width: 100%;
     display: grid;
     place-items: center center;
     grid-auto-flow: column;
+}
+
+/* Large Screen landscape */
+@media only screen and (min-width: 1024px) and (orientation: landscape) {
+    .SellYourItemsThroughRenewalHub {
+        height: 85vh;
+    }
 }
