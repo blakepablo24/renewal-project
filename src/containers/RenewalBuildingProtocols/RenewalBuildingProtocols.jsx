@@ -57,8 +57,8 @@ class RenewalBuildingProtocols extends Component{
                             <div className={classes.stepHeading}>
                                 <h2 className={classes.stepNumber}>1</h2>
                             </div>
-                            <div>
-                                <p className={classes.stepParagraph}>You will receive access to our digital portal where you will have access to a library of educational material and guided by science backed data on the following subjects:</p>
+                            <div className={classes.folowingSubjectsAndParagraphContainer}>
+                                <p className='pillar-paragraph'>You will receive access to our digital portal where you will have access to a library of educational material and guided by science backed data on the following subjects:</p>
                                 <div className={classes.folowingSubjectsContainer}>
                                     <p>Environmental Sustainability</p>
                                     <p>Air Quality</p>
@@ -72,13 +72,13 @@ class RenewalBuildingProtocols extends Component{
                             <div className={classes.stepHeading}>
                                 <h2 className={classes.stepNumber}>2</h2>
                             </div>
-                            <p className={classes.stepParagraph}>Our team will support you through the implementation of our guidelines and introduction of technology and processes that will help you towards your specific goals, tailored to your business.</p>
+                            <p className='pillar-paragraph'>Our team will support you through the implementation of our guidelines and introduction of technology and processes that will help you towards your specific goals, tailored to your business.</p>
                         </div>
                         <div className={classes.stepContainer}>
                             <div className={classes.stepHeading}>
                                 <h2 className={classes.stepNumber}>3</h2>
                             </div>
-                            <p className={classes.stepParagraph}>We work on a points based system based on the steps that you have implemented and how you building is performing within the 5 protocols. Once you reach the desired score your building can receive certification and benefit from our promotion as a green, clean, equitable building.</p>
+                            <p className='pillar-paragraph'>We work on a points based system based on the steps that you have implemented and how you building is performing within the 5 protocols. Once you reach the desired score your building can receive certification and benefit from our promotion as a green, clean, equitable building.</p>
                         </div>
                     </div>
                 </div>

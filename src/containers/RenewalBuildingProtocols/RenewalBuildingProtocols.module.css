@@ -2,6 +2,11 @@
     grid-area: main;
 }
 
+.folowingSubjectsAndParagraphContainer {
+    display: grid;
+    place-items: center center;
+}
+
 .folowingSubjectsContainer {
     margin-top: 25px;
     display: grid;
@@ -31,6 +36,7 @@
     margin-right: 5px;
     width: 95%;
     margin: 25px 2.5% 0 2.5%;
+    text-align: left;
 }
 
 .stepContainer svg {
@@ -38,13 +44,20 @@
 }
 
 .stepHeading {
-    place-self: start center;
+    height: 100%;
+    place-self: center center;
     display: grid;
     place-items: center center;
     margin-right: 10px;
+    padding-right: 10px;
     border-right: solid var(--main-txt) 5px;
+    border-top: solid var(--main-txt) 5px;
 }
 
-.stepParagraph {
-    font-size: 1.3rem;
+@media only screen and (min-width: 1024px) and (orientation: landscape) {
+
+    .folowingSubjectsContainer p {
+        font-size: 1.8rem;
+    }
+
 }

@@ -1,6 +1,6 @@
 .ImageUpload {
-    width: 175px;
-    height: 175px;
+    width: 85%;
+    height: 100%;
     display: grid;
     place-items: center center;
     background: var(--main-txt);
@@ -31,4 +31,15 @@
 
 .errorBackground {
     background: var(--second-bg);
+}
+
+.ImageUpload:hover {
+    cursor: pointer;
+}
+
+@media only screen and (min-width: 1024px) and (orientation: landscape) {
+    .ImageUpload {
+        width: 40%;
+        height: 100%;
+    }
 }
