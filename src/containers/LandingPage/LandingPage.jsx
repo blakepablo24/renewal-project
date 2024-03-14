@@ -54,7 +54,7 @@ class LandingPage extends Component {
 
     componentDidMount(){
         FUNCTIONS.scrollToTop();
-        setInterval(() => this.changeBackgroundImage(), 5000);
+        setInterval(() => this.changeBackgroundImage(), 10000);
     }
 
     changeBackgroundImage = () => {

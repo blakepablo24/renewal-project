@@ -139,7 +139,18 @@
     font-size: 1.3rem;
 }
 
-/* Tablets in landscape, laptop and desktops */
+/* mobile landscape */
+@media only screen and (min-width : 321px) and (max-width : 1023px) and (orientation : landscape) {
+    .mainHalfScreen {
+        height: 87.5vh;
+    }
+
+    .bannerContainer {
+        height: 87.5vh;
+    }
+}
+
+/* Laptops and desktops 1024px landscape */
 
 @media only screen and (min-width: 1024px) and (orientation: landscape) {
 
@@ -151,6 +162,9 @@
         height: 65vh;
     }
 
+    .fadedBackground h1 {
+        font-size: 3.5rem;
+    }
 
     .pillarsContainer {
         height: 66.5vh;
@@ -227,7 +241,7 @@
     }
 
     .fadedBackground h1 {
-        font-size: 7.5rem;
+        font-size: 7rem;
     }
 
     .pillarsContainer {

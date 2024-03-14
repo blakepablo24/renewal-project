@@ -28,7 +28,7 @@
     }
 
     .toolbarLargeScreensOnly {
-        grid-column: 4/8;
+        grid-column: 3/8;
         display: grid;
         place-items: center center;
         width: 100%;
@@ -53,7 +53,7 @@
     }
 
     .toolbarLargeScreensOnly {
-        grid-column: 6/8;
+        grid-column: 5/8;
         display: grid;
         place-items: center center;
         width: 100%;

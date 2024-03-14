@@ -94,9 +94,9 @@ p {
 
 .main-button {
   border: none;
-  margin: 50px 20vw;
-  width: 60%;
-  height: 7.5vh;
+  margin: 50px 12.5%;
+  width: 75%;
+  height: 75px;
   border-radius: 10px;
   display: grid;
   place-items: center center;
@@ -119,6 +119,10 @@ p {
   place-items: center center;
 }
 
+/* Small Laptop and landscape tablets/ipads */
+@media only screen and (min-width: 1024px) and (max-width : 1023px) and (orientation: landscape) {
+}
+
 @media only screen and (min-width: 1024px) and (orientation: landscape) {
   .pillar-paragraph {
     font-size: 1.8rem;
@@ -130,8 +134,36 @@ p {
     grid-template-columns: 1fr 1fr;
 }
 
+.main-image {
+  place-self: start center;
+  position: sticky;
+  top: 15vh;
+}
+
   .main-button {
     margin: 50px 40%;
     width: 20%;
+    height: 100px;
   }
+}
+
+/* mobile landscape */
+@media only screen and (min-width : 321px) and (max-width : 1023px) and (orientation : landscape) {
+  .image-and-paragraphs-container {
+    display: grid;
+    place-items: center center;
+    grid-template-columns: 1fr 1fr;
+}
+
+.main-image {
+  place-self: start center;
+  position: sticky;
+  top: 15vh;
+}
+
+.main-button {
+  margin: 50px 30%;
+  width: 40%;
+  height: 50px;
+}
 }

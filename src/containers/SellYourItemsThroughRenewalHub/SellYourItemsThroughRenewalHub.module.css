@@ -13,7 +13,7 @@
     place-items: center center;
     height: 100%;
     width: 100%;
-    grid: 1fr 30vh 1fr / 1fr;
+    grid: 1fr 30vh 3fr / 1fr;
 }
 
 .SellYourItemsThroughRenewalHubContainerContactDetails {
@@ -42,7 +42,6 @@
     width: 100%;
     display: grid;
     place-items: center center;
-    grid-gap: 5px;
     grid: 1fr 1fr / 1fr 1fr;
 }
 
@@ -80,5 +79,18 @@ input:focus, textarea:focus, select:focus {
     
     .SellYourItemsThroughRenewalHubContainerContactDetails {
         width: 50%;
+    }
+}
+
+/* mobile landscape */
+@media only screen and (min-width : 321px) and (max-width : 1023px) and (orientation : landscape) {
+    .imageContainer {
+        height: 100%;
+        width: 95%;
+        display: grid;
+        place-items: center center;
+        grid-gap: 5px;
+        grid: 1fr / repeat(4, 1fr);
+
     }
 }
