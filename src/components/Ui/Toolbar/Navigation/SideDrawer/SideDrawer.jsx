@@ -19,9 +19,14 @@ class SideDrawer extends Component {
 
     return(
         <Aux>
-            <Backdrop clicked={this.props.clicked} open={this.props.open} />
+            <Backdrop clicked={this.props.clicked.bind(this, "mobileNav")} open={this.props.open} />
             <div className={attachedClasses.join(' ')}>
-                <NavigationItems clicked={this.props.clicked.bind(this, "nav")} sendData={this.getData}/>
+                <NavigationItems 
+                    toggleProjectsShownHandler={this.props.toggleProjectsShownHandler}
+                    projectsShown={this.props.projectsShown}
+                    clicked={this.props.clicked.bind(this, "mobileNav")} 
+                    sendData={this.getData}
+                />
             </div>
         </Aux>
     )

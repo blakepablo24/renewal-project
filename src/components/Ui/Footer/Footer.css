@@ -14,3 +14,11 @@
     grid-auto-flow: column;
     font-size: 2rem;
 }
+
+.policy-container {
+    display: grid;
+    place-items: center center;
+    height: 100%;
+    width: 100%;
+    grid-auto-flow: column;
+}

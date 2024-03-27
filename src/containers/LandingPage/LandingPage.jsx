@@ -12,6 +12,7 @@ import renewalBuildProtocolsImage from '../../assets/building-protocols-01.jpg';
 import renewalTechImage from '../../assets/solar-panels.jpg';
 import renewalHubImage from '../../assets/4.jpg';
 import renewalImpactImage from '../../assets/2.jpg';
+import renewalShopImage from '../../assets/shop-banner-image.png';
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 
 class LandingPage extends Component {
@@ -24,6 +25,12 @@ class LandingPage extends Component {
                     <h1 className={classes.imageHeadings}>rethink, redetermine, renew</h1>
                 </div>
             </div>,
+            <Link to='/renewal-shop' className={classes.mainHalfScreen + ' ' + classes.fadeImage1} style={{ backgroundImage: `linear-gradient(rgba(255,255,255,.15), rgba(255,255,255,.15)),url(${renewalShopImage})`, backgroundSize: '100% 100%' }}>
+                <div className={classes.fadedBackground}>
+                    <h1 className={classes.imageHeadings}>Shop</h1>
+                    <h1 className={classes.imageHeadings}></h1>
+                </div>
+            </Link>,
             <Link to='/renewal-hub' className={classes.mainHalfScreen + ' ' + classes.fadeImage1} style={{ backgroundImage: `linear-gradient(rgba(255,255,255,.15), rgba(255,255,255,.15)),url(${renewalHubImage})`, backgroundSize: '100% 100%' }}>
                 <div className={classes.fadedBackground}>
                     <h1 className={classes.imageHeadings}>Renewal Hub</h1>

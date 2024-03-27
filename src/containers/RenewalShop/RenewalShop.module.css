@@ -1,0 +1,82 @@
+.renewalShop {
+    grid-area: main;
+}
+
+.shopLinkContainer {
+    display: grid;
+    place-items: center center;
+    grid: 1fr / 6fr 4fr;
+    width: 95%;
+}
+
+.linkImage {
+    width: 100%;
+}
+
+.shoppingCategoriesContainer  {
+    display: grid;
+    place-items: center center;
+    grid-template-columns: 1fr 1fr;
+    width: 95%;
+    margin-left: 2.5%;
+}
+
+.shoppingCategoryContainer{
+    display: grid;
+    place-items: center center;
+    width: 95%;
+    height: 40vh;
+    position: relative;
+    margin-bottom: 2.5vh;
+    grid-template-rows: 4fr 1fr;
+}
+
+.shoppingCategoryImage {
+    width: 100%;
+    height: 30vh;
+}
+
+.shoppingCategoryHeadingContainer {
+    height: 100%;
+    width: 100%;
+    color: var(--main-txt);
+    display: grid;
+    place-items: center center;
+    z-index: 1;
+}
+
+.shoppingLinkContainer {
+    display: grid;
+    place-items: center center;
+}
+
+/* mobile landscape */
+@media only screen and (min-width : 321px) and (max-width : 1023px) and (orientation : landscape) {
+    .shoppingCategoriesContainer  {
+        display: grid;
+        place-items: center center;
+        grid-template-columns: 1fr 1fr 1fr;
+        width: 80%;
+        margin-left: 10%;
+    }
+
+    .shoppingLinkContainer {
+        grid-auto-flow: column;
+    }
+}
+
+@media only screen and (min-width: 1024px) and (orientation: landscape) {
+    .shoppingCategoriesContainer  {
+        display: grid;
+        place-items: center center;
+        grid-template-columns: 1fr 1fr 1fr;
+        width: 60%;
+        margin-left: 20%;
+    }
+
+    .shoppingLinkContainer {
+        display: grid;
+        place-items: center center;
+        grid-auto-flow: column;
+    }
+}

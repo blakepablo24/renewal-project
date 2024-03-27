@@ -11,9 +11,13 @@ const toolbar = (props) => {
     return(
         <div className='Toolbar'>
             <Logo />
-            <MenuDrawerToggle menu={props.menu} menuToggleHandler={props.menuToggleHandler}/>
+            <MenuDrawerToggle menu={props.menu} menuToggleHandler={props.menuToggleHandler.bind(this, "mobileNav")}/>
             <div className='toolbarLargeScreensOnly'>
-                <NavigationItems />
+                <NavigationItems 
+                    toggleProjectsShownHandler={props.toggleProjectsShownHandler}
+                    projectsShown={props.projectsShown}
+                    clicked={props.clicked.bind(this, "largeScreen")} 
+                />
             </div>
         </div>
     )

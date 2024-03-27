@@ -17,13 +17,22 @@ import Axios from 'axios';
 import CONST from '../../constants/constants';
 import Loader from '../../components/Ux/Loader/Loader';
 import SellYourItemsThroughRenewalHub from '../../containers/SellYourItemsThroughRenewalHub/SellYourItemsThroughRenewalHub';
+import RenewalShop from '../../containers/RenewalShop/RenewalShop';
 
 class Layout extends Component{
 
     state = {
         showSideDrawer: false,
         menu: false,
-        subjects: ["Renewal Hub", "Renewal Tech", "Renewal Impact", "Renewal Building Protocols", "Sell Items Through Renewal Hub", "Other"],
+        subjects: [
+            "Renewal Hub",
+            "Renewal Tech",
+            "Renewal Impact",
+            "Renewal Building Protocols",
+            "Sell Items Through Renewal Hub",
+            "Other",
+            "Shop"
+        ],
         subject: "",
         // Contact Form State
         enquirySubjectErrorMessage: "",
@@ -49,17 +58,25 @@ class Layout extends Component{
         loader: "",
         sendingMessageAlert: "",
         uploadImagePage: true,
-        redirectOnChoosingSellToRenewal: ""
+        redirectOnChoosingSellToRenewal: "",
+        projectsShown: false
     }
 
     sideDrawerToggleHandler = (nav) => {
         // if(nav === "nav"){
         //     FUNCTIONS.scrollToTop();
         // }
-        this.setState({
-            showSideDrawer: !this.state.showSideDrawer,
-            menu: !this.state.menu
-        })
+        if(nav === "mobileNav"){
+            this.setState({
+                showSideDrawer: !this.state.showSideDrawer,
+                menu: !this.state.menu
+            })
+            if(this.state.projectsShown){
+                this.toggleProjectsShownHandler();
+            }
+        } else if(nav === "largeScreen" && this.state.projectsShown) {
+            this.toggleProjectsShownHandler();
+        }
     }
 
     changeHandler = (event) => {
@@ -240,11 +257,19 @@ class Layout extends Component{
         })
     }
 
+    toggleProjectsShownHandler = () => {
+        this.setState({
+            projectsShown: !this.state.projectsShown
+        })
+    }
+
 render(){
 
     let sideDrawer =    <SideDrawer 
                             open={this.state.showSideDrawer} 
-                            clicked={this.sideDrawerToggleHandler} 
+                            clicked={this.sideDrawerToggleHandler}
+                            toggleProjectsShownHandler={this.toggleProjectsShownHandler}
+                            projectsShown={this.state.projectsShown}
                         />;
 
     // Prevent scrolling if menu open
@@ -260,12 +285,16 @@ render(){
             <Toolbar    
                 menu={this.state.menu} 
                 menuToggleHandler={this.sideDrawerToggleHandler} 
-                showSideDrawer={this.state.showSideDrawer} 
+                showSideDrawer={this.state.showSideDrawer}
+                clicked={this.sideDrawerToggleHandler}
+                toggleProjectsShownHandler={this.toggleProjectsShownHandler}
+                projectsShown={this.state.projectsShown}
             />
             {sideDrawer}
             <ParallaxProvider>
                 <Routes>
                     <Route path='/' element={<LandingPage subjects={this.state.subjects} subject={this.state.subject} />} />
+                    <Route path='/renewal-shop' element={<RenewalShop subjects={this.state.subjects} subject={this.state.subject} />} />
                     <Route path="/renewal-hub" exact element={<RenewalHub subjects={this.state.subjects} subject={this.state.subject} />} />
                     <Route path="/renewal-tech" exact element={<RenewalTech subjects={this.state.subjects} subject={this.state.subject} />} />
                     <Route path="/renewal-impact" exact element={<RenewalImpact subjects={this.state.subjects} subject={this.state.subject} />} />
