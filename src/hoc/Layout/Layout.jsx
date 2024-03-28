@@ -18,6 +18,7 @@ import CONST from '../../constants/constants';
 import Loader from '../../components/Ux/Loader/Loader';
 import SellYourItemsThroughRenewalHub from '../../containers/SellYourItemsThroughRenewalHub/SellYourItemsThroughRenewalHub';
 import RenewalShop from '../../containers/RenewalShop/RenewalShop';
+import RenewalTransport from '../../containers/RenewalTransport/RenewalTransport';
 
 class Layout extends Component{
 
@@ -31,15 +32,30 @@ class Layout extends Component{
             "Renewal Building Protocols",
             "Sell Items Through Renewal Hub",
             "Other",
-            "Shop"
+            "Shop",
+            "Renewal Transport"
         ],
         subject: "",
+        transportServices: [
+            "Disposal",
+            "Clearance",
+            "Move",
+            "Delivery"
+        ],
+        transportService: "",
         // Contact Form State
         enquirySubjectErrorMessage: "",
         enquiryName: "",
         enquiryNameErrorMessage: "",
         enquiryEmail: "",
         enquiryEmailErrorMessage: "",
+        enquiryCollectionAddress: "",
+        enquiryCollectionAddressErrorMessage: "",
+        enquiryDeliveryAddress: "",
+        enquiryDeliveryAddressErrorMessage: "",
+        startDate: new Date(),
+        enquiryDate: "",
+        enquiryDateErrorMessage: "",
         enquiryData: "",
         enquiryDataErrorMessage: "",
         messageSent: false,
@@ -79,6 +95,13 @@ class Layout extends Component{
         }
     }
 
+    dateChangeHandler = (date) => {
+        this.setState({
+            enquiryDate: date,
+            enquiryDateErrorMessage: ""
+        })
+    }
+
     changeHandler = (event) => {
         const target = event.target;
         const name = target.name;
@@ -98,6 +121,8 @@ class Layout extends Component{
             enquiryEmailErrorMessage: "",
             enquiryDataErrorMessage: "",
             enquiryPillarErrorMessage: "",
+            enquiryCollectionAddressErrorMessage: "",
+            enquiryDeliveryAddressErrorMessage: "",
             image1Error: "",
             image2Error: "",
             image3Error: "",
@@ -105,6 +130,13 @@ class Layout extends Component{
             image5Error: "",
             image6Error: ""
         });
+    }
+
+    changeSubjectHandler = (subject) => {
+        this.setState({
+            subject: subject,
+            redirectOnChoosingSellToRenewal: <Navigate to="/contact-form" />
+        })
     }
 
     redirectRemovalHandler = () => {
@@ -129,6 +161,9 @@ class Layout extends Component{
         let enquiryEmailErrorMessage = "";
         let enquiryDataErrorMessage = "";
         let enquirySubjectErrorMessage = "";
+        let enquiryCollectionAddressErrorMessage = "";
+        let enquiryDeliveryAddressErrorMessage = "";
+        let enquiryDateErrorMessage = "";
 
         if(!EmailValidator.validate(this.state.enquiryEmail)){
             enquiryEmailErrorMessage = <h4 className="error">Please use a valid email</h4>
@@ -152,6 +187,43 @@ class Layout extends Component{
             enquirySubjectErrorMessage = <h4 className="error">Please enter your contact reason?</h4>
         }
 
+        if (this.state.subject === "" || this.state.subject === "select") {
+            enquirySubjectErrorMessage = <h4 className="error">Please enter your contact reason?</h4>
+        }
+
+        if (this.state.transportService === "Move" 
+            || 
+            this.state.transportService === "Delivery"
+            || 
+            this.state.transportService === "Disposal"
+            || 
+            this.state.transportService === "Clearance"
+            ) 
+        {
+            if(this.state.enquiryCollectionAddress === ""){
+                enquiryCollectionAddressErrorMessage = 
+                <h4 className="error">
+                    Please enter your collection Address?
+                </h4>
+            }
+        }
+
+        if (this.state.transportService === "Move" 
+            || this.state.transportService === "Delivery"
+            )
+        {
+            if(this.state.enquiryDeliveryAddress === ""){
+                enquiryDeliveryAddressErrorMessage = 
+                <h4 className="error">
+                    Please enter your delivery Address?
+                </h4>
+            }
+        }
+
+        if (this.state.enquiryDate === "") {
+            enquiryDateErrorMessage = <h4 className="error">Please select a date?</h4>
+        }
+
         if(!enquiryNameErrorMessage 
             && !enquiryEmailErrorMessage 
             && !enquiryDataErrorMessage
@@ -159,12 +231,20 @@ class Layout extends Component{
             && !this.state.image2Error
             && !this.state.image3Error
             && !this.state.image4Error
+            && !this.state.enquiryCollectionAddressErrorMessage
+            && !this.state.enquiryDeliveryAddressErrorMessage
+            && !this.state.enquiryDateErrorMessage
             ){
+            
             let fd = new FormData();
             fd.append('enquiryName', this.state.enquiryName);
             fd.append('enquiryEmail', this.state.enquiryEmail);
-            fd.append('subject', this.state.subject ? !this.state.subject : subject);
+            fd.append('subject', this.state.subject ? this.state.subject : subject);
             fd.append('enquiryData', this.state.enquiryData);
+            fd.append('transportService', this.state.transportService);
+            fd.append('enquiryCollectionAddress', this.state.enquiryCollectionAddress);
+            fd.append('enquiryDeliveryAddress', this.state.enquiryDeliveryAddress);
+            fd.append('enquiryDate', this.state.enquiryDate ? this.state.enquiryDate.toLocaleDateString() : "");
 
             if(this.state.image1File){
                 fd.append('newImage1', this.state.image1File, this.state.image1File.name);
@@ -183,7 +263,7 @@ class Layout extends Component{
 
             this.setState({
                 loader: <Loader />,
-                sendingMessageAlert: <p>Compressing Images and submitting your enquiry. Please Wait.</p>
+                sendingMessageAlert: <p>Submitting your enquiry. Please Wait.</p>
             })
 
             Axios.post(CONST.BASE_URL + '/api/new-enquiry', fd).then(response =>{
@@ -193,6 +273,12 @@ class Layout extends Component{
                     enquiryEmail: "",
                     enquiryEmailErrorMessage: "",
                     subject: "",
+                    enquiryCollectionAddress: "",
+                    enquiryCollectionAddressErrorMessage: "",
+                    enquiryDeliveryAddress: "",
+                    enquiryDeliveryAddressErrorMessage: "",
+                    enquiryDate: "",
+                    enquiryDateErrorMessage: "",
                     enquiryData: "",
                     enquiryDataErrorMessage: "",
                     image1File: "",
@@ -232,7 +318,10 @@ class Layout extends Component{
                 enquiryNameErrorMessage: enquiryNameErrorMessage,
                 enquiryEmailErrorMessage: enquiryEmailErrorMessage,
                 enquiryDataErrorMessage: enquiryDataErrorMessage,
-                enquirySubjectErrorMessage: enquirySubjectErrorMessage
+                enquirySubjectErrorMessage: enquirySubjectErrorMessage,
+                enquiryCollectionAddressErrorMessage: enquiryCollectionAddressErrorMessage,
+                enquiryDeliveryAddressErrorMessage: enquiryDeliveryAddressErrorMessage,
+                enquiryDateErrorMessage: enquiryDateErrorMessage
             })
         }
     }
@@ -278,7 +367,7 @@ render(){
     } else {
         document.body.style.overflow = 'visible';
     }
-
+    
     return (
         <div className='Layout'>
             {this.state.redirectOnChoosingSellToRenewal}
@@ -297,6 +386,7 @@ render(){
                     <Route path='/renewal-shop' element={<RenewalShop subjects={this.state.subjects} subject={this.state.subject} />} />
                     <Route path="/renewal-hub" exact element={<RenewalHub subjects={this.state.subjects} subject={this.state.subject} />} />
                     <Route path="/renewal-tech" exact element={<RenewalTech subjects={this.state.subjects} subject={this.state.subject} />} />
+                    <Route path="/renewal-transport" exact element={<RenewalTransport changeSubjectHandler={this.changeSubjectHandler} subjects={this.state.subjects} subject={this.state.subject} />} />
                     <Route path="/renewal-impact" exact element={<RenewalImpact subjects={this.state.subjects} subject={this.state.subject} />} />
                     <Route path="/renewal-building-protocols" exact element={<RenewalBuildingProtocols subjects={this.state.subjects} subject={this.state.subject} />} />
                     <Route path="/sell-your-items-through-renewal-hub" exact element={
@@ -338,6 +428,15 @@ render(){
                             subjects={this.state.subjects} 
                             subject={this.state.subject}
                             enquirySubjectErrorMessage={this.state.enquirySubjectErrorMessage}
+                            transportServices={this.state.transportServices}
+                            transportService={this.state.transportService}
+                            enquiryCollectionAddress={this.state.enquiryCollectionAddress}
+                            enquiryCollectionAddressErrorMessage={this.state.enquiryCollectionAddressErrorMessage}
+                            enquiryDeliveryAddress={this.state.enquiryDeliveryAddress}
+                            enquiryDeliveryAddressErrorMessage={this.state.enquiryDeliveryAddressErrorMessage}
+                            startDate={this.state.startDate}
+                            enquiryDate={this.state.enquiryDate}
+                            enquiryDateErrorMessage={this.state.enquiryDateErrorMessage}
                             enquiryName={this.state.enquiryName}
                             enquiryNameErrorMessage={this.state.enquiryNameErrorMessage}
                             enquiryEmail={this.state.enquiryEmail}
@@ -348,7 +447,11 @@ render(){
                             sendingMessageAlert={this.state.sendingMessageAlert}
                             loader={this.state.loader}
                             changeHandler={this.changeHandler}
+                            dateChangeHandler={this.dateChangeHandler}
                             submitContactFormHandler={this.submitContactFormHandler}
+                            flashMessageRemoveSavedMessaegHandler={this.flashMessageRemoveSavedMessaegHandler}
+                            redirectRemovalHandler={this.redirectRemovalHandler}
+                            redirectOnChoosingSellToRenewal={this.state.redirectOnChoosingSellToRenewal}
                         />} 
                     />
                 </Routes>

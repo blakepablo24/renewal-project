@@ -1,19 +1,19 @@
-.contactForm {
+.contactFormContainer {
     grid-area: main;
+    min-height: 91.5vh;
+    height: minmax(91.5vh, auto);
+    background: var(--second-bg-trans);
 }
 
 .contactForm {
     display: grid;
-    place-items: center center;
+    place-items: start center;
     width: 100%;
-    grid-gap: 15px;
-    background: var(--second-bg-trans);
-    padding: 10vh 0;
-    height: minmax(91.5vh, auto);
 }
 
 .contactFormTitle {
     width: 100%;
+    margin: 10px 0;
 }
 
 .contactFormInput {
@@ -22,6 +22,13 @@
     text-align: center;
     border: none;
     border-radius: 15px;
+    margin-top: 10px;
+}
+
+.conditionalDeliveryAddressContainer {
+    display: grid;
+    place-items: start center;
+    width: 100%;
 }
 
 .imageContainer {
@@ -35,10 +42,30 @@
     resize: none;
     border: none;
     border-radius: 15px;
+    margin-top: 10px;
 }
 
 input:focus, textarea:focus, select:focus {
     outline-color: var(--main-txt);
+}
+
+.selectDateContainer {
+    width: 100%;
+    display: grid;
+    place-items: center center;
+}
+
+/* mobile landscape */
+@media only screen and (min-width : 321px) and (max-width : 1023px) and (orientation : landscape) {
+    .contactFormInput {
+        width: 60%;
+        height: 12.5vh;
+    }
+    
+    .contactFormTextArea {
+        width: 60%;
+        height: 20vh;
+    }
 }
 
 @media only screen and (min-width: 1024px) and (orientation: landscape) {

@@ -16,9 +16,24 @@
 }
 
 .policy-container {
+    margin-top: 10px;
     display: grid;
     place-items: center center;
     height: 100%;
     width: 100%;
     grid-auto-flow: column;
+}
+
+.contact-information {
+    display: grid;
+    place-items: center center;
+    grid-auto-flow: column;
+}
+
+.contact-information svg {
+    margin-right: 5px;
+}
+
+.footer-header {
+    margin: 10px 0;
 }

@@ -2,11 +2,23 @@ import React from 'react';
 import './Footer.css';
 import { FaTwitter, FaLinkedin, FaFacebookSquare } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { FaPhone, FaAt } from "react-icons/fa";
 
 const footer = (props) => {
     return(
         <div className='Footer'>
-            <p>Find us on Social Media</p>
+            <p className='footer-header'>Contact Information</p>
+            <div className="policy-container">
+                <div className='contact-information'>
+                    <FaPhone />
+                    <p>07795304633</p>
+                </div>
+                <div className='contact-information'>
+                    <FaAt />
+                    <p>info@renewal-project.com</p>
+                </div>
+            </div>
+            <p className='footer-header'>Find us on Social Media</p>
             <div className='links'>
                 <FaFacebookSquare />
                 <FaTwitter />
@@ -16,7 +28,7 @@ const footer = (props) => {
                 <Link to="/cookie-policy" ><p>Cookie Policy</p></Link>
                 <Link to="/privacy-policy" ><p>Privacy Policy</p></Link>
             </div>
-            <p>Rights reserved renewal project.</p>
+            <p className='footer-header'>Rights reserved renewal project.</p>
         </div>
     )
 }

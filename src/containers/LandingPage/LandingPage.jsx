@@ -13,6 +13,7 @@ import renewalTechImage from '../../assets/solar-panels.jpg';
 import renewalHubImage from '../../assets/4.jpg';
 import renewalImpactImage from '../../assets/2.jpg';
 import renewalShopImage from '../../assets/shop-banner-image.png';
+import renewalTransport from '../../assets/renewal-transport-banner.jpg';
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 
 class LandingPage extends Component {
@@ -41,6 +42,12 @@ class LandingPage extends Component {
                 <div className={classes.fadedBackground}>
                     <h1 className={classes.imageHeadings}>Renewal Tech</h1>
                     <h1 className={classes.imageHeadings}>rethink, redetermine, renew</h1>
+                </div>
+            </Link>,
+            <Link to='/renewal-transport' className={classes.mainHalfScreen + ' ' + classes.fadeImage1} style={{ backgroundImage: `linear-gradient(rgba(255,255,255,.15), rgba(255,255,255,.15)),url(${renewalTransport})`, backgroundSize: '100% 100%' }}>
+                <div className={classes.fadedBackground}>
+                    <h1 className={classes.imageHeadings}>Renewal Transport</h1>
+                    <h2 className={classes.imageHeadings}>Sustainable Transport Solutions for a Greener Future</h2>
                 </div>
             </Link>,
             <Link to='/renewal-impact' className={classes.mainHalfScreen + ' ' + classes.fadeImage1} style={{ backgroundImage: `linear-gradient(rgba(255,255,255,.15), rgba(255,255,255,.15)),url(${renewalImpactImage})`, backgroundSize: '100% 100%' }}>
