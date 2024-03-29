@@ -1,0 +1,41 @@
+.PrivacyPolicyModal {
+    position: fixed;
+    bottom: 2.5vh;
+    left: 10vw;
+    color: var(--second-bg);
+    background-color: var(--main-txt);
+    width: 80vw;
+    height: 7.5vh;
+    display: grid;
+    place-items: center center;
+    grid-auto-flow: column;
+    border-radius: 5px;
+    text-align: left;
+    padding: 0 5%;
+    z-index: 1;
+}
+
+.PrivacyPolicyModal p, .PrivacyPolicyModal a {
+    font-size: 0.8rem;
+    color: var(--second-bg);
+}
+
+@media only screen and (min-width: 1024px) and (orientation: landscape) {
+    .PrivacyPolicyModal {
+        left: 1.5vw;
+        width: 15vw;
+        height: 5vh;
+        padding: 0 2.5%;
+        bottom: 1.5vh;
+    }
+}
+
+/* mobile landscape */
+@media only screen and (min-width : 321px) and (max-width : 1023px) and (orientation : landscape) {
+    .PrivacyPolicyModal {
+        left: 5vw;
+        width: 30vw;
+        height: auto;
+        padding: 0 2.5%;
+    }
+}

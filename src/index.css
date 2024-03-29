@@ -119,6 +119,11 @@ p {
   place-items: center center;
 }
 
+.policy-title, .policy-paragraph {
+  text-align: left;
+  margin: 10px 10px 0 10px;
+}
+
 /* Small Laptop and landscape tablets/ipads */
 @media only screen and (min-width: 1024px) and (max-width : 1023px) and (orientation: landscape) {
 }

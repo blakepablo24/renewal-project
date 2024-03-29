@@ -19,6 +19,9 @@ import Loader from '../../components/Ux/Loader/Loader';
 import SellYourItemsThroughRenewalHub from '../../containers/SellYourItemsThroughRenewalHub/SellYourItemsThroughRenewalHub';
 import RenewalShop from '../../containers/RenewalShop/RenewalShop';
 import RenewalTransport from '../../containers/RenewalTransport/RenewalTransport';
+import PrivacyPolicyModal from '../../components/Ui/PrivacyPolicy/PrivacyPolicyModal';
+import CookiesPolicy from '../../containers/CookiesPolicy/CookiesPolicy';
+import PrivacyPolicy from '../../containers/PrivacyPolicy/PrivacyPolicy';
 
 class Layout extends Component{
 
@@ -75,7 +78,47 @@ class Layout extends Component{
         sendingMessageAlert: "",
         uploadImagePage: true,
         redirectOnChoosingSellToRenewal: "",
-        projectsShown: false
+        projectsShown: false,
+        showPrivacyPolicyModal: false
+    }
+
+    componentDidMount = () => { 
+        if(!this.getCookie("visitedBefore")) {
+            this.setState({
+                showPrivacyPolicyModal: true
+            })
+        }
+    }
+
+    showPrivacyPolicyToggleHandler = () => {
+        
+    }
+
+    setCookie = (cname, cvalue, exdays) => {
+        const d = new Date();
+        d.setTime(d.getTime() + (exdays * 1000 * 60 * 60 * 24 * 365));
+        let expires = "expires="+d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+
+    getCookie = (cname) => {
+        let allCookies = document.cookie.split(';');
+        let cookieExists = false;
+        allCookies.forEach(cookie => {
+            if(cookie.trim() === cname+"="+true){
+                cookieExists = true
+            }
+        });
+        return cookieExists;
+    }
+
+    toggleCookiePolicyModal = () => {
+        this.setState({
+            showPrivacyPolicyModal: !this.state.showPrivacyPolicyModal
+        })
+        if(!this.getCookie("visitedBefore")) {
+            this.setCookie("visitedBefore", true, 30)
+        }
     }
 
     sideDrawerToggleHandler = (nav) => {
@@ -354,6 +397,8 @@ class Layout extends Component{
 
 render(){
 
+    let privacyPolicyModal = "";
+
     let sideDrawer =    <SideDrawer 
                             open={this.state.showSideDrawer} 
                             clicked={this.sideDrawerToggleHandler}
@@ -367,9 +412,16 @@ render(){
     } else {
         document.body.style.overflow = 'visible';
     }
+
+    if(this.state.showPrivacyPolicyModal){
+        privacyPolicyModal =    <PrivacyPolicyModal
+                                    toggleCookiePolicyModal={this.toggleCookiePolicyModal}
+                                />;
+    }
     
     return (
         <div className='Layout'>
+            {privacyPolicyModal}
             {this.state.redirectOnChoosingSellToRenewal}
             <Toolbar    
                 menu={this.state.menu} 
@@ -389,6 +441,8 @@ render(){
                     <Route path="/renewal-transport" exact element={<RenewalTransport changeSubjectHandler={this.changeSubjectHandler} subjects={this.state.subjects} subject={this.state.subject} />} />
                     <Route path="/renewal-impact" exact element={<RenewalImpact subjects={this.state.subjects} subject={this.state.subject} />} />
                     <Route path="/renewal-building-protocols" exact element={<RenewalBuildingProtocols subjects={this.state.subjects} subject={this.state.subject} />} />
+                    <Route path="/cookie-policy" exact element={<CookiesPolicy />} />
+                    <Route path="/privacy-policy" exact element={<PrivacyPolicy />} />
                     <Route path="/sell-your-items-through-renewal-hub" exact element={
                         <SellYourItemsThroughRenewalHub 
                             image1File={this.state.image1File}

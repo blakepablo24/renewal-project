@@ -17,7 +17,7 @@ const navigationItems = (props) => {
                     <NavigationItem clicked={props.clicked} link="/renewal-shop" linkName="shop"/>
                     {/* <NavigationItem clicked={props.clicked} link="/about-us" linkName="about us"/> */}
                     <div className={classes.projectOverallContainer}>
-                        <h5 className={classes.projects} onClick={props.toggleProjectsShownHandler} >Projects</h5>
+                        <h5 className={classes.projects} onClick={props.toggleProjectsShownHandler} >projects</h5>
                         <div className={projectsShown}>
                             <NavigationItem clicked={props.clicked} link="/renewal-hub" linkName="renewal hub"/>
                             <NavigationItem clicked={props.clicked} link="/renewal-tech" linkName="renewal tech"/>

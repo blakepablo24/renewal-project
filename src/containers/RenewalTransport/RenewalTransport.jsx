@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import classes from './RenewalTransport.module.css';
 import { Link } from 'react-router-dom';
 import assetDisposal from '../../assets/asset-disposal.jpg'
 import clearance from '../../assets/clearance.jpg';
 import moves from '../../assets/moves.jpg';
 import collectionDelivery from '../../assets/collection-delivery.jpg';
+import FUNCTIONS from '../../functions/functions';
 
 export default function RenewalTransport(props){
 
-
+    useEffect(() => {
+        FUNCTIONS.scrollToTop();
+      });
 
     return(
         <div className={classes.renewalTransport}>

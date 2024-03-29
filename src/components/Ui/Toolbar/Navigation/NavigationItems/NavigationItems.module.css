@@ -104,6 +104,7 @@
     }
 }
 
+/* mobile landscape */
 @media only screen and (min-width : 321px) and (max-width : 1023px) and (orientation : landscape) {
     
     .NavigationItems {
@@ -117,7 +118,20 @@
 
     .topNavItemsContainer, .bottomNavItemsContainer {
         height: 100%;
-    }  
+    }
+
+    .projectContainerShown {
+        width: 45vw;
+        position: absolute;
+        display: grid;
+        place-items: center center;
+        background: var(--second-bg);
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+        left: 35vw;
+        bottom: -15vh;
+        height: 30vh;
+    }
 }
 
 @media only screen and (min-width: 1600px) and (orientation: landscape) {
