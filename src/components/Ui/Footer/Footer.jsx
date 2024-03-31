@@ -7,7 +7,6 @@ import { FaPhone, FaAt } from "react-icons/fa";
 const footer = (props) => {
     return(
         <div className='Footer'>
-            <p className='footer-header'>Contact Information</p>
             <div className="policy-container">
                 <div className='contact-information'>
                     <FaPhone />
@@ -18,7 +17,6 @@ const footer = (props) => {
                     <p>info@renewal-project.com</p>
                 </div>
             </div>
-            <p className='footer-header'>Find us on Social Media</p>
             <div className='links'>
                 <FaFacebookSquare />
                 <FaTwitter />

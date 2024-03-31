@@ -12,6 +12,7 @@ import laptopsDesktopsPrinters from '../../assets/laptops-desktops-printers.jpg'
 import musicSoundCameraPhotography from '../../assets/music-sound-camera-photography.jpg';
 import sportsFitnessEquipment from '../../assets/sports-fitness-equipment.jpg';
 import toysGames from '../../assets/toys-games.jpg';
+import renewableProducts from '../../assets/renewable-products.png';
 
 export default function RenewalShop(props) {
     
@@ -21,6 +22,11 @@ export default function RenewalShop(props) {
     // ]
 
     const shoppingCategories = [
+        {
+            title: "Renewable Products",
+            image: renewableProducts,
+            link: "https://5d164f.myshopify.com/collections/all"
+        },
         {
             title: "DIY and Power Tools",
             image: diyPowerTools,
@@ -78,16 +84,16 @@ export default function RenewalShop(props) {
             </div>
             <div className={classes.shoppingLinkContainer}>
                 <Link className='main-button' to='https://www.ebay.co.uk/str/renewalproject'>
-                    <div className={classes.shopLinkContainer}>
-                        <h4>CHECK OUT OUR</h4>
-                        <img className={classes.linkImage} src={ebay}/>
-                    </div>
+                    {/* <div className={classes.shopLinkContainer}> */}
+                        <h4>CHECK OUT OUR EBAY</h4>
+                        {/* <img className={classes.linkImage} src={ebay}/> */}
+                    {/* </div> */}
                 </Link>
                 <Link className='main-button' to='https://5d164f.myshopify.com/collections/all'>
-                    <div className={classes.shopLinkContainer}>
-                        <h4>CHECK OUT OUR</h4>
-                        <img className={classes.linkImage} src={shopify}/>
-                    </div>
+                    {/* <div className={classes.shopLinkContainer}> */}
+                        <h4>CHECK OUT OUR SHOPIFY</h4>
+                        {/* <img className={classes.linkImage} src={shopify}/> */}
+                    {/* </div> */}
                 </Link>
             </div>
             <h2 className={classes.renewalImpactSubTitle}>Browse through our wide range of products</h2>
@@ -101,6 +107,7 @@ export default function RenewalShop(props) {
                 </Link>
                 )}
             </div>
+            
             <Link className='main-button' to='/contact-form'>
                 <h4>Contact Us</h4>
             </Link>

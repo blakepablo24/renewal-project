@@ -1,11 +1,14 @@
 .renewalShop {
     grid-area: main;
+    display: grid;
+    place-items: center center;
+    width: 100%;
 }
 
 .shopLinkContainer {
     display: grid;
     place-items: center center;
-    grid: 1fr / 6fr 4fr;
+    grid: 1fr / 8fr 2fr;
     width: 95%;
 }
 
@@ -48,6 +51,11 @@
 .shoppingLinkContainer {
     display: grid;
     place-items: center center;
+    width: 100%;
+}
+
+.renewalImpactSubTitle {
+    margin: 25px 0;
 }
 
 /* mobile landscape */

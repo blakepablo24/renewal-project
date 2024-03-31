@@ -9,9 +9,9 @@ import pierImage from '../../assets/3.jpg';
 import { Link } from 'react-router-dom';
 import FUNCTIONS from '../../functions/functions';
 import renewalBuildProtocolsImage from '../../assets/building-protocols-01.jpg';
-import renewalTechImage from '../../assets/solar-panels.jpg';
-import renewalHubImage from '../../assets/4.jpg';
-import renewalImpactImage from '../../assets/2.jpg';
+import renewalTechImage from '../../assets/renewal-tech-banner.jpg';
+import renewalHubImage from '../../assets/renewal-hub-banner.png';
+import renewalImpactImage from '../../assets/renewal-impact-banner.jpg';
 import renewalShopImage from '../../assets/shop-banner-image.png';
 import renewalTransport from '../../assets/renewal-transport-banner.jpg';
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
@@ -20,12 +20,12 @@ class LandingPage extends Component {
 
     state = {
         bannerItems: [
-            <div className={classes.mainHalfScreen + ' ' + classes.fadeImage} style={{ backgroundImage: `linear-gradient(rgba(255,255,255,.15), rgba(255,255,255,.15)),url(${forest})`, backgroundSize: '100% 100%' }}>
+            <Link to="" className={classes.mainHalfScreen + ' ' + classes.fadeImage} style={{ backgroundImage: `linear-gradient(rgba(255,255,255,.15), rgba(255,255,255,.15)),url(${forest})`, backgroundSize: '100% 100%' }}>
                 <div className={classes.fadedBackground}>
                     <h1 className={classes.imageHeadings}>Renewal Project</h1>
                     <h1 className={classes.imageHeadings}>rethink, redetermine, renew</h1>
                 </div>
-            </div>,
+            </Link>,
             <Link to='/renewal-shop' className={classes.mainHalfScreen + ' ' + classes.fadeImage1} style={{ backgroundImage: `linear-gradient(rgba(255,255,255,.15), rgba(255,255,255,.15)),url(${renewalShopImage})`, backgroundSize: '100% 100%' }}>
                 <div className={classes.fadedBackground}>
                     <h1 className={classes.imageHeadings}>Shop</h1>
@@ -35,31 +35,31 @@ class LandingPage extends Component {
             <Link to='/renewal-hub' className={classes.mainHalfScreen + ' ' + classes.fadeImage1} style={{ backgroundImage: `linear-gradient(rgba(255,255,255,.15), rgba(255,255,255,.15)),url(${renewalHubImage})`, backgroundSize: '100% 100%' }}>
                 <div className={classes.fadedBackground}>
                     <h1 className={classes.imageHeadings}>Renewal Hub</h1>
-                    <h1 className={classes.imageHeadings}>Sell Your Items</h1>
+                    <h1 className={classes.imageHeadings}>Trade In Your Unwanted Items</h1>
                 </div>
             </Link>,
             <Link to='/renewal-tech' className={classes.mainHalfScreen + ' ' + classes.fadeImage} style={{ backgroundImage: `linear-gradient(rgba(255,255,255,.15), rgba(255,255,255,.15)),url(${renewalTechImage})`, backgroundSize: '100% 100%' }}>
                 <div className={classes.fadedBackground}>
                     <h1 className={classes.imageHeadings}>Renewal Tech</h1>
-                    <h1 className={classes.imageHeadings}>rethink, redetermine, renew</h1>
+                    <h1 className={classes.imageHeadings}>Sustainable IT Solutions</h1>
                 </div>
             </Link>,
             <Link to='/renewal-transport' className={classes.mainHalfScreen + ' ' + classes.fadeImage1} style={{ backgroundImage: `linear-gradient(rgba(255,255,255,.15), rgba(255,255,255,.15)),url(${renewalTransport})`, backgroundSize: '100% 100%' }}>
                 <div className={classes.fadedBackground}>
                     <h1 className={classes.imageHeadings}>Renewal Transport</h1>
-                    <h2 className={classes.imageHeadings}>Sustainable Transport Solutions for a Greener Future</h2>
+                    <h1 className={classes.imageHeadings}>Sustainable Transport Solutions</h1>
                 </div>
             </Link>,
             <Link to='/renewal-impact' className={classes.mainHalfScreen + ' ' + classes.fadeImage1} style={{ backgroundImage: `linear-gradient(rgba(255,255,255,.15), rgba(255,255,255,.15)),url(${renewalImpactImage})`, backgroundSize: '100% 100%' }}>
                 <div className={classes.fadedBackground}>
                     <h1 className={classes.imageHeadings}>Renewal Impact</h1>
-                    <h1 className={classes.imageHeadings}>rethink, redetermine, renew</h1>
+                    <h1 className={classes.imageHeadings}>Climate Change Initiatives</h1>
                 </div>
             </Link>,
             <Link to='/renewal-building-protocols' className={classes.mainHalfScreen + ' ' + classes.fadeImage} style={{ backgroundImage: `linear-gradient(rgba(255,255,255,.15), rgba(255,255,255,.15)),url(${renewalBuildProtocolsImage})`, backgroundSize: '100% 100%' }}>
                 <div className={classes.fadedBackground}>
                     <h1 className={classes.imageHeadings}>Renewal Building Protocols</h1>
-                    <h1 className={classes.imageHeadings}>rethink, redetermine, renew</h1>
+                    <h1 className={classes.imageHeadings}>Improve Your Green Building Standards</h1>
                 </div>
             </Link>
         ],

@@ -13,21 +13,21 @@ const navigationItems = (props) => {
         return(
             <div className={classes.NavigationItems}>
                 <div className={classes.topNavItemsContainer}>
-                    <NavigationItem clicked={props.clicked} link="/" linkName="home"/>
-                    <NavigationItem clicked={props.clicked} link="/renewal-shop" linkName="shop"/>
+                    <NavigationItem clicked={props.clicked} link="/" linkName="Home"/>
+                    <NavigationItem clicked={props.clicked} link="/renewal-shop" linkName="Shop"/>
                     {/* <NavigationItem clicked={props.clicked} link="/about-us" linkName="about us"/> */}
                     <div className={classes.projectOverallContainer}>
-                        <h5 className={classes.projects} onClick={props.toggleProjectsShownHandler} >projects</h5>
+                        <h5 className={classes.projects} onClick={props.toggleProjectsShownHandler} >Projects</h5>
                         <div className={projectsShown}>
-                            <NavigationItem clicked={props.clicked} link="/renewal-hub" linkName="renewal hub"/>
-                            <NavigationItem clicked={props.clicked} link="/renewal-tech" linkName="renewal tech"/>
-                            <NavigationItem clicked={props.clicked} link="/renewal-transport" linkName="renewal transport"/>
-                            <NavigationItem clicked={props.clicked} link="/renewal-impact" linkName="renewal impact"/>
-                            <NavigationItem clicked={props.clicked} link="/renewal-building-protocols" linkName="renewal building protocols"/>
+                            <NavigationItem clicked={props.clicked} link="/renewal-hub" linkName="Renewal Hub"/>
+                            <NavigationItem clicked={props.clicked} link="/renewal-tech" linkName="Renewal Tech"/>
+                            <NavigationItem clicked={props.clicked} link="/renewal-transport" linkName="Renewal Transport"/>
+                            <NavigationItem clicked={props.clicked} link="/renewal-impact" linkName="Renewal Impact"/>
+                            <NavigationItem clicked={props.clicked} link="/renewal-building-protocols" linkName="Renewal Building Protocols"/>
                         </div>
                     </div>
                     {/* <NavigationItem clicked={props.clicked} link="/contribute-to-the-cause" linkName="contribute to the cause"/> */}
-                    <NavigationItem clicked={props.clicked} link="/contact-form" linkName="contact us"/>
+                    <NavigationItem clicked={props.clicked} link="/contact-form" linkName="Contact Us"/>
                 </div>
             </div>           
         )

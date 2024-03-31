@@ -40,7 +40,7 @@ class RenewalImpact extends Component{
                     <div className='sub-intro-section'>
                         <h2 className={classes.renewalImpactSubTitle}>Clean Water</h2>
                         <div className='image-and-paragraphs-container'>
-                        <img className='main-image' src={cleanWater} />
+                            <img className='main-image' src={cleanWater} />
                             <div className='paragraph-container'>
                                 <p className='pillar-paragraph'>
                                     Access to clean and safe drinking water is a fundamental human right. Renewal Impact is dedicated to tackling water-related challenges and improving water quality. Through the provision of advanced water filtration systems and comprehensive education on hygiene and sanitation practices, we empower communities to lead healthier lives. Our goal is to ensure that everyone has access to clean water, contributing to improved health outcomes and sustainable development.
@@ -48,27 +48,25 @@ class RenewalImpact extends Component{
                             </div>
                         </div>
                     </div>
-                    <div className='landing-page-full-screen'>
                     <Link className='main-button' to='https://www.globalgiving.org/projects/provision-of-safe-drinking-water-with-water-filter/'>
                         <h4>See our clean water initiatives</h4>
                     </Link>
-                    <div className='sub-intro-section'>
-                        <h2 className={classes.renewalImpactSubTitle}>Renewable Energy</h2>
-                        <div className='image-and-paragraphs-container'>
-                            <img className='main-image' src={solarPanels} />
-                            <div className='paragraph-container'>
-                                <p className='pillar-paragraph'>
-                                    We believe in harnessing the power of nature to meet the growing energy demands of today and tomorrow. By leveraging renewable energy sources such as solar, wind, and hydroelectric power, we are revolutionising the way communities access and utilise electricity. Our cutting-edge solutions not only reduce dependence on fossil fuels but also create a cleaner and more sustainable energy ecosystem.
-                                </p>
+                    <div className='landing-page-full-screen'>
+                        <div className='sub-intro-section'>
+                            <h2 className={classes.renewalImpactSubTitle}>Renewable Energy</h2>
+                            <div className='image-and-paragraphs-container'>
+                                <img className='main-image' src={solarPanels} />
+                                <div className='paragraph-container'>
+                                    <p className='pillar-paragraph'>
+                                        We believe in harnessing the power of nature to meet the growing energy demands of today and tomorrow. By leveraging renewable energy sources such as solar, wind, and hydroelectric power, we are revolutionising the way communities access and utilise electricity. Our cutting-edge solutions not only reduce dependence on fossil fuels but also create a cleaner and more sustainable energy ecosystem.
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div className='landing-page-full-screen'>
                     <Link className='main-button' to='https://www.globalgiving.org/projects/energy-access-in-sierra-leone/'>
                         <h4>See our renewable energy initiatives</h4>
                     </Link>
-                    </div>
-                </div>
             </div>
         )
     }

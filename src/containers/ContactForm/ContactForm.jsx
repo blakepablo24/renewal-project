@@ -1,271 +1,299 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import classes from './ContactForm.module.css';
 import FUNCTIONS from '../../functions/functions';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import FlashMessage from '../../components/Ux/FlashMessage/FlashMessage';
 
-class ContactForm extends Component{
+export default function ContactForm(props){
 
-    componentDidMount(){
+    useEffect(() => {
         FUNCTIONS.scrollToTop();
-        if(this.props.redirectOnChoosingSellToRenewal){
-            this.props.redirectRemovalHandler();
+        if(props.redirectOnChoosingSellToRenewal){
+            props.redirectRemovalHandler();
         }
-    }
+      });
 
-    render(){
-
-        let contactFormSuccessMessage = "";
+      let contactFormSuccessMessage = "";
 
         let shownFormOptions = "";
 
-        if(this.props.messageSent){
-            contactFormSuccessMessage = <FlashMessage flashMessageRemoveSavedMessaegHandler={this.props.flashMessageRemoveSavedMessaegHandler} duration={15000} message="Thank you for your message. Renewal Project will get back to you as soon as possible" />;
+        let sortedSubjects = props.subjects.sort();
+
+        let sortedTransportServices = props.transportServices.sort();
+
+        if(props.messageSent){
+            contactFormSuccessMessage = <FlashMessage flashMessageRemoveSavedMessaegHandler={props.flashMessageRemoveSavedMessaegHandler} duration={15000} message="Thank you for your message. Renewal Project will get back to you as soon as possible" />;
         }
 
-        let displayedButton = <button onClick={this.props.submitContactFormHandler} className='main-button'>Submit</button>
+        let displayedButton = <button onClick={props.submitContactFormHandler} className='main-button'>Submit</button>
 
-        if(this.props.loader){
-            displayedButton = <button className='main-button'>{this.props.loader}</button>
+        if(props.loader){
+            displayedButton = <button className='main-button'>{props.loader}</button>
         }
 
         // Only select button when first coming to contact form
 
-        if (this.props.subject === "" || this.props.subject === "select") {
+        if (props.subject === "" || props.subject === "select") {
             shownFormOptions = <form className={classes.contactForm}>
                                     <h2 className={classes.contactFormTitle}>Renewal Project Contact Form</h2>
                                     <select
                                         className={classes.contactFormInput}
                                         name="subject"
-                                        value={this.props.subject}
-                                        onChange={this.props.changeHandler}
+                                        value={props.subject}
+                                        onChange={props.changeHandler}
                                     >
                                         <option value="select">Select Subject</option>
-                                        {this.props.subjects.map((subject, i) =>
-                                            <option key={i} name={subject} value={subject}>{subject}</option>
+                                        {
+                                        
+                                        sortedSubjects.map((sortedSubject, i) =>
+                                            <option key={i} name={sortedSubject} value={sortedSubject}>{sortedSubject}</option>
                                         )}
                                     </select>
-                                    {this.props.enquirySubjectErrorMessage}
+                                    {props.enquirySubjectErrorMessage}
                                     {contactFormSuccessMessage}
                                 </form>
         }
 
         if (
-            this.props.subject === "Renewal Hub" 
+            props.subject === "Renewal Hub" 
             || 
-            this.props.subject === "Renewal Tech"
+            props.subject === "Renewal Tech"
             || 
-            this.props.subject === "Renewal Impact"
+            props.subject === "Renewal Impact"
             || 
-            this.props.subject === "Renewal Building Protocols"
+            props.subject === "Renewal Building Protocols"
             || 
-            this.props.subject === "Shop"
+            props.subject === "Shop"
             || 
-            this.props.subject === "Other"
+            props.subject === "Other"
             ) {
 
         shownFormOptions = <form className={classes.contactForm}>
-                                <h2 className={classes.contactFormTitle}>{this.props.subject} Contact Form</h2>
+                                <h2 className={classes.contactFormTitle}>{props.subject} Contact Form</h2>
                                 <select
                                     className={classes.contactFormInput}
                                     name="subject"
-                                    value={this.props.subject}
-                                    onChange={this.props.changeHandler}
+                                    value={props.subject}
+                                    onChange={props.changeHandler}
                                 >
                                     <option value="select">Select Subject</option>
-                                    {this.props.subjects.map((subject, i) =>
-                                        <option key={i} name={subject} value={subject}>{subject}</option>
-                                    )}
+                                    {sortedSubjects.map((sortedSubject, i) =>
+                                            <option key={i} name={sortedSubject} value={sortedSubject}>{sortedSubject}</option>
+                                        )}
                                 </select>
-                                {this.props.enquirySubjectErrorMessage}
+                                {props.enquirySubjectErrorMessage}
                                 <input
                                     className={classes.contactFormInput}
                                     type='text' 
-                                    placeholder='Enter Your Name Here'
+                                    placeholder={props.placeHolderName}
                                     name='enquiryName'
-                                    value={this.props.enquiryName}
-                                    onChange={this.props.changeHandler}
+                                    value={props.enquiryName}
+                                    onChange={props.changeHandler}
                                 />
-                                {this.props.enquiryNameErrorMessage}
+                                {props.enquiryNameErrorMessage}
                                 <input
                                     className={classes.contactFormInput}
                                     type='email'
-                                    placeholder='Your Email Address'
+                                    placeholder={props.placeHolderEmail}
                                     name='enquiryEmail'
-                                    value={this.props.enquiryEmail}
-                                    onChange={this.props.changeHandler}
+                                    value={props.enquiryEmail}
+                                    onChange={props.changeHandler}
                                 />
-                                {this.props.enquiryEmailErrorMessage}
+                                {props.enquiryEmailErrorMessage}
+                                <input
+                                    className={classes.contactFormInput}
+                                    type='number'
+                                    placeholder={props.placeHolderPhone}
+                                    name='enquiryPhone'
+                                    value={props.enquiryPhone}
+                                    onChange={props.changeHandler}
+                                />
+                                {props.enquiryPhoneErrorMessage}
                                 <textarea
                                     className={classes.contactFormTextArea}
                                     type='text'
-                                    placeholder='Enter your query here'
+                                    placeholder={props.placeHolderQuery}
                                     name='enquiryData'
-                                    value={this.props.enquiryData}
-                                    onChange={this.props.changeHandler}
+                                    value={props.enquiryData}
+                                    onChange={props.changeHandler}
                                 />
-                                {this.props.enquiryDataErrorMessage}
-                                {this.props.sendingMessageAlert}
+                                {props.enquiryDataErrorMessage}
+                                {props.sendingMessageAlert}
                                 {displayedButton}
                             </form>
             }
 
             let transportFormInputs = "";
 
-            if (this.props.transportService === "Disposal" || this.props.transportService === "Clearance"){
+            if (props.transportService === "Disposal" || props.transportService === "Clearance"){
                 transportFormInputs = <div className={classes.conditionalDeliveryAddressContainer}>
                                         <input
                                             className={classes.contactFormInput}
                                             type='text' 
-                                            placeholder='Enter Your Name Here'
+                                            placeholder={props.placeHolderName}
                                             name='enquiryName'
-                                            value={this.props.enquiryName}
-                                            onChange={this.props.changeHandler}
+                                            value={props.enquiryName}
+                                            onChange={props.changeHandler}
                                         />
-                                        {this.props.enquiryNameErrorMessage}
+                                        {props.enquiryNameErrorMessage}
                                         <input
                                             className={classes.contactFormInput}
                                             type='email'
-                                            placeholder='Your Email Address'
+                                            placeholder={props.placeHolderEmail}
                                             name='enquiryEmail'
-                                            value={this.props.enquiryEmail}
-                                            onChange={this.props.changeHandler}
+                                            value={props.enquiryEmail}
+                                            onChange={props.changeHandler}
                                         />
-                                        {this.props.enquiryEmailErrorMessage}
+                                        {props.enquiryEmailErrorMessage}
+                                        <input
+                                            className={classes.contactFormInput}
+                                            type='number'
+                                            placeholder={props.placeHolderPhone}
+                                            name='enquiryPhone'
+                                            value={props.enquiryPhone}
+                                            onChange={props.changeHandler}
+                                        />
+                                        {props.enquiryPhoneErrorMessage}
                                         <input
                                             className={classes.contactFormInput}
                                             type='text' 
-                                            placeholder='Collection Address'
+                                            placeholder={props.placeHolderCollectionAddress}
                                             name='enquiryCollectionAddress'
-                                            value={this.props.enquiryCollectionAddress}
-                                            onChange={this.props.changeHandler}
+                                            value={props.enquiryCollectionAddress}
+                                            onChange={props.changeHandler}
                                         />
-                                        {this.props.enquiryCollectionAddressErrorMessage}
+                                        {props.enquiryCollectionAddressErrorMessage}
                                         <div className={classes.selectDateContainer}>
                                             <h3>Select preferred Date</h3>
                                             <DatePicker
                                                 showIcon
-                                                onChange={this.props.dateChangeHandler}
-                                                selected={this.props.enquiryDate}
+                                                onChange={props.dateChangeHandler}
+                                                selected={props.enquiryDate}
                                                 dateFormat="dd/MM/yyyy"
                                                 minDate={new Date()}
                                             />
                                         </div>
-                                        {this.props.enquiryDateErrorMessage}
+                                        {props.enquiryDateErrorMessage}
                                         <textarea
                                             className={classes.contactFormTextArea}
                                             type='text'
-                                            placeholder='Enter your enquiry here'
+                                            placeholder={props.placeHolderTransportQuery}
                                             name='enquiryData'
-                                            value={this.props.enquiryData}
-                                            onChange={this.props.changeHandler}
+                                            value={props.enquiryData}
+                                            onChange={props.changeHandler}
                                         />
-                                        {this.props.enquiryDataErrorMessage}
-                                        {this.props.sendingMessageAlert}
+                                        {props.enquiryDataErrorMessage}
+                                        {props.sendingMessageAlert}
                                         {displayedButton}
                                     </div>
             }
 
-            if (this.props.transportService === "Move" || this.props.transportService === "Delivery"){
+            if (props.transportService === "Move" || props.transportService === "Delivery"){
                 transportFormInputs = <div className={classes.conditionalDeliveryAddressContainer}>
                                         <input
                                             className={classes.contactFormInput}
                                             type='text' 
-                                            placeholder='Enter Your Name Here'
+                                            placeholder={props.placeHolderName}
                                             name='enquiryName'
-                                            value={this.props.enquiryName}
-                                            onChange={this.props.changeHandler}
+                                            value={props.enquiryName}
+                                            onChange={props.changeHandler}
                                         />
-                                        {this.props.enquiryNameErrorMessage}
+                                        {props.enquiryNameErrorMessage}
                                         <input
                                             className={classes.contactFormInput}
                                             type='email'
-                                            placeholder='Your Email Address'
+                                            placeholder={props.placeHolderEmail}
                                             name='enquiryEmail'
-                                            value={this.props.enquiryEmail}
-                                            onChange={this.props.changeHandler}
+                                            value={props.enquiryEmail}
+                                            onChange={props.changeHandler}
                                         />
-                                        {this.props.enquiryEmailErrorMessage}
+                                        <input
+                                            className={classes.contactFormInput}
+                                            type='number'
+                                            placeholder={props.placeHolderPhone}
+                                            name='enquiryPhone'
+                                            value={props.enquiryPhone}
+                                            onChange={props.changeHandler}
+                                        />
+                                        {props.enquiryPhoneErrorMessage}
+                                        {props.enquiryEmailErrorMessage}
                                         <input
                                             className={classes.contactFormInput}
                                             type='text' 
-                                            placeholder='Collection Address'
+                                            placeholder={props.placeHolderCollectionAddress}
                                             name='enquiryCollectionAddress'
-                                            value={this.props.enquiryCollectionAddress}
-                                            onChange={this.props.changeHandler}
+                                            value={props.enquiryCollectionAddress}
+                                            onChange={props.changeHandler}
                                         />
-                                        {this.props.enquiryCollectionAddressErrorMessage}
+                                        {props.enquiryCollectionAddressErrorMessage}
                                         <input
                                             className={classes.contactFormInput}
                                             type='text' 
-                                            placeholder='Delivery Address'
+                                            placeholder={props.placeHolderDeliveryAddress}
                                             name='enquiryDeliveryAddress'
-                                            value={this.props.enquiryDeliveryAddress}
-                                            onChange={this.props.changeHandler}
+                                            value={props.enquiryDeliveryAddress}
+                                            onChange={props.changeHandler}
                                         />
-                                        {this.props.enquiryDeliveryAddressErrorMessage}
+                                        {props.enquiryDeliveryAddressErrorMessage}
                                         <div className={classes.selectDateContainer}>
                                             <h3>Select preferred Date</h3>
                                             <DatePicker
-                                                onChange={this.props.dateChangeHandler}
-                                                selected={this.props.enquiryDate}
+                                                onChange={props.dateChangeHandler}
+                                                selected={props.enquiryDate}
                                                 dateFormat="dd/MM/yyyy"
                                                 minDate={new Date()}
                                                 disabledKeyboardNavigation
                                             />
                                         </div>
-                                        {this.props.enquiryDateErrorMessage}
+                                        {props.enquiryDateErrorMessage}
                                         <textarea
                                             className={classes.contactFormTextArea}
                                             type='text'
-                                            placeholder='List Items here to be collected and deliverred'
+                                            placeholder={props.placeHolderCollectionAndDeliveryItems}
                                             name='enquiryData'
-                                            value={this.props.enquiryData}
-                                            onChange={this.props.changeHandler}
+                                            value={props.enquiryData}
+                                            onChange={props.changeHandler}
                                         />
-                                        {this.props.enquiryDataErrorMessage}
-                                        {this.props.sendingMessageAlert}
+                                        {props.enquiryDataErrorMessage}
+                                        {props.sendingMessageAlert}
                                         {displayedButton}
                                     </div>
             }
 
-            if (this.props.subject === "Renewal Transport"){
+            if (props.subject === "Renewal Transport"){
                 shownFormOptions = <form className={classes.contactForm}>
-                                <h2 className={classes.contactFormTitle}>{this.props.subject} Contact Form</h2>
+                                <h2 className={classes.contactFormTitle}>{props.subject} Contact Form</h2>
                                 <select
                                     className={classes.contactFormInput}
                                     name="subject"
-                                    value={this.props.subject}
-                                    onChange={this.props.changeHandler}
+                                    value={props.subject}
+                                    onChange={props.changeHandler}
                                 >
                                     <option value="select">Select Subject</option>
-                                    {this.props.subjects.map((subject, i) =>
-                                        <option key={i} name={subject} value={subject}>{subject}</option>
+                                    {sortedSubjects.map((sortedSubject, i) =>
+                                        <option key={i} name={sortedSubject} value={sortedSubject}>{sortedSubject}</option>
                                     )}
                                 </select>
-                                {this.props.enquirySubjectErrorMessage}
+                                {props.enquirySubjectErrorMessage}
                                 <select
                                     className={classes.contactFormInput}
                                     name="transportService"
-                                    value={this.props.transportService}
-                                    onChange={this.props.changeHandler}
+                                    value={props.transportService}
+                                    onChange={props.changeHandler}
                                 >
                                     <option value="select">Select Transport Service</option>
-                                    {this.props.transportServices.map((transportService, i) =>
-                                        <option key={i} name={transportService} value={transportService}>{transportService}</option>
+                                    {sortedTransportServices.map((sortedTransportService, i) =>
+                                        <option key={i} name={sortedTransportService} value={sortedTransportService}>{sortedTransportService}</option>
                                     )}
                                 </select>
                                 {transportFormInputs}
                             </form>
             }
 
-        return (
-            <div className={classes.contactFormContainer}>
-                {shownFormOptions}
-            </div>
-        )
-    }
+    return(
+        <div className={classes.contactFormContainer}>
+            {shownFormOptions}
+        </div>
+    )
 }
-
-export default ContactForm

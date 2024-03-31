@@ -1,3 +1,6 @@
 .renewalTransport {
     grid-area: main;
+    display: grid;
+    place-items: center center;
+    width: 100%;
 }

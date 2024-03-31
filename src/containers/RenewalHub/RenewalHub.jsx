@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import classes from './RenewalHub.module.css';
-import { ParallaxProvider } from 'react-scroll-parallax';
 import { Link } from 'react-router-dom';
 import { GiMagnifyingGlass } from "react-icons/gi";
 import { TbTruckDelivery } from "react-icons/tb";
@@ -67,13 +66,13 @@ class RenewalHub extends Component{
                     <div className='landing-page-full-screen'>
                     <div className='image-and-paragraphs-container'>
                             <div className='paragraph-container'>
-                                <p className='landing-page-full-screen-paragraph'>Get in contact to take your first step towards a zero waste future.</p>
+                                <p className='pillar-paragraph'>Get in contact to take your first step towards a zero waste future.</p>
                             </div>
                             <img className='main-image' src={packageImage} />
                         </div>
                     </div>
                     <Link className='main-button' to=''>
-                        <h4>Check Out Our {this.props.subjects[0]} Store</h4>
+                        <h4>Contact Us</h4>
                     </Link>
             </div>
         )

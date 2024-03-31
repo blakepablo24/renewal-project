@@ -1,88 +1,94 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import classes from './SellYourItemsThroughRenewalHub.module.css';
 import ImageUpload from '../../components/Ui/ImageUpload/ImageUpload';
 import FlashMessage from '../../components/Ux/FlashMessage/FlashMessage';
+import FUNCTIONS from '../../functions/functions';
 
-class SellYourItemsThroughRenewalHub extends Component{
+export default function SellYourItemsThroughRenewalHub(props){
 
-    componentDidMount = () => {
-        if(this.props.redirectOnChoosingSellToRenewal){
-            this.props.redirectRemovalHandler();
+    useEffect(() => {
+        FUNCTIONS.scrollToTop();
+        if(props.redirectOnChoosingSellToRenewal){
+            props.redirectRemovalHandler();
         }
+      });
+
+    let successMessage = <h2 className={classes.SellYourItemsThroughRenewalHubTitle}>Sell Items Through Renewal Hub</h2>;
+
+    if(props.messageSent){
+        successMessage = <FlashMessage flashMessageRemoveSavedMessaegHandler={props.flashMessageRemoveSavedMessaegHandler} duration={15000} message="Thank you for your message. Renewal Project will review your items and let you know as soon as possible if the items will be accepted." />;
     }
 
-    render(){
-
-            let successMessage = <h2 className={classes.SellYourItemsThroughRenewalHubTitle}>Sell Items Through Renewal Hub</h2>;
-
-            if(this.props.messageSent){
-                successMessage = <FlashMessage flashMessageRemoveSavedMessaegHandler={this.props.flashMessageRemoveSavedMessaegHandler} duration={15000} message="Thank you for your message. Renewal Project will review your items and let you know as soon as possible if the items will be accepted." />;
-            }
-
-            let finalDisplayedButton =  <div className={classes.buttonsContainer}>
-                                            <button onClick={this.props.uploadImagePageHandler} className='main-button'>Back</button>
-                                            <button onClick={this.props.checkIfSellThroughRenewlHubHandler} className='main-button'>Submit</button>
-                                        </div>
-
-            if(this.props.loader){
-                finalDisplayedButton = <button className='main-button'>{this.props.loader}</button>
-            }
-
-            let shownNextButton = this.props.image1File && !this.props.image1Error && !this.props.image2Error && !this.props.image3Error && !this.props.image4Error ? <button onClick={this.props.uploadImagePageHandler} className='main-button'>Next</button> : <div className={classes.buttonsContainer}></div>;
-            let image2File = this.props.image1File &&  !this.props.image1Error ? <ImageUpload imageNumber="image2File" imageNumberError="image2Error" imagePreview="image2Preview" imagePopulatedPreview={this.props.image2Preview} imageError={this.props.image2Error} wording="Add 2nd Image?" sendData={this.props.getData} /> : "";
-            let image3File = this.props.image2File &&  !this.props.image2Error ? <ImageUpload imageNumber="image3File" imageNumberError="image3Error" imagePreview="image3Preview" imagePopulatedPreview={this.props.image3Preview} imageError={this.props.image3Error} wording="Add 3rd Image?" sendData={this.props.getData} /> : "";
-            let image4File = this.props.image3File &&  !this.props.image3Error ? <ImageUpload imageNumber="image4File" imageNumberError="image4Error" imagePreview="image4Preview" imagePopulatedPreview={this.props.image4Preview} imageError={this.props.image4Error} wording="Add 4th Image?" sendData={this.props.getData} /> : "";
-            let itemsToSellContainer =  <div className={classes.imageContainer}>
-                                            <ImageUpload imageNumber="image1File" imageNumberError="image1Error" imagePreview="image1Preview" imagePopulatedPreview={this.props.image1Preview} imageError={this.props.image1Error} wording="Add First Image?" sendData={this.props.getData} />
-                                            {image2File}
-                                            {image3File}
-                                            {image4File}
-                                        </div>
-            let shownPage =     <div className={classes.SellYourItemsThroughRenewalHubContainer}>
-                                    <h2 className={classes.contactFormTitle} >Upload upto 4 Images</h2>
-                                    {itemsToSellContainer}
-                                    {shownNextButton}
+    let finalDisplayedButton =  <div className={classes.buttonsContainer}>
+                                    <button onClick={props.uploadImagePageHandler} className='main-button'>Back</button>
+                                    <button onClick={props.checkIfSellThroughRenewlHubHandler} className='main-button'>Submit</button>
                                 </div>
-            if(!this.props.uploadImagePage){
-                shownPage = <div className={classes.SellYourItemsThroughRenewalHubContainerContactDetails}>
-                                <textarea
-                                    className={classes.SellYourItemsThroughRenewalHubTextArea}
-                                    type='text'
-                                    placeholder='List any details on your items here such as working or broken status'
-                                    name='enquiryData'
-                                    value={this.props.enquiryData}
-                                    onChange={this.props.changeHandler}
-                                />
-                                {this.props.enquiryDataErrorMessage}
-                                <input
-                                    className={classes.SellYourItemsThroughRenewalHubInput}
-                                    type='text' 
-                                    placeholder='Enter Your Name Here'
-                                    name='enquiryName'
-                                    value={this.props.enquiryName}
-                                    onChange={this.props.changeHandler}
-                                />
-                                {this.props.enquiryNameErrorMessage}
-                                <input
-                                    className={classes.SellYourItemsThroughRenewalHubInput}
-                                    type='email'
-                                    placeholder='Your Email Address'
-                                    name='enquiryEmail'
-                                    value={this.props.enquiryEmail}
-                                    onChange={this.props.changeHandler}
-                                />
-                                {this.props.enquiryEmailErrorMessage}
-                                {finalDisplayedButton}
-                            </div>
-            }
 
-        return(
-            <div className={classes.SellYourItemsThroughRenewalHub} >
-                {successMessage}
-                {shownPage}
-            </div>
-        )
+    if(props.loader){
+        finalDisplayedButton = <button className='main-button'>{props.loader}</button>
     }
-}
 
-export default SellYourItemsThroughRenewalHub
+    let shownNextButton = props.image1File && !props.image1Error && !props.image2Error && !props.image3Error && !props.image4Error ? <button onClick={props.uploadImagePageHandler} className='main-button'>Next</button> : <div className={classes.buttonsContainer}></div>;
+    let image2File = props.image1File &&  !props.image1Error ? <ImageUpload imageNumber="image2File" imageNumberError="image2Error" imagePreview="image2Preview" imagePopulatedPreview={props.image2Preview} imageError={props.image2Error} wording="Add 2nd Image?" sendData={props.getData} /> : "";
+    let image3File = props.image2File &&  !props.image2Error ? <ImageUpload imageNumber="image3File" imageNumberError="image3Error" imagePreview="image3Preview" imagePopulatedPreview={props.image3Preview} imageError={props.image3Error} wording="Add 3rd Image?" sendData={props.getData} /> : "";
+    let image4File = props.image3File &&  !props.image3Error ? <ImageUpload imageNumber="image4File" imageNumberError="image4Error" imagePreview="image4Preview" imagePopulatedPreview={props.image4Preview} imageError={props.image4Error} wording="Add 4th Image?" sendData={props.getData} /> : "";
+    let itemsToSellContainer =  <div className={classes.imageContainer}>
+                                    <ImageUpload imageNumber="image1File" imageNumberError="image1Error" imagePreview="image1Preview" imagePopulatedPreview={props.image1Preview} imageError={props.image1Error} wording="Add First Image?" sendData={props.getData} />
+                                    {image2File}
+                                    {image3File}
+                                    {image4File}
+                                </div>
+    let shownPage =     <div className={classes.SellYourItemsThroughRenewalHubContainer}>
+                            <h2 className={classes.contactFormTitle} >Upload upto 4 Images</h2>
+                            {itemsToSellContainer}
+                            {shownNextButton}
+                        </div>
+    if(!props.uploadImagePage){
+        shownPage = <div className={classes.SellYourItemsThroughRenewalHubContainerContactDetails}>
+                        <textarea
+                            className={classes.SellYourItemsThroughRenewalHubTextArea}
+                            type='text'
+                            placeholder={props.placeHolderSellQuery}
+                            name='enquiryData'
+                            value={props.enquiryData}
+                            onChange={props.changeHandler}
+                        />
+                        {props.enquiryDataErrorMessage}
+                        <input
+                            className={classes.SellYourItemsThroughRenewalHubInput}
+                            type='text' 
+                            placeholder={props.placeHolderName}
+                            name='enquiryName'
+                            value={props.enquiryName}
+                            onChange={props.changeHandler}
+                        />
+                        {props.enquiryNameErrorMessage}
+                        <input
+                            className={classes.SellYourItemsThroughRenewalHubInput}
+                            type='email'
+                            placeholder={props.placeHolderEmail}
+                            name='enquiryEmail'
+                            value={props.enquiryEmail}
+                            onChange={props.changeHandler}
+                        />
+                        {props.enquiryEmailErrorMessage}
+                        <input
+                            className={classes.SellYourItemsThroughRenewalHubInput}
+                            type='number'
+                            placeholder={props.placeHolderPhone}
+                            name='enquiryPhone'
+                            value={props.enquiryPhone}
+                            onChange={props.changeHandler}
+                        />
+                        {props.enquiryPhoneErrorMessage}
+                        {finalDisplayedButton}
+                    </div>
+    }
+
+    return(
+        <div className={classes.SellYourItemsThroughRenewalHub} >
+            {successMessage}
+            {shownPage}
+        </div>
+    )
+}

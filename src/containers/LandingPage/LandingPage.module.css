@@ -1,5 +1,8 @@
 .landingPage {
     grid-area: main;
+    display: grid;
+    place-items: center center;
+    width: 100%;
 }
 
 .bannerContainer {
@@ -22,7 +25,7 @@
     color: var(--second-bg);
     position: absolute;
     z-index: 2;
-    height: 30%;
+    height: 15%;
     top: 35%;
     width: 10%;
     border-radius: 10px;
@@ -73,21 +76,26 @@
 }
 
 .fadedBackground {
-    /* background: var(--second-bg-trans); */
+    background: var(--second-bg-trans);
     position: absolute;
     z-index: 1;
-    width: 75%;
-    height: 65%;
-    top: 5%;
-    left: 12.5%;
+    width: auto;
+    height: auto;
+    margin-left: 1.5%;
+    margin-bottom: 2.5%;
+    bottom: 0;
+    left: 0;
     border-radius: 7.5px;
     display: grid;
-    place-items: center center;
-    color: var(--main-bg);
+    place-items: center start;
+    color: var(--second-bg);
+    text-align: left;
+    padding: 10px;
 }
 
 .fadedBackground h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
+    font-weight: bold;
 }
 
 .pillarsContainer {
@@ -155,33 +163,41 @@
 @media only screen and (min-width: 1024px) and (orientation: landscape) {
 
     .mainHalfScreen {
-        height: 65vh;
+        height: 85vh;
     }
 
     .bannerContainer {
-        height: 65vh;
+        height: 85vh;
+    }
+
+    .fadedBackground {
+        position: absolute;
+        bottom: 0;
     }
 
     .fadedBackground h1 {
-        font-size: 3.5rem;
+        font-size: 2.5rem;
     }
 
     .pillarsContainer {
         height: 66.5vh;
-        grid: 1fr / repeat(4 ,1fr);
-        width: 95%;
-        margin: 20px 2.5% 0 2.5%;
+        width: 75%;
     }
 
     .pillar {
         width: 98%;
-        margin: 0 1%;
+        margin-top: 25px;
         border: solid 1.5px var(--main-txt);
         border-radius: 10px;
     }
 
     .pillarTitle {
-        font-size: 1.2rem;
+        font-size: 2rem;
+    }
+
+    .pillarDetails {
+        width: 95%;
+        font-size: 1.35rem;
     }
 
     .pillar-explore-now:hover, .see-our-button:hover, .contact-Form-button:hover, .next:hover, .previous:hover {
@@ -199,6 +215,17 @@
     
     .contact-Form-text-area {
         width: 40%;
+    }
+
+    .previous, .next {
+        background: var(--second-bg-trans);
+        color: var(--second-bg);
+        position: absolute;
+        z-index: 2;
+        height: 20%;
+        top: 40%;
+        width: 5%;
+        border-radius: 10px;
     }
 }
 
@@ -233,37 +260,42 @@
 @media only screen and (min-width: 1600px) and (orientation: landscape) {
 
     .mainHalfScreen {
-        height: 65vh;
+        height: 85vh;
     }
 
     .bannerContainer {
-        height: 65vh;
+        height: 85vh;
     }
 
     .fadedBackground h1 {
-        font-size: 7rem;
+        font-size: 3.5rem;
+    }
+
+    .fadedBackground {
+        position: absolute;
+        bottom: 0;
+        left: 0;
     }
 
     .pillarsContainer {
         height: 66.5vh;
-        grid: 1fr / repeat(4 ,1fr);
-        width: 95%;
-        margin: 20px 2.5% 0 2.5%;
+        width: 75%;
     }
 
     .pillar {
         width: 98%;
-        margin: 0 1%;
+        margin-top: 25px;
         border: solid 1.5px var(--main-txt);
         border-radius: 10px;
     }
 
     .pillarTitle {
-        font-size: 1.75rem;
+        font-size: 2.5rem;
     }
 
     .pillarDetails {
-        font-size: 1.5rem;
+        font-size: 2rem;
+        width: 95%;
     }
 
     .pillar-explore-now:hover, .see-our-button:hover, .contact-Form-button {

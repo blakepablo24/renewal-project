@@ -52,6 +52,8 @@ class Layout extends Component{
         enquiryNameErrorMessage: "",
         enquiryEmail: "",
         enquiryEmailErrorMessage: "",
+        enquiryPhone: "",
+        enquiryPhoneErrorMessage: "",
         enquiryCollectionAddress: "",
         enquiryCollectionAddressErrorMessage: "",
         enquiryDeliveryAddress: "",
@@ -79,19 +81,24 @@ class Layout extends Component{
         uploadImagePage: true,
         redirectOnChoosingSellToRenewal: "",
         projectsShown: false,
-        showPrivacyPolicyModal: false
+        showPrivacyPolicyModal: false,
+        placeHolderName: "Enter Your Name",
+        placeHolderEmail: "Enter Your Email",
+        placeHolderPhone: "Enter Your Contact Number",
+        placeHolderCollectionAddress: "Enter Your Collection address",
+        placeHolderDeliveryAddress: "Enter Your Delivery address",
+        placeHolderCollectionAndDeliveryItems: "Please list items to be collected and delivered",
+        placeHolderQuery: "Please Enter Your Query Here",
+        placeHolderTransportQuery: "Please list items to be collected",
+        placeHolderSellQuery: "Please list details on the items to sell along with their status such as working or broken"
     }
 
     componentDidMount = () => { 
         if(!this.getCookie("visitedBefore")) {
             this.setState({
-                showPrivacyPolicyModal: true
+                showPrivacyPolicyModal: true,
             })
         }
-    }
-
-    showPrivacyPolicyToggleHandler = () => {
-        
     }
 
     setCookie = (cname, cvalue, exdays) => {
@@ -162,10 +169,12 @@ class Layout extends Component{
             [name]: value,
             enquiryNameErrorMessage: "",
             enquiryEmailErrorMessage: "",
+            enquiryPhoneErrorMessage: "",
             enquiryDataErrorMessage: "",
             enquiryPillarErrorMessage: "",
             enquiryCollectionAddressErrorMessage: "",
             enquiryDeliveryAddressErrorMessage: "",
+            enquirySubjectErrorMessage: "",
             image1Error: "",
             image2Error: "",
             image3Error: "",
@@ -202,6 +211,7 @@ class Layout extends Component{
         
         let enquiryNameErrorMessage = "";
         let enquiryEmailErrorMessage = "";
+        let enquiryPhoneErrorMessage = "";
         let enquiryDataErrorMessage = "";
         let enquirySubjectErrorMessage = "";
         let enquiryCollectionAddressErrorMessage = "";
@@ -224,6 +234,10 @@ class Layout extends Component{
 
         if (!this.state.enquiryData) {
             enquiryDataErrorMessage = <h4 className="error">Please enter your enquiry?</h4>
+        }
+
+        if (!this.state.enquiryPhone) {
+            enquiryPhoneErrorMessage = <h4 className="error">Please enter a contact number</h4>
         }
 
         if (this.state.subject === "" || this.state.subject === "select") {
@@ -269,6 +283,7 @@ class Layout extends Component{
 
         if(!enquiryNameErrorMessage 
             && !enquiryEmailErrorMessage 
+            && !enquiryPhoneErrorMessage
             && !enquiryDataErrorMessage
             && !this.state.image1Error
             && !this.state.image2Error
@@ -282,6 +297,7 @@ class Layout extends Component{
             let fd = new FormData();
             fd.append('enquiryName', this.state.enquiryName);
             fd.append('enquiryEmail', this.state.enquiryEmail);
+            fd.append('enquiryPhone', this.state.enquiryPhone);
             fd.append('subject', this.state.subject ? this.state.subject : subject);
             fd.append('enquiryData', this.state.enquiryData);
             fd.append('transportService', this.state.transportService);
@@ -315,6 +331,8 @@ class Layout extends Component{
                     enquiryNameErrorMessage: "",
                     enquiryEmail: "",
                     enquiryEmailErrorMessage: "",
+                    enquiryPhone: "",
+                    enquiryPhoneErrorMessage: "",
                     subject: "",
                     enquiryCollectionAddress: "",
                     enquiryCollectionAddressErrorMessage: "",
@@ -360,6 +378,7 @@ class Layout extends Component{
             this.setState({
                 enquiryNameErrorMessage: enquiryNameErrorMessage,
                 enquiryEmailErrorMessage: enquiryEmailErrorMessage,
+                enquiryPhoneErrorMessage: enquiryPhoneErrorMessage,
                 enquiryDataErrorMessage: enquiryDataErrorMessage,
                 enquirySubjectErrorMessage: enquirySubjectErrorMessage,
                 enquiryCollectionAddressErrorMessage: enquiryCollectionAddressErrorMessage,
@@ -468,6 +487,8 @@ render(){
                             enquiryNameErrorMessage={this.state.enquiryNameErrorMessage}
                             enquiryEmail={this.state.enquiryEmail}
                             enquiryEmailErrorMessage={this.state.enquiryEmailErrorMessage}
+                            enquiryPhone={this.state.enquiryPhone}
+                            enquiryPhoneErrorMessage={this.state.enquiryPhoneErrorMessage}
                             enquiryData={this.state.enquiryData}
                             enquiryDataErrorMessage={this.state.enquiryDataErrorMessage}
                             messageSent={this.state.messageSent}
@@ -475,6 +496,10 @@ render(){
                             flashMessageRemoveSavedMessaegHandler={this.flashMessageRemoveSavedMessaegHandler}
                             redirectRemovalHandler={this.redirectRemovalHandler}
                             redirectOnChoosingSellToRenewal={this.state.redirectOnChoosingSellToRenewal}
+                            placeHolderName={this.state.placeHolderName}
+                            placeHolderEmail={this.state.placeHolderEmail}
+                            placeHolderPhone={this.state.placeHolderPhone}
+                            placeHolderSellQuery={this.state.placeHolderSellQuery}
                         />} 
                     />
                     <Route path="/contact-form" exact element={
@@ -495,6 +520,8 @@ render(){
                             enquiryNameErrorMessage={this.state.enquiryNameErrorMessage}
                             enquiryEmail={this.state.enquiryEmail}
                             enquiryEmailErrorMessage={this.state.enquiryEmailErrorMessage}
+                            enquiryPhone={this.state.enquiryPhone}
+                            enquiryPhoneErrorMessage={this.state.enquiryPhoneErrorMessage}
                             enquiryData={this.state.enquiryData}
                             enquiryDataErrorMessage={this.state.enquiryDataErrorMessage}
                             messageSent={this.state.messageSent}
@@ -506,6 +533,14 @@ render(){
                             flashMessageRemoveSavedMessaegHandler={this.flashMessageRemoveSavedMessaegHandler}
                             redirectRemovalHandler={this.redirectRemovalHandler}
                             redirectOnChoosingSellToRenewal={this.state.redirectOnChoosingSellToRenewal}
+                            placeHolderName={this.state.placeHolderName}
+                            placeHolderEmail={this.state.placeHolderEmail}
+                            placeHolderPhone={this.state.placeHolderPhone}
+                            placeHolderCollectionAddress={this.state.placeHolderCollectionAddress}
+                            placeHolderDeliveryAddress={this.state.placeHolderDeliveryAddress}
+                            placeHolderCollectionAndDeliveryItems={this.state.placeHolderCollectionAndDeliveryItems}
+                            placeHolderQuery={this.state.placeHolderQuery}
+                            placeHolderTransportQuery={this.state.placeHolderTransportQuery}
                         />} 
                     />
                 </Routes>
