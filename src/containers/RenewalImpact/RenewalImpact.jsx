@@ -6,6 +6,7 @@ import cleanWater from '../../assets/clean-water.jpg';
 import solarPanels from '../../assets/solar-panels.jpg';
 import resourceOptimization from '../../assets/resource-optimization.jpg';
 import FUNCTIONS from '../../functions/functions';
+import renewalImpactImage from '../../assets/renewal-impact-banner.jpg';
 
 class RenewalImpact extends Component{
 
@@ -17,7 +18,7 @@ class RenewalImpact extends Component{
 
         return (
             <div className={classes.renewalImpact}>
-                    <div className='pillar-title'>
+                    <div className='pillar-title' style={{ backgroundImage: `linear-gradient(rgba(255,255,255,.15), rgba(255,255,255,.15)),url(${renewalImpactImage})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center' }}>
                         <h1>{this.props.subjects[2]}</h1>
                     </div>
                     <div className='paragraph-container'>

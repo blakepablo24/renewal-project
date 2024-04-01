@@ -2,6 +2,7 @@
   --main-bg: #000000;
   --second-bg: #ffffff;
   --second-bg-trans: rgb(41, 81, 41, 0.1);
+  --second-bg-trans-darker: rgb(41, 81, 41, 0.3);
   --main-txt: #295129;
   --second-txt: #3ab54a;
   --err-bg: rgba(97, 55, 55, 0.25);
@@ -84,6 +85,16 @@ p {
   place-items: center center;
   background-color: var(--main-txt);
   color: var(--second-bg);
+  font-size: 1.5rem;
+}
+
+.pillar-title h1 {
+  background: var(--second-bg-trans-darker);
+  color: var(--second-bg);
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center center;
 }
 
 .pillar-paragraph {

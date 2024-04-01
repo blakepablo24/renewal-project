@@ -13,6 +13,7 @@ import musicSoundCameraPhotography from '../../assets/music-sound-camera-photogr
 import sportsFitnessEquipment from '../../assets/sports-fitness-equipment.jpg';
 import toysGames from '../../assets/toys-games.jpg';
 import renewableProducts from '../../assets/renewable-products.png';
+import renewalShopImage from '../../assets/shop-banner-image.png';
 
 export default function RenewalShop(props) {
     
@@ -76,7 +77,7 @@ export default function RenewalShop(props) {
 
     return(
         <div className={classes.renewalShop}>
-            <div className='pillar-title'>
+            <div className='pillar-title' style={{ backgroundImage: `linear-gradient(rgba(255,255,255,.15), rgba(255,255,255,.15)),url(${renewalShopImage})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center' }}>
                 <h1>{props.subjects[6]}</h1>
             </div>
             <div className='paragraph-container'>

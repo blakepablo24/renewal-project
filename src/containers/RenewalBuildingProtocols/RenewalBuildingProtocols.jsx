@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import buildingProtocols01 from '../../assets/building-protocols-01.jpg';
 import buildingProtocols02 from '../../assets/building-protocols-02.jpg';
 import FUNCTIONS from '../../functions/functions';
+import renewalBuildProtocolsImage from '../../assets/building-protocols-01.jpg';
 
 class RenewalBuildingProtocols extends Component{
 
@@ -16,7 +17,7 @@ class RenewalBuildingProtocols extends Component{
 
         return (
             <div className={classes.renewalBuildingProtocols}>
-                    <div className='pillar-title'>
+                    <div className='pillar-title' style={{ backgroundImage: `linear-gradient(rgba(255,255,255,.15), rgba(255,255,255,.15)),url(${renewalBuildProtocolsImage})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center' }}>
                         <h1>{this.props.subjects[3]}</h1>
                     </div>
                     <div className='intro-paragraph'>

@@ -6,6 +6,7 @@ import clearance from '../../assets/clearance.jpg';
 import moves from '../../assets/moves.jpg';
 import collectionDelivery from '../../assets/collection-delivery.jpg';
 import FUNCTIONS from '../../functions/functions';
+import renewalTransport from '../../assets/renewal-transport-banner.jpg';
 
 export default function RenewalTransport(props){
 
@@ -15,7 +16,7 @@ export default function RenewalTransport(props){
 
     return(
         <div className={classes.renewalTransport}>
-            <div className='pillar-title'>
+            <div className='pillar-title' style={{ backgroundImage: `linear-gradient(rgba(255,255,255,.15), rgba(255,255,255,.15)),url(${renewalTransport})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center' }}>
                 <h1>{props.subjects[7]}</h1>
             </div>
             <button className='main-button' onClick={props.changeSubjectHandler.bind(this, "Renewal Transport")}>

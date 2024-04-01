@@ -7,6 +7,7 @@ import { FaCoins } from "react-icons/fa";
 import { CiHome } from "react-icons/ci";
 import packageImage from '../../assets/4.jpg';
 import FUNCTIONS from '../../functions/functions';
+import renewalHubImage from '../../assets/renewal-hub-banner.png';
 
 class RenewalHub extends Component{
 
@@ -18,7 +19,7 @@ class RenewalHub extends Component{
 
         return (
             <div className={classes.renewalHub}>
-                    <div className='pillar-title'>
+                    <div className='pillar-title' style={{ backgroundImage: `linear-gradient(rgba(255,255,255,.15), rgba(255,255,255,.15)),url(${renewalHubImage})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center' }}>
                         <h1>{this.props.subjects[0]}</h1>
                     </div>
                     <Link className='main-button' to='/sell-your-items-through-renewal-hub'>

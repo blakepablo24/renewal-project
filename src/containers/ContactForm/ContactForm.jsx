@@ -18,10 +18,6 @@ export default function ContactForm(props){
 
         let shownFormOptions = "";
 
-        let sortedSubjects = props.subjects.sort();
-
-        let sortedTransportServices = props.transportServices.sort();
-
         if(props.messageSent){
             contactFormSuccessMessage = <FlashMessage flashMessageRemoveSavedMessaegHandler={props.flashMessageRemoveSavedMessaegHandler} duration={15000} message="Thank you for your message. Renewal Project will get back to you as soon as possible" />;
         }
@@ -46,8 +42,8 @@ export default function ContactForm(props){
                                         <option value="select">Select Subject</option>
                                         {
                                         
-                                        sortedSubjects.map((sortedSubject, i) =>
-                                            <option key={i} name={sortedSubject} value={sortedSubject}>{sortedSubject}</option>
+                                        props.subjects.map((subject, i) =>
+                                            <option key={i} name={subject} value={subject}>{subject}</option>
                                         )}
                                     </select>
                                     {props.enquirySubjectErrorMessage}
@@ -78,8 +74,8 @@ export default function ContactForm(props){
                                     onChange={props.changeHandler}
                                 >
                                     <option value="select">Select Subject</option>
-                                    {sortedSubjects.map((sortedSubject, i) =>
-                                            <option key={i} name={sortedSubject} value={sortedSubject}>{sortedSubject}</option>
+            props.s{props.subjects.map((subject, i) =>
+                                            <option key={i} name={subject} value={subject}>{subject}</option>
                                         )}
                                 </select>
                                 {props.enquirySubjectErrorMessage}
@@ -271,8 +267,8 @@ export default function ContactForm(props){
                                     onChange={props.changeHandler}
                                 >
                                     <option value="select">Select Subject</option>
-                                    {sortedSubjects.map((sortedSubject, i) =>
-                                        <option key={i} name={sortedSubject} value={sortedSubject}>{sortedSubject}</option>
+                                    {props.subjects.map((subject, i) =>
+                                        <option key={i} name={subject} value={subject}>{subject}</option>
                                     )}
                                 </select>
                                 {props.enquirySubjectErrorMessage}
@@ -283,8 +279,8 @@ export default function ContactForm(props){
                                     onChange={props.changeHandler}
                                 >
                                     <option value="select">Select Transport Service</option>
-                                    {sortedTransportServices.map((sortedTransportService, i) =>
-                                        <option key={i} name={sortedTransportService} value={sortedTransportService}>{sortedTransportService}</option>
+                                    {props.transportServices.map((transportService, i) =>
+                                        <option key={i} name={transportService} value={transportService}>{transportService}</option>
                                     )}
                                 </select>
                                 {transportFormInputs}

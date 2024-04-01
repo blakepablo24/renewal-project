@@ -4,6 +4,7 @@ import { ParallaxProvider } from 'react-scroll-parallax';
 import { Link } from 'react-router-dom';
 import renewalProjectChartLowSize from '../../assets/renewal-project-chart-low-size.png';
 import FUNCTIONS from '../../functions/functions';
+import renewalTechImage from '../../assets/renewal-tech-banner.jpg';
 
 class RenewalTech extends Component{
 
@@ -15,7 +16,7 @@ class RenewalTech extends Component{
 
         return (
             <div className={classes.renewalTech}>
-                    <div className='pillar-title'>
+                    <div className='pillar-title' style={{ backgroundImage: `linear-gradient(rgba(255,255,255,.15), rgba(255,255,255,.15)),url(${renewalTechImage})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center' }}>
                         <h1>{this.props.subjects[1]}</h1>
                     </div>
                     <Link className='main-button' to=''>
