@@ -21,7 +21,6 @@
     place-items: center center;
     grid-template-columns: 1fr 1fr;
     width: 95%;
-    margin-left: 2.5%;
 }
 
 .shoppingCategoryContainer{
@@ -65,7 +64,6 @@
         place-items: center center;
         grid-template-columns: 1fr 1fr 1fr;
         width: 80%;
-        margin-left: 10%;
     }
 
     .shoppingLinkContainer {
@@ -79,7 +77,6 @@
         place-items: center center;
         grid-template-columns: 1fr 1fr 1fr;
         width: 60%;
-        margin-left: 20%;
     }
 
     .shoppingLinkContainer {
