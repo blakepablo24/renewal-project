@@ -19,7 +19,7 @@ class RenewalTech extends Component{
                     <div className='pillar-title' style={{ backgroundImage: `linear-gradient(rgba(255,255,255,.15), rgba(255,255,255,.15)),url(${renewalTechImage})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center' }}>
                         <h1>{this.props.subjects[1]}</h1>
                     </div>
-                    <Link className='main-button' to=''>
+                    <Link className='main-button' to='https://5d164f.myshopify.com/collections/all'>
                         <h4>Check Out Our {this.props.subjects[1]} Store</h4>
                     </Link>
                     <div className='paragraph-container'>
@@ -42,7 +42,7 @@ class RenewalTech extends Component{
                         </p>
                     </div>
                     <div className='landing-page-full-screen'>
-                        <Link className='main-button' to=''>
+                        <Link className='main-button' to='https://5d164f.myshopify.com/collections/all'>
                             <h4>Check Out Our {this.props.subjects[1]} Store</h4>
                         </Link>
                     </div>

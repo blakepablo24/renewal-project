@@ -6,7 +6,7 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
   }
 } else {
   myConstClass = {
-    BASE_URL: "https://paulrobsondev.co.uk/renewal-project-back/public"
+    BASE_URL: "https://renewal-project.com/renewal-project-back/public"
   }
 }
 
