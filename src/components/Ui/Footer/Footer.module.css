@@ -1,12 +1,14 @@
 .Footer {
+    margin-top: 50px;
     grid-area: footer;
     background: var(--second-bg);
     display: grid;
     place-items: center center;
     width: 100%;
+    min-height: 30vh;
 }
 
-.links {
+.footerLinks {
     display: grid;
     place-items: center center;
     height: 100%;
@@ -15,7 +17,12 @@
     font-size: 2rem;
 }
 
-.policy-container {
+.footerLink {
+    display: grid;
+    place-items: center center;
+}
+
+.policyContainer {
     margin-top: 10px;
     display: grid;
     place-items: center center;
@@ -24,16 +31,16 @@
     grid-auto-flow: column;
 }
 
-.contact-information {
+.contactInformation {
     display: grid;
     place-items: center center;
-    grid-auto-flow: column;
+    font-size: 1.25rem;
 }
 
-.contact-information svg {
-    margin-right: 5px;
+.contactInformation svg {
+    margin-bottom: 15px;
 }
 
-.footer-header {
+.footerHeader {
     margin: 10px 0;
 }
