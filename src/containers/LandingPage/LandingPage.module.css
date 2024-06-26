@@ -112,7 +112,7 @@
     place-items: center center;
     grid-template-rows: repeat(10, 1fr);
     height: 35vh;
-    width: 98%;
+    width: 99%;
     margin: 0 1%;
     border: solid 1.5px var(--main-txt);
     border-radius: 10px;
@@ -127,7 +127,9 @@
 }
 
 .pillarDetails {
+    width: 95%;
     grid-row: 4/7;
+    font-size: 0.95rem;
 }
 
 .pillarExploreNow {
@@ -145,6 +147,11 @@
 #mainFirstHalfScreen p {
     width: 95%;
     font-size: 1.3rem;
+}
+
+.paragraph-container h3 {
+    font-size: 1rem;
+    font-weight: bold;
 }
 
 /* mobile landscape */

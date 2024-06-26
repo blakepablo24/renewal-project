@@ -1,20 +1,38 @@
-.renewalBuildingProtocols {
+.renewalCheck {
     grid-area: main;
 }
 
 .folowingSubjectsAndParagraphContainer {
     display: grid;
-    place-items: center center;
+    place-items: center start;
+    width: 100%;
 }
 
-.folowingSubjectsContainer {
+.listContainer {
     margin-top: 25px;
     display: grid;
     place-items: center center;
 }
 
-.folowingSubjectsContainer p {
+.listItemContainer {
+    margin-top: 10px;
+    width: 80%;
+    display: grid;
+    place-items: center start;
+    grid: 1fr / 2fr 8fr;
+}
+
+.listItemContainer p {
     font-weight: bold;
+}
+
+.listItemSubContainer {
+    margin-top: 10px;
+    width: 100%;
+}
+
+.listItemContainer svg {
+    font-size: 2rem;
 }
 
 .landingPageImage {
@@ -32,14 +50,19 @@
     margin-top: 25px;
     display: grid;
     place-items: center center;
-    grid-template-columns: 2fr 8fr;
+    grid-template-columns: 1fr 9fr;
     margin-right: 5px;
-    width: 95%;
+    width: 99%;
     margin: 25px 2.5% 0 2.5%;
     text-align: left;
 }
 
 .stepContainer svg {
+    font-size: 2.5rem;
+}
+
+.stepNumber {
+    place-self: start start;
     font-size: 2.5rem;
 }
 
@@ -55,9 +78,11 @@
 }
 
 @media only screen and (min-width: 1024px) and (orientation: landscape) {
-
-    .folowingSubjectsContainer p {
+    
+    .listItemContainer {
         font-size: 1.8rem;
     }
-
+    .stepContainer {
+        font-size: 2.5rem;
+    }
 }

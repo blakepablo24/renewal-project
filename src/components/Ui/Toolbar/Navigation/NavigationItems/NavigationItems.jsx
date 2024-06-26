@@ -23,7 +23,7 @@ const navigationItems = (props) => {
                             <NavigationItem clicked={props.clicked} link="/renewal-tech" linkName="Renewal Tech"/>
                             <NavigationItem clicked={props.clicked} link="/renewal-transport" linkName="Renewal Transport"/>
                             <NavigationItem clicked={props.clicked} link="/renewal-impact" linkName="Renewal Impact"/>
-                            <NavigationItem clicked={props.clicked} link="/renewal-building-protocols" linkName="Renewal Building Protocols"/>
+                            <NavigationItem clicked={props.clicked} link="/renewal-check" linkName="Renewal Check"/>
                         </div>
                     </div>
                     {/* <NavigationItem clicked={props.clicked} link="/contribute-to-the-cause" linkName="contribute to the cause"/> */}

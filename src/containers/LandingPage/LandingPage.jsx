@@ -5,10 +5,11 @@ import landfill from '../../assets/Landfill.jpeg';
 import { Parallax } from 'react-scroll-parallax';
 import { ParallaxBanner } from 'react-scroll-parallax';
 import landfillImage from '../../assets/2.jpg';
+import five from '../../assets/5.jpg';
 import pierImage from '../../assets/3.jpg';
 import { Link } from 'react-router-dom';
 import FUNCTIONS from '../../functions/functions';
-import renewalBuildProtocolsImage from '../../assets/building-protocols-01.jpg';
+import renewalCheck from '../../assets/renewal-check-01.jpg';
 import renewalTechImage from '../../assets/renewal-tech-banner.jpg';
 import renewalHubImage from '../../assets/renewal-hub-banner.png';
 import renewalImpactImage from '../../assets/renewal-impact-banner.jpg';
@@ -56,9 +57,9 @@ class LandingPage extends Component {
                     <h1 className={classes.imageHeadings}>Climate Change Initiatives</h1>
                 </div>
             </Link>,
-            <Link to='/renewal-building-protocols' className={classes.mainHalfScreen + ' ' + classes.fadeImage} style={{ backgroundImage: `linear-gradient(rgba(255,255,255,.15), rgba(255,255,255,.15)),url(${renewalBuildProtocolsImage})`, backgroundSize: '100% 100%' }}>
+            <Link to='/renewal-check' className={classes.mainHalfScreen + ' ' + classes.fadeImage} style={{ backgroundImage: `linear-gradient(rgba(255,255,255,.15), rgba(255,255,255,.15)),url(${renewalCheck})`, backgroundSize: '100% 100%' }}>
                 <div className={classes.fadedBackground}>
-                    <h1 className={classes.imageHeadings}>Renewal Building Protocols</h1>
+                    <h1 className={classes.imageHeadings}>Renewal Check</h1>
                     <h1 className={classes.imageHeadings}>Improve Your Green Building Standards</h1>
                 </div>
             </Link>
@@ -116,7 +117,7 @@ class LandingPage extends Component {
                     {this.state.bannerItems[this.state.bannerItem]}
                 </div>
                 <div className='paragraph-container'>
-                    <p className='pillar-paragraph'>Renewal Project leads the charge for sustainability. Whether you're a community member looking for eco-friendly trade, a business seeking green IT solutions, a climate advocate ready for global impact, or a building owner aiming for improved healthy green structures — we have a space for you. Join us and be part of the change!</p>
+                    <p className='pillar-paragraph'><b>Renewal Project</b> is your partner in sustainability, dedicated to transforming homes and businesses through eco-friendly practices and products. We offer comprehensive solutions to help you reduce your environmental footprint, save on energy costs, and contribute to a greener future. Join our community and earn ‘’Renewal Points’’ whenever you take on our solutions, trade in an item, purchase our products, or donate to one of our environmental causes!</p>
                 </div>
                 <div className={classes.introTitle}>
                     <h1 className='intro-title'>Our Four Pillars</h1>
@@ -145,8 +146,8 @@ class LandingPage extends Component {
                     </div>
                     <div className={classes.pillar}>
                         <h2 className={classes.pillarTitle}>{this.props.subjects[3]}</h2>
-                        <p className={classes.pillarDetails}>Shape the future of buildings. Learn about our standards for green, healthy structures. From healthy practices to sustainable designs.</p>
-                        <Link className={classes.pillarExploreNow} to='/renewal-building-protocols'>
+                        <p className={classes.pillarDetails}>Assess your sustainability. Our free assessment helps homes and businesses identify areas to improve their environmental responsibility, from recycling habits to power consumption and beyond.</p>
+                        <Link className={classes.pillarExploreNow} to='/renewal-check'>
                             <p>Explore Now</p>
                         </Link>
                     </div>
@@ -157,7 +158,7 @@ class LandingPage extends Component {
                         <img className='main-image' src={landfillImage} />
                         <div className='paragraph-container'>
                             <p className='pillar-paragraph'>At Renewal Project, our vision is to usher in a new era of sustainability that embraces Individual environmental responsibility, corporate tech innovation, global well-being, and green building practices. We are not just a company; we are a movement dedicated to transforming the way we live and interact with our planet through a holistic approach.</p>
-                            <p className='pillar-paragraph'>At our core are four pillars—Renewal Hub, a bustling centre for circular economy;  Renewal Tech, your gateway to sustainable IT solutions;  Renewal Impact, spearheading global climate initiatives, and Renewal Building Protocols setting the standard for green healthy buildings. Each pillar is a distinct facet, yet collectively they shape our commitment to a greener, cleaner, and more equitable world.</p>
+                            <p className='pillar-paragraph'>We are your go-to company for sustainable practices, assessments, and solutions. Our flagship service, Renewal Check, offers free, comprehensive assessments for homes and businesses, identifying opportunities for recycling improvements, energy savings, and the adoption of eco-friendly products that help with power consumption, energy, and Lighting. Through our Renewal Hub, you can trade unwanted items and find pre-loved treasures. Renewal Tech provides innovative, green IT solutions, and Renewal Impact drives global climate initiatives. Together, we make sustainability accessible and actionable, ensuring a greener future for all.</p>
                             <p className='pillar-paragraph'>Join us on this journey of renewal, where every action, every trade, every technology, and every building plays a part in shaping a sustainable future.</p>
                         </div>
                     </div>
@@ -173,6 +174,26 @@ class LandingPage extends Component {
                         <img className='main-image' src={pierImage} />
                     </div>
                 </div>
+                <div className={classes.landingPageFullScreen}>
+                    <div className='image-and-paragraphs-container'>
+                    <div className='paragraph-container'>
+                            <button className='main-button' onClick={this.props.changeSubjectHandler}>
+                                <h4>Contact Us</h4>
+                            </button>
+                            <p className='pillar-paragraph'>At Renewal Project, we're committed to helping you make a positive impact on the environment while earning points and rewards. Whether you're interested in our Renewal Hub for sustainable trade, Renewal Tech for eco-friendly IT solutions, Renewal Impact for global climate initiatives, or Renewal Check for a comprehensive sustainability assessment, we have the expertise and resources to support you.</p>
+                            <h3 className='intro-paragraph-title'>Take the First Step Towards a Greener Future</h3>
+                            <p className='pillar-paragraph'>Ready to join the movement towards sustainability? Contact us today to learn more about our services or to book your free Renewal Check. Let us help you discover practical solutions and eco-friendly products that can transform your home or business.</p>
+                            <h3 className='intro-paragraph-title'>Book Your Free Renewal Check Now</h3>
+                            <p className='pillar-paragraph'>Schedule a free mini-assessment to evaluate your energy usage and sustainability practices. This assessment can be done online, over the phone or in person. Our experts will provide tailored advice and recommend products and solutions to help you achieve your sustainability goals.</p>
+                            <h3 className='intro-paragraph-title'>Join the Renewal Project Community</h3>
+                            <p className='pillar-paragraph'>Be part of a growing network of individuals and businesses committed to a sustainable future. Together, we can make a significant impact on our planet and create a cleaner, greener world for generations to come.</p>
+                        </div>
+                        <img className='main-image' src={five} />
+                    </div>
+                </div>
+                <button className='main-button' onClick={this.props.changeSubjectHandler}>
+                    <h4>Contact Us</h4>
+                </button>
                 <div className={classes.HalfScreen}>
                     <ParallaxBanner
                         layers={[

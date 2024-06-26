@@ -58,7 +58,7 @@ export default function ContactForm(props){
             || 
             props.subject === "Renewal Impact"
             || 
-            props.subject === "Renewal Building Protocols"
+            props.subject === "Renewal Check"
             || 
             props.subject === "Shop"
             || 
@@ -74,7 +74,7 @@ export default function ContactForm(props){
                                     onChange={props.changeHandler}
                                 >
                                     <option value="select">Select Subject</option>
-            props.s{props.subjects.map((subject, i) =>
+                                        {props.subjects.map((subject, i) =>
                                             <option key={i} name={subject} value={subject}>{subject}</option>
                                         )}
                                 </select>

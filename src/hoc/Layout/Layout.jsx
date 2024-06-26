@@ -10,7 +10,7 @@ import LandingPage from '../../containers/LandingPage/LandingPage';
 import RenewalHub from '../../containers/RenewalHub/RenewalHub';
 import RenewalTech from '../../containers/RenewalTech/RenewalTech';
 import RenewalImpact from '../../containers/RenewalImpact/RenewalImpact';
-import RenewalBuildingProtocols from '../../containers/RenewalBuildingProtocols/RenewalBuildingProtocols';
+import RenewalCheck from '../../containers/RenewalCheck/RenewalCheck';
 import ContactForm from '../../containers/ContactForm/ContactForm';
 import EmailValidator from 'email-validator';
 import Axios from 'axios';
@@ -32,7 +32,7 @@ class Layout extends Component{
             "Renewal Hub",
             "Renewal Tech",
             "Renewal Impact",
-            "Renewal Building Protocols",
+            "Renewal Check",
             "Sell Items Through Renewal Hub",
             "Other",
             "Shop",
@@ -453,13 +453,13 @@ render(){
             {sideDrawer}
             <ParallaxProvider>
                 <Routes>
-                    <Route path='/' element={<LandingPage subjects={this.state.subjects} subject={this.state.subject} />} />
+                    <Route path='/' element={<LandingPage hangeSubjectHandler={this.changeSubjectHandler} subjects={this.state.subjects} subject={this.state.subject} />} />
                     <Route path='/renewal-shop' element={<RenewalShop subjects={this.state.subjects} subject={this.state.subject} />} />
                     <Route path="/renewal-hub" exact element={<RenewalHub subjects={this.state.subjects} subject={this.state.subject} />} />
                     <Route path="/renewal-tech" exact element={<RenewalTech subjects={this.state.subjects} subject={this.state.subject} />} />
                     <Route path="/renewal-transport" exact element={<RenewalTransport changeSubjectHandler={this.changeSubjectHandler} subjects={this.state.subjects} subject={this.state.subject} />} />
                     <Route path="/renewal-impact" exact element={<RenewalImpact subjects={this.state.subjects} subject={this.state.subject} />} />
-                    <Route path="/renewal-building-protocols" exact element={<RenewalBuildingProtocols subjects={this.state.subjects} subject={this.state.subject} />} />
+                    <Route path="/renewal-check" exact element={<RenewalCheck changeSubjectHandler={this.changeSubjectHandler} subjects={this.state.subjects} subject={this.state.subject} />} />
                     <Route path="/cookie-policy" exact element={<CookiesPolicy />} />
                     <Route path="/privacy-policy" exact element={<PrivacyPolicy />} />
                     <Route path="/sell-your-items-through-renewal-hub" exact element={

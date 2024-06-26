@@ -10,7 +10,7 @@ const footer = (props) => {
             <div className={classes.policyContainer}>
                 <div className={classes.contactInformation}>
                     <FaPhone />
-                    <p>07795304633</p>
+                    <p>0117 239 5614</p>
                 </div>
                 <div className={classes.contactInformation}>
                     <FaAt />
