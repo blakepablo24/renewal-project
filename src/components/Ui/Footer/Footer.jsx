@@ -1,8 +1,7 @@
 import React from 'react';
 import classes from './Footer.module.css';
-import { FaTwitter, FaLinkedin, FaFacebookSquare } from "react-icons/fa";
+import { FaTwitter, FaLinkedin, FaFacebookSquare, FaPhone, FaAt } from "react-icons/fa";
 import { Link } from 'react-router-dom';
-import { FaPhone, FaAt } from "react-icons/fa";
 
 const footer = (props) => {
     return(
@@ -18,9 +17,9 @@ const footer = (props) => {
                 </div>
             </div>
             <div className={classes.footerLinks}>
-                <Link className={classes.footerLink} to="https://web.facebook.com/renewalprojectofficial"><FaFacebookSquare /></Link>
-                <Link className={classes.footerLink} to="https://x.com/renewalpuk"><FaTwitter /></Link>
-                <Link className={classes.footerLink} to="https://www.linkedin.com/company/renewal-project-official"><FaLinkedin /></Link>
+                <Link className={classes.footerLink} target="_blank" to="https://web.facebook.com/renewalprojectofficial"><FaFacebookSquare /></Link>
+                <Link className={classes.footerLink} target="_blank"to="https://x.com/renewalpuk"><FaTwitter /></Link>
+                <Link className={classes.footerLink} target="_blank"to="https://www.linkedin.com/company/renewal-project-official"><FaLinkedin /></Link>
             </div>
             <div className={classes.policyContainer}>
                 <Link to="/cookie-policy" ><p>Cookie Policy</p></Link>

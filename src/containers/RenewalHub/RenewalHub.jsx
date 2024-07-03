@@ -8,6 +8,7 @@ import { CiHome } from "react-icons/ci";
 import packageImage from '../../assets/4.jpg';
 import FUNCTIONS from '../../functions/functions';
 import renewalHubImage from '../../assets/renewal-hub-banner.png';
+import CONST from '../../constants/constants';
 
 class RenewalHub extends Component{
 
@@ -27,6 +28,9 @@ class RenewalHub extends Component{
                     </Link>
                     <div className='paragraph-container'>
                         <p className='pillar-paragraph'>At Renewal Hub, we champion a circular economy by recycling and reusing used items. We connect communities through sustainable trade and reward loyalty, creating a network of individuals committed to reducing waste and embracing eco-friendly living. By turning unwanted items into valued resources, we are committed to promoting community engagement and zero waste practices.</p>
+                    </div>
+                    <div className='paragraph-container'>
+                        <p className='pillar-paragraph'>Earn points for every item you trade-in which will help go towards discounts on products and solutions you purchase from us in future! Find out more about our Renewal Points on our store page</p>
                     </div>
                     <Link className='main-button' to='https://5d164f.myshopify.com/collections/all'>
                         <h4>Check Out Our {this.props.subjects[0]} Store</h4>
@@ -68,12 +72,32 @@ class RenewalHub extends Component{
                     <div className='image-and-paragraphs-container'>
                             <div className='paragraph-container'>
                                 <p className='pillar-paragraph'>Get in contact to take your first step towards a zero waste future.</p>
+                                <Link className='main-button' to='/contact-form'>
+                                    <h4>Contact Us</h4>
+                                </Link>
                             </div>
                             <img className='main-image' src={packageImage} />
                         </div>
                     </div>
-                    <Link className='main-button' to='/contact-form'>
-                        <h4>Contact Us</h4>
+                    <h2 className='intro-title'>ITEMS WE ACCEPT</h2>
+                    <Link className='main-button' to='/sell-your-items-through-renewal-hub'>
+                        <h4>Sell Items Your Through {this.props.subjects[0]}</h4>
+                    </Link>
+                    <div className='paragraph-container'>
+                        <p className='pillar-paragraph'>We accept clean and complete items in good working condition within the below categories:</p>
+                    </div>
+                    <div className={classes.shoppingCategoriesContainer}>
+                        {CONST.shoppingCategories.map((category, i) => 
+                        <Link to={category.link} key={i} className={classes.shoppingCategoryContainer}>
+                            <img className={classes.shoppingCategoryImage} src={category.image} />
+                            <div className={classes.shoppingCategoryHeadingContainer}>
+                                <h3 className={classes.shoppingCategoryHeading}>{category.title}</h3>
+                            </div>
+                        </Link>
+                        )}
+                    </div>
+                    <Link className='main-button' to='/sell-your-items-through-renewal-hub'>
+                        <h4>Sell Items Your Through {this.props.subjects[0]}</h4>
                     </Link>
             </div>
         )

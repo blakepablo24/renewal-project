@@ -36,3 +36,107 @@
 .stepParagraph {
     font-size: 1.3rem;
 }
+
+.shopLinkContainer {
+    display: grid;
+    place-items: center center;
+    grid: 1fr / 8fr 2fr;
+    width: 95%;
+}
+
+.linkImage {
+    width: 100%;
+}
+
+.shoppingCategoriesContainer  {
+    display: grid;
+    place-items: center center;
+    width: 95%;
+}
+
+.shoppingCategoryContainer{
+    display: grid;
+    place-items: center center;
+    width: 95%;
+    height: 5vh;
+    position: relative;
+    margin-bottom: 2.5vh;
+    grid-template-columns: 3fr 7fr;
+}
+
+.shoppingCategoryImage {
+    max-width: 100%;
+    height: 5vh;
+}
+
+.shoppingCategoryHeadingContainer {
+    height: 100%;
+    width: 100%;
+    color: var(--main-txt);
+    display: grid;
+    place-items: center start;
+    z-index: 1;
+}
+
+.shoppingCategoryHeading {
+    font-size: 0.9rem;
+}
+
+.shoppingLinkContainer {
+    display: grid;
+    place-items: center center;
+    width: 100%;
+}
+
+/* mobile landscape */
+@media only screen and (min-width : 321px) and (max-width : 1023px) and (orientation : landscape) {
+    .shoppingCategoriesContainer  {
+        grid-template-columns: 1fr 1fr 1fr;
+        width: 80%;
+    }
+
+    .shoppingLinkContainer {
+        grid-auto-flow: column;
+    }
+}
+
+@media only screen and (min-width: 1024px) and (orientation: landscape) {
+    .shoppingCategoriesContainer  {
+        display: grid;
+        place-items: center center;
+        grid-template-columns: 1fr 1fr 1fr;
+        width: 60%;
+    }
+
+    .shoppingLinkContainer {
+        display: grid;
+        place-items: center center;
+        grid-auto-flow: column;
+    }
+
+    .stepsContainer {
+        display: grid;
+        place-items: center center;
+        width: 100%;
+    }
+    
+    .stepContainer {
+        width: 75%;
+    }
+    
+    .stepContainer svg {
+        font-size: 3.5rem;
+    }
+    
+    .stepHeading {
+        place-self: start center;
+        display: grid;
+        place-items: center center;
+        margin-right: 10px;
+        border-right: solid var(--main-txt) 5px;
+    }
+    
+    .stepParagraph {
+        font-size: 1.75rem;
+    }
+}

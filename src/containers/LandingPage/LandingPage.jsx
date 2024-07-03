@@ -174,12 +174,12 @@ class LandingPage extends Component {
                         <img className='main-image' src={pierImage} />
                     </div>
                 </div>
+                <button className='main-button' onClick={this.props.changeSubjectHandler}>
+                    <h4>Contact Us</h4>
+                </button>
                 <div className={classes.landingPageFullScreen}>
                     <div className='image-and-paragraphs-container'>
                     <div className='paragraph-container'>
-                            <button className='main-button' onClick={this.props.changeSubjectHandler}>
-                                <h4>Contact Us</h4>
-                            </button>
                             <p className='pillar-paragraph'>At Renewal Project, we're committed to helping you make a positive impact on the environment while earning points and rewards. Whether you're interested in our Renewal Hub for sustainable trade, Renewal Tech for eco-friendly IT solutions, Renewal Impact for global climate initiatives, or Renewal Check for a comprehensive sustainability assessment, we have the expertise and resources to support you.</p>
                             <h3 className='intro-paragraph-title'>Take the First Step Towards a Greener Future</h3>
                             <p className='pillar-paragraph'>Ready to join the movement towards sustainability? Contact us today to learn more about our services or to book your free Renewal Check. Let us help you discover practical solutions and eco-friendly products that can transform your home or business.</p>

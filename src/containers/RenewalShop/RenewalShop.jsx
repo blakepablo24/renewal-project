@@ -1,18 +1,8 @@
 import React from 'react';
 import classes from './RenewalShop.module.css';
 import { Link } from 'react-router-dom';
-import ebay from '../../assets/ebay.png';
-import shopify from '../../assets/shopify.png';
-import diyPowerTools from '../../assets/diy-power-tools.jpg';
-import fashionAccessories from '../../assets/fashion-accessories.jpg';
-import gardenOutdoorEquipment from '../../assets/garden-outdoor-equipment.jpg';
-import homeDecor from '../../assets/home-and-decor.jpg';
-import homeApplianceElectronics from '../../assets/home-aplliances-eletronics.jpg';
-import laptopsDesktopsPrinters from '../../assets/laptops-desktops-printers.jpg';
-import musicSoundCameraPhotography from '../../assets/music-sound-camera-photography.jpg';
-import sportsFitnessEquipment from '../../assets/sports-fitness-equipment.jpg';
-import toysGames from '../../assets/toys-games.jpg';
-import renewableProducts from '../../assets/renewable-products.png';
+import CONST from '../../constants/constants';
+
 import renewalShopImage from '../../assets/shop-banner-image.png';
 
 export default function RenewalShop(props) {
@@ -22,58 +12,7 @@ export default function RenewalShop(props) {
     //     [image = fashionAccessories, title = "Fashion Accessories"],
     // ]
 
-    const shoppingCategories = [
-        {
-            title: "Renewable Products",
-            image: renewableProducts,
-            link: "https://5d164f.myshopify.com/collections/all"
-        },
-        {
-            title: "DIY and Power Tools",
-            image: diyPowerTools,
-            link: "https://5d164f.myshopify.com/collections/all"
-        },
-        {
-            title: "Fashion Accessories",
-            image: fashionAccessories,
-            link: "https://5d164f.myshopify.com/collections/all"
-        },
-        {
-            title: "Garden and Outdoor Equipment",
-            image: gardenOutdoorEquipment,
-            link: "https://5d164f.myshopify.com/collections/all"
-        },
-        {
-            title: "Home Decor",
-            image: homeDecor,
-            link: "https://5d164f.myshopify.com/collections/all"
-        },
-        {
-            title: "Home Appliances and Electronics",
-            image: homeApplianceElectronics,
-            link: "https://5d164f.myshopify.com/collections/all"
-        },
-        {
-            title: "Laptops, Desktops and Printers",
-            image: laptopsDesktopsPrinters,
-            link: "https://5d164f.myshopify.com/collections/all"
-        },
-        {
-            title: "Music, Sound, Camera and Photography",
-            image: musicSoundCameraPhotography,
-            link: "https://5d164f.myshopify.com/collections/all"
-        },
-        {
-            title: "Sports and Fitness Equipment",
-            image: sportsFitnessEquipment,
-            link: "https://5d164f.myshopify.com/collections/all"
-        },
-        {
-            title: "Toys and Games",
-            image: toysGames,
-            link: "https://5d164f.myshopify.com/collections/all"
-        },
-    ]
+    
 
     return(
         <div className={classes.renewalShop}>
@@ -99,7 +38,7 @@ export default function RenewalShop(props) {
             </div>
             <h2 className={classes.renewalImpactSubTitle}>Browse through our wide range of products</h2>
             <div className={classes.shoppingCategoriesContainer}>
-                {shoppingCategories.map((category, i) => 
+                {CONST.shoppingCategories.map((category, i) => 
                 <Link to={category.link} key={i} className={classes.shoppingCategoryContainer}>
                     <img className={classes.shoppingCategoryImage} src={category.image} />
                     <div className={classes.shoppingCategoryHeadingContainer}>
