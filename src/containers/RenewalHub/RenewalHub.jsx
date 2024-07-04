@@ -80,9 +80,6 @@ class RenewalHub extends Component{
                         </div>
                     </div>
                     <h2 className='intro-title'>ITEMS WE ACCEPT</h2>
-                    <Link className='main-button' to='/sell-your-items-through-renewal-hub'>
-                        <h4>Sell Items Your Through {this.props.subjects[0]}</h4>
-                    </Link>
                     <div className='paragraph-container'>
                         <p className='pillar-paragraph'>We accept clean and complete items in good working condition within the below categories:</p>
                     </div>

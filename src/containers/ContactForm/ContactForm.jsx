@@ -32,7 +32,7 @@ export default function ContactForm(props){
 
         if (props.subject === "" || props.subject === "select") {
             shownFormOptions = <form className={classes.contactForm}>
-                                    <h2 className={classes.contactFormTitle}>Renewal Project Contact Form</h2>
+                                    <h2 className={classes.contactFormTitle}>Contact Renewal Project</h2>
                                     <select
                                         className={classes.contactFormInput}
                                         name="subject"

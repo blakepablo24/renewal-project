@@ -13,7 +13,7 @@ export default function SellYourItemsThroughRenewalHub(props){
         }
       });
 
-    let successMessage = <h2 className={classes.SellYourItemsThroughRenewalHubTitle}>Sell Items Through Renewal Hub</h2>;
+    let successMessage = <h2 className={classes.SellYourItemsThroughRenewalHubTitle}>Sell Your Items Through Renewal Hub</h2>;
 
     if(props.messageSent){
         successMessage = <FlashMessage flashMessageRemoveSavedMessaegHandler={props.flashMessageRemoveSavedMessaegHandler} duration={15000} message="Thank you for your message. Renewal Project will review your items and let you know as soon as possible if the items will be accepted." />;
@@ -39,7 +39,7 @@ export default function SellYourItemsThroughRenewalHub(props){
                                     {image4File}
                                 </div>
     let shownPage =     <div className={classes.SellYourItemsThroughRenewalHubContainer}>
-                            <h2 className={classes.contactFormTitle} >Upload upto 4 Images</h2>
+                            <h2 className={classes.contactFormTitle} >Upload upto 4 Images of your items</h2>
                             {itemsToSellContainer}
                             {shownNextButton}
                         </div>

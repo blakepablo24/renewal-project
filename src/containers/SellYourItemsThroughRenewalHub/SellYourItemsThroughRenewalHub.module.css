@@ -80,6 +80,10 @@ input:focus, textarea:focus, select:focus {
     .SellYourItemsThroughRenewalHubContainerContactDetails {
         width: 50%;
     }
+
+    .imageContainer {
+        grid-gap: 5px;
+    }
 }
 
 /* mobile landscape */
@@ -91,6 +95,5 @@ input:focus, textarea:focus, select:focus {
         place-items: center center;
         grid-gap: 5px;
         grid: 1fr / repeat(4, 1fr);
-
     }
 }
