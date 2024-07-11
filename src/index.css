@@ -64,10 +64,11 @@ p {
 }
 
 .intro-title {
-  margin-top: 20px;
+  margin-top: 50px;
 }
 
 .intro-paragraph-title {
+  margin-top: 20px;
   font-size: 1.5rem;
   color: var(--main-txt);
 }
@@ -79,7 +80,7 @@ p {
   color: var(--main-bg);
   height: minmax(46.25vh, auto);
   width: 95%;
-  margin: 0 2.5%;
+  margin-top: 25px;
 }
 
 .pillar-title {
@@ -109,7 +110,7 @@ p {
 }
 
 .main-button {
-  margin-top: 15px;
+  margin-top: 50px;
   width: auto;
   padding: 10px;
   border: none;
@@ -138,6 +139,7 @@ p {
 }
 
 .image-and-paragraphs-container {
+  margin-top: 25px;
   display: grid;
   place-items: center center;
 }
@@ -173,6 +175,7 @@ p {
 }
 
 .sub-intro-title {
+  margin-top: 25px;
   font-size: 2.5rem;
 }
 
