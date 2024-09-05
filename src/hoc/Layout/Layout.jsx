@@ -359,21 +359,7 @@ class Layout extends Component{
                     uploadImagePage: true,
                     messageSent: true,
                 })
-            }).catch(function (error) {
-                if (error.response) {
-                  // Request made and server responded
-                  console.log(error.response.data);
-                  console.log(error.response.status);
-                  console.log(error.response.headers);
-                } else if (error.request) {
-                  // The request was made but no response was received
-                  console.log(error.request);
-                } else {
-                  // Something happened in setting up the request that triggered an Error
-                  console.log('Error', error.message);
-                }
-            
-              });
+            })
         } else {
             this.setState({
                 enquiryNameErrorMessage: enquiryNameErrorMessage,
@@ -453,7 +439,7 @@ render(){
             {sideDrawer}
             <ParallaxProvider>
                 <Routes>
-                    <Route path='/' element={<LandingPage hangeSubjectHandler={this.changeSubjectHandler} subjects={this.state.subjects} subject={this.state.subject} />} />
+                    <Route path='/' element={<LandingPage changeSubjectHandler={this.changeSubjectHandler} subjects={this.state.subjects} subject={this.state.subject} />} />
                     <Route path='/renewal-shop' element={<RenewalShop subjects={this.state.subjects} subject={this.state.subject} />} />
                     <Route path="/renewal-hub" exact element={<RenewalHub subjects={this.state.subjects} subject={this.state.subject} />} />
                     <Route path="/renewal-tech" exact element={<RenewalTech subjects={this.state.subjects} subject={this.state.subject} />} />

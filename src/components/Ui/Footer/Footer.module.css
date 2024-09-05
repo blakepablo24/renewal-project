@@ -34,7 +34,7 @@
 .contactInformation {
     display: grid;
     place-items: center center;
-    font-size: 1.25rem;
+    font-size: 1.15rem;
 }
 
 .contactInformation svg {
